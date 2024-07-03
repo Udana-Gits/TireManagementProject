@@ -39,9 +39,9 @@ const LogIn = () => {
             break;
           case 'employee':
             if (showPassword) {
-              navigate('/employeehome', { state: { showPassword } });
+              navigate('/emplyeehome', { state: { showPassword } });
             } else {
-              navigate('/employeehome');
+              navigate('/emplyeehome');
             }
             break;
           case 'driver':
@@ -116,6 +116,7 @@ const LogIn = () => {
           Forgot Password?
         </button>
       </form>
+      <br /><br /><br /><br /><br />
       <div>
         <p>udanaudana@gmail.com --- Admin</p>
         <p>udanaudana01@gmail.com --- Employee</p>

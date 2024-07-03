@@ -34,7 +34,7 @@ export function DriverMain({ tireDataRef }) {
       // Parse the tire data object into an array
       const tireDataArray = Object.keys(tireDataObject).map((key) => ({
         id: key,
-        ...tireDataObject[key],
+      ...tireDataObject[key],
       }));
       // Update both original and filtered tire data states
       setTireData(tireDataArray);
@@ -46,11 +46,11 @@ export function DriverMain({ tireDataRef }) {
 
   const handleSignOut = () => {
     signOut(auth)
-    .then(() => {
+  .then(() => {
         // Redirect to login page after signout
         navigate('/login');
       })
-    .catch((error) => {
+  .catch((error) => {
         console.error('Error signing out: ', error);
       });
   };
@@ -62,7 +62,7 @@ export function DriverMain({ tireDataRef }) {
     }
 
     const filteredData = originalTireData.filter((tire) => {
-      const vehicleNo = tire.vehicleNo && typeof tire.vehicleNo === 'object' ? tire.vehicleNo.Value : tire.vehicleNo || '';
+      const vehicleNo = tire.vehicleNo && typeof tire.vehicleNo === 'object'? tire.vehicleNo.Value : tire.vehicleNo || '';
       return vehicleNo.toLowerCase() === vehicleNumber.toLowerCase();
     });
 
@@ -76,14 +76,47 @@ export function DriverMain({ tireDataRef }) {
     setDisplayTable(true);
   };
 
+  const getTyrePressureColor = (tyrePressure) => {
+    if (tyrePressure >= 140 && tyrePressure < 150) {
+      return 'green';
+    } else if (tyrePressure > 135 && tyrePressure < 140) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  };
+
+  const getThreadDepthColor = (threadDepth) => {
+    if (threadDepth >= 120 && threadDepth < 125) {
+      return 'green';
+    } else if (threadDepth >= 115 && threadDepth < 120) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  };
+
+  const getTireStatus = (tyrePressure, threadDepth) => {
+    const tyrePressureColor = getTyrePressureColor(tyrePressure);
+    const threadDepthColor = getThreadDepthColor(threadDepth);
+
+    if (tyrePressureColor === 'red' || threadDepthColor === 'red') {
+      return 'BAD';
+    } else if (tyrePressureColor === 'yellow' || threadDepthColor === 'yellow') {
+      return 'BETTER TO CHECK';
+    } else {
+      return 'GOOD';
+    }
+  };
+
   return (
     <div>
-      <br />
+      <br/>
       <div className="d-flex align-items-center justify-content-between">
         <div>
           <h1 className="ms-3">Welcome to Driver Main</h1>
         </div>
-        {authuser ? (
+        {authuser? (
           <div>
             <button onClick={handleSignOut} className="btn btn-primary me-5">Sign Out</button>
           </div>
@@ -92,7 +125,7 @@ export function DriverMain({ tireDataRef }) {
         )}
       </div>
       <div>
-        {authuser ? (
+        {authuser? (
           <div>
             <p className="ms-3">Signed In as {authuser.email}</p>
             <br />
@@ -112,8 +145,9 @@ export function DriverMain({ tireDataRef }) {
                 <table className="table table-bordered table-striped">
                   <thead>
                     <tr>
+                      <th>Vehicle Type</th>
                       <th>Tire Number</th>
-                      <th>Tyre Pressure</th>
+                      <th>Tire Pressure</th>
                       <th>Thread Depth</th>
                       <th>Tire Status</th>
                     </tr>
@@ -122,9 +156,10 @@ export function DriverMain({ tireDataRef }) {
                     {tireData.map((tire) => (
                       <tr key={tire.id}>
                         <td>{tire.tireNo}</td>
-                        <td>{tire.tyrePressure}</td>
-                        <td>{tire.threadDepth}</td>
-                        <td>{tire.tireStatus}</td>
+                        <td>{tire.TirePosition}</td>
+                        <td style={{ backgroundColor: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
+                        <td style={{ backgroundColor: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
+                        <td>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
                       </tr>
                     ))}
                   </tbody>

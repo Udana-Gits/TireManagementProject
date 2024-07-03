@@ -1,4 +1,5 @@
 //App.js
+import './components/auth/firebase';
 import logo from './logo.svg';
 import './App.css';
 import LogIn from './components/auth/LogIn';
@@ -10,6 +11,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Enterdata from './components/auth/Enterdata';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ProfileEdit from './components/auth/ProfileEdit' ;
+
 
 
 
@@ -30,8 +33,10 @@ function App() {
           <Route path='/emplyeehome' element={<EmployeeMain/>}/>
           <Route index element={<DriverMain/>}/>
           <Route path='/driverhome' element={<DriverMain/>}/>
-          <Route index element={<DriverMain/>}/>
+          <Route index element={<Enterdata/>}/>
           <Route path='/enterdata' element={<Enterdata/>}/>
+          <Route index element={<ProfileEdit/>}/>
+          <Route path='/profileedit' element={<ProfileEdit/>}/>
         </Routes>
       </BrowserRouter>
       <Footer/>

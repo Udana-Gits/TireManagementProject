@@ -23,7 +23,11 @@ const SignUp = () => {
                 set(userRef, {
                     firstName: firstName,
                     lastName: lastName,
-                    occupation: occupation
+                    occupation: occupation,
+                    profilePicture: '', // Initialize profile picture field
+                    dateOfBirth: '', // Initialize date of birth field
+                    phoneNumber: '', // Initialize phone number field
+                    address: '', // Initialize address field
                 });
             }).catch((error) => {
                 console.error('Error:', error);

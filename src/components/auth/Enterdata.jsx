@@ -8,26 +8,31 @@ const EnterData = () => {
   const [tyrePressure, setTyrePressure] = useState('');
   const [threadDepth, setThreadDepth] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption1, setSelectedOption1] = useState('');
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+  const handleSelectChange1 = (event) => {
+    setSelectedOption1(event.target.value);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (!tireNo ||!vehicleNo ||!tyrePressure ||!threadDepth ||!selectedOption) {
+    if (!tireNo ||!vehicleNo ||!tyrePressure ||!threadDepth ||!selectedOption||!selectedOption1) {
       alert('Please fill in all required fields');
       return;
     }
 
     const userRef = ref(db, `TireData/${tireNo}`);
     set(userRef, {
-      tireNo: tireNo,
       vehicleNo: vehicleNo,
+      tireNo: tireNo,
       tyrePressure: tyrePressure,
       threadDepth: threadDepth,
       vehicleType: selectedOption,
+      TirePosition: selectedOption1,
       dateTime: new Date().toLocaleString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -47,12 +52,17 @@ const EnterData = () => {
     <div className="log-in-container">
       <form action="" id="regform" className="w-25 m-4" onSubmit={handleFormSubmit}>
         <h2 className="mb-3">Input Tire Measurements</h2>
+        <br />
         <div className="dropdown">
           <select id="dropdown" className="form-select" value={selectedOption} onChange={handleSelectChange}>
             <option value="">Select Vehicale Type</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="PM">PM</option>
+            <option value="TT">TT</option>
+            <option value="PI">PI</option>
+            <option value="IT">IT</option>
+            <option value="FS">FS</option>
+            <option value="RS">RS</option>
+            <option value="RTG">RTG</option>
           </select>
         </div>
         <br />
@@ -78,6 +88,16 @@ const EnterData = () => {
           />
           <label htmlFor="tireNo">Tire Number</label>
         </div>
+        <div className="dropdown">
+          <select id="dropdown" className="form-select" value={selectedOption1} onChange={handleSelectChange1}>
+            <option value="">Select Tire position</option>
+            <option value="Front Right">Front Right</option>
+            <option value="Front left">Front left</option>
+            <option value="Rear Right">Rear Right</option>
+            <option value="Rear Left">Rear Left</option>
+          </select>
+        </div>
+        <br />
         <div className="form-floating mb-3">
           <input
             type="text"

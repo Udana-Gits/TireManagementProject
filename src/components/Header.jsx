@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="header bg-primary text-white d-flex align-items-center">
+    <header className="bg-primary text-white top d-flex align-items-center">
       <div className="container">
         <div className="d-flex align-items-center">
           <img
