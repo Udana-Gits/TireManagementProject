@@ -3,6 +3,8 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import onAuthSta
 import { auth } from './firebase'; // Import 'auth' from your firebase module (assuming you have a firebase.js file)
 import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from 'react-router-dom'
 import { getDatabase, ref, onValue } from 'firebase/database'; // Import getDatabase, ref, and onValue from the 'firebase/database' module
+import NavBar from './NavBar';
+
 
 
 export function DriverMain({ tireDataRef }) {
@@ -114,11 +116,10 @@ export function DriverMain({ tireDataRef }) {
       <br/>
       <div className="d-flex align-items-center justify-content-between">
         <div>
-          <h1 className="ms-3">Welcome to Driver Main</h1>
+          <NavBar authuser={authuser} />
         </div>
         {authuser? (
           <div>
-            <button onClick={handleSignOut} className="btn btn-primary me-5">Sign Out</button>
           </div>
         ) : (
           <p>Signed out</p>
@@ -127,7 +128,6 @@ export function DriverMain({ tireDataRef }) {
       <div>
         {authuser? (
           <div>
-            <p className="ms-3">Signed In as {authuser.email}</p>
             <br />
             <div>
               <div className="form-floating ms-3">

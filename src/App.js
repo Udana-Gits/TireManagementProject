@@ -12,6 +12,7 @@ import Enterdata from './components/auth/Enterdata';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import ProfileEdit from './components/auth/ProfileEdit' ;
+import TireData from './components/auth/TireData' ;
 
 
 
@@ -37,6 +38,8 @@ function App() {
           <Route path='/enterdata' element={<Enterdata/>}/>
           <Route index element={<ProfileEdit/>}/>
           <Route path='/profileedit' element={<ProfileEdit/>}/>
+          <Route index element={<TireData/>}/>
+          <Route path='/tiredata' element={<TireData/>}/>
         </Routes>
       </BrowserRouter>
       <Footer/>

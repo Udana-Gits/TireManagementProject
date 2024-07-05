@@ -30,21 +30,21 @@ const LogIn = () => {
         const userOccupation = userData.occupation;
 
         switch (userOccupation) {
-          case 'admin':
+          case 'Admin':
             if (showPassword) {
               navigate('/adminhome', { state: { showPassword } });
             } else {
               navigate('/adminhome');
             }
             break;
-          case 'employee':
+          case 'Employee':
             if (showPassword) {
               navigate('/emplyeehome', { state: { showPassword } });
             } else {
               navigate('/emplyeehome');
             }
             break;
-          case 'driver':
+          case 'Driver':
             if (showPassword) {
               navigate('/driverhome', { state: { showPassword } });
             } else {
@@ -118,9 +118,9 @@ const LogIn = () => {
       </form>
       <br /><br /><br /><br /><br />
       <div>
-        <p>udanaudana@gmail.com --- Admin</p>
-        <p>udanaudana01@gmail.com --- Employee</p>
-        <p>udanaudana02@gmail.com --- Driver</p>
+        <p>adminadmin@gmail.com --- Admin</p>
+        <p>employeeemployee@gmail.com --- Employee</p>
+        <p>driverdriver@gmail.com --- Driver</p>
         <p>password --- udanaudana</p>
       </div>
     </div>

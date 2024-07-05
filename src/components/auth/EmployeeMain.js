@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
 import { auth } from './firebase'; // Import the auth object from firebase.js
 import { Link, useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
+
 
 export function EmployeeMain() {
     const [authuser, setAuthUser] = useState(null);
@@ -36,14 +38,12 @@ export function EmployeeMain() {
 
     return (
         <div>
-          <h1>Welcome to Employee Main</h1>
+        <NavBar authuser={authuser} />
             <div>
                 {authuser ? (
                     <div>
-                        <h3>Signed In as {authuser.email}</h3>
                         <br />
                         <button onClick={inputmeasurement} class="btn btn-primary me-2">Input Measurementrs</button>
-                        <button onClick={handleSignOut} class="btn btn-primary me-2">Sign Out</button>
                     </div>
                 ) : (
                     <p>Signed out</p>

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth, db } from './firebase'; 
 import { get, ref } from 'firebase/database';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './CSS/navbar.css';
 
 const Navbar = ({ authuser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [profilePicture, setProfilePicture] = useState('');
+  const [occupation, setOccupation] = useState('');
+  const [firstName, setFirstName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +20,9 @@ const Navbar = ({ authuser }) => {
         const userData = snapshot.val();
         if (userData && userData.profilePicture) {
           setProfilePicture(userData.profilePicture);
+          setOccupation(userData.occupation);
+          setFirstName(userData.firstName);
+
         }
       }
     };
@@ -47,7 +52,7 @@ const Navbar = ({ authuser }) => {
     <nav className="navbar">
       <div className="container">
         <div className="navbar-brand">
-          <h4>Welcome to Admin Page {authuser ? authuser.email : 'Not Signed In'}</h4>
+          <h4>Welcome to  {occupation} Page {firstName}</h4>
         </div>
         <div className="navbar-toggler-container">
           <button className="navbar-toggler" onClick={handleToggle}>

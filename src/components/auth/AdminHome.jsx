@@ -23,14 +23,28 @@ function AdminHome() {
   const handleAddNewUser = () => {
     navigate('/signup');
   };
-
+  
+  const handleEntertireData = () => {
+    navigate('/enterdata');
+  };
+  const handleTireData = () => {
+    navigate('/tiredata');
+  };
+  
   return (
     <div>
       <NavBar authuser={authuser} />
-      <h1>Welcome to Admin Home</h1>
       <div>
         <button onClick={handleAddNewUser} class="btn btn-primary me-2">
           Add New User
+        </button>
+        <br /><br />
+        <button onClick={handleEntertireData} class="btn btn-primary me-2">
+          Enter Tire Data
+        </button>
+        <br /><br />
+        <button onClick={handleTireData} class="btn btn-primary me-2">
+          Check Tire Data
         </button>
       </div>
     </div>

@@ -122,7 +122,7 @@ const ProfileEdit = () => {
     <div className="edit-profile-container">
     <h2>Edit Profile</h2>
       <div className="profile-picture">
-        {profilePicture ? ( <img src={profilePicture} alt="Profile" className="profile-picture" />) : ( <img src="https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/default.jpg?alt=media&token=6e57ee53-8299-4d6e-8d0e-36b8f1c7acad" alt="Default" className="profile-picture" /> )}
+        {profilePicture ? ( <img src={profilePicture} alt="Profile" className="profile-picture" />) : ( <img src="https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/default.jpg?alt=media&token=be7f47f4-42ac-421b-a775-be76dd0de1bb" alt="Default" className="profile-picture" /> )}
         <br />
         <input type="file" onChange={handleImageChange} />
         {/* <button disabled={uploading}>{uploading ? "Uploading..." : "Upload Image"}</button> */}
