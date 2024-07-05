@@ -84,7 +84,7 @@ const EnterData = () => {
             <td>
               <div className="dropdown">
                 <select id="dropdown" className="form-select" value={selectedOption} onChange={handleSelectChange}>
-                  <option value="">Select Vehicle Type</option>
+                  <option value="D">Select Vehicle Type</option>
                   <option value="PM">PM</option>
                   <option value="TT">TT</option>
                   <option value="PI">PI</option>
@@ -187,6 +187,48 @@ const EnterData = () => {
                 />
                 <label htmlFor="tyrePressure">Air Pressure (psi)</label>
               </div>
+            </td>
+            <td>
+              {selectedOption === "PM" && (
+                <img
+                  src="/images/vehicals/PM.png"
+                  alt="Prime Mover"
+                  style={{ width: '200px', height: 'auto' }}
+                />
+              )}
+              {selectedOption === "IT" && (
+                <img
+                  src="/images/vehicals/IT.png"
+                  alt="Internal Transport"
+                  style={{ width: '200px', height: 'auto' }}
+                />
+              )}
+              {selectedOption === "FS" && (
+                <img
+                  src="/images/vehicals/FS.png"
+                  alt="Small Forklift"
+                  style={{ width: '200px', height: 'auto' }}
+                />
+              )}
+              {selectedOption === "D" && (
+                <img
+                  src=""
+                  alt="Select Vehicale"
+                />
+              )}
+              {selectedOption === "" && (
+                <img
+                  src=""
+                  alt="Select Vehicale"
+                />
+              )}
+              {["PM", "IT", "FS",].indexOf(selectedOption) === -1 && (
+                <img
+                  src="/images/vehicals/CAR.png"
+                  alt="Default"
+                  style={{ width: '200px', height: 'auto' }}
+                />
+              )}
             </td>
           </tr>
         </table>
