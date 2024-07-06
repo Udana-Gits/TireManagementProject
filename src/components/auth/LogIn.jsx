@@ -5,6 +5,8 @@ import { ref, get } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import { db } from './firebase'; // Import your Firebase Realtime Database instance
 import { sendPasswordResetEmail } from 'firebase/auth';
+import './CSS/LogIn.css';
+
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -74,56 +76,70 @@ const LogIn = () => {
   };
 
   return (
-    <div className='log-in-container'>
-      <form onSubmit={logIn} className="w-25 m-4">
-        <h2 className="mb-3">Log In for Users</h2>
-        <div className="form-floating">
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="email">Email Address</label>
-        </div>
-        <br />
-        <div className="form-floating position-relative">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            className="form-control"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <label htmlFor="password">Password</label>
+    <body className="login-page">
+      <div className="login-container">
+        <form onSubmit={logIn} className="login-form">
+          <h2 className="loginheading">LOGIN</h2>
+          <div className="">
+            <div className="input-wrapper">
+              <input
+                type="email"
+                className="logininput"
+                id="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <img
+                    src="/images/components/email.png"
+                    alt="Pavara Tire Management System"
+                    className="input-image"
+              />
+            </div>
+          </div>
+          <br />
+          <div className="">
+            <div className="input-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className="logininput"
+                id="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <img
+                  src="/images/components/password.png"
+                  alt="Pavara Tire Management System"
+                  className="input-image"
+              />
+            </div>
+          </div>
+          <br /><br />
+          <div className="password-actions">
           <button
-            type="button"
-            className="btn btn-primary position-absolute end-0 translate-middle-y me-2"
-            style={{ right: '1.5rem', top: '50%'  }}
-            onClick={togglePasswordVisibility}
+              type="button"
+              className="passwordvisibilitybutton"
+              onClick={togglePasswordVisibility}
           >
-            {showPassword ? 'Hide' : 'Show'}
+              <img
+                    src="/images/components/closedeye.png"
+                    alt="Pavara Tire Management System"
+                    className="passwordimage"
+              />
+              {showPassword ? '  Hide' : '  Show'} password
           </button>
-        </div>
-        <br />
-        <button type="submit" className="btn btn-primary">
-          Log In
-        </button>
-        <button type="button" className="btn btn-link" onClick={resetPassword}>
-          Forgot Password?
-        </button>
-      </form>
-      <br /><br /><br /><br /><br />
-      <div>
-        <p>adminadmin@gmail.com --- Admin</p>
-        <p>employeeemployee@gmail.com --- Employee</p>
-        <p>driverdriver@gmail.com --- Driver</p>
-        <p>password --- udanaudana</p>
+          <button type="button" className="forgetpassword" onClick={resetPassword}>
+            Forgot Password?
+          </button>
+          </div>
+          <br /><br />
+          <button type="submit" className="loginbutton">
+            Log In
+          </button>
+        </form>
       </div>
-    </div>
+    </body> 
   );
 };
 

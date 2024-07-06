@@ -1,0 +1,145 @@
+.login-page {
+    background: url('/public/images/components/loginbackground.jpeg') lightgray 50%  / cover no-repeat;
+    background-size: 100vw 100vh; /* cover the entire viewport */
+    background-size: cover; /* add this to ensure the image is stretched to fit the full height */
+    width: auto; /* set width to 100% of viewport width */
+    height: 85vh; /* set height to 100% of viewport height */
+    flex-shrink: 0;
+    margin: 0; /* remove any margin */
+    padding: 0; /* remove any padding */
+    overflow: hidden; /* add this to prevent the page from becoming scrollable */
+    background-attachment: fixed;
+  }
+  
+.loginheading{
+    width: 200.479px;
+    height: 89.44px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.loginbutton{
+    width: 748.999px;
+    height: 66px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: linear-gradient(270deg, #054AAB 0.43%, #021E45 99.57%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-right: 40px
+}
+
+.logininput{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 748.999px;
+    height: 66.018px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+    text-align: center;
+}
+
+.logininput::placeholder {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+  }
+
+.forgetpassword{
+    background-color: transparent;
+    border: 0;
+    width: 194px;
+    height: 32px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: auto;
+}
+
+.input-wrapper {
+    position: relative;
+  }
+
+  .input-image {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 49.385px;
+    height: 44.316px;
+  }
+
+  .login-container {
+    background-color: #f9f9f9; /* light gray background */
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 20px; /* add some padding inside the box */
+    width: 864px;
+    height: 660px;
+    flex-shrink: 0;
+    margin: 40px auto; /* center the box horizontally */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .passwordimage{
+    width: 39px;
+    height: 35px;
+    flex-shrink: 0;
+  }
+
+  .passwordvisibilitybutton{
+    background-color: transparent;
+    border: 0;
+    width: 224px;
+    height: 32px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 380px;
+  }
+
+  .password-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }

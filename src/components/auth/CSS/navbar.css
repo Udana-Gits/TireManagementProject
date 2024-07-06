@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #676767;
+  background: linear-gradient(92deg, #021E45 -4.32%, #054AAB 107.92%);
   padding: 10px 20px;
   color: #fff;
 }
@@ -19,8 +19,9 @@
 }
 
 .navbar-toggler {
-  background: none;
-  border: none;
+  background: white;
+  border: 2px;
+  border-color: aliceblue;
   color: #fff;
   font-size: 24px;
   cursor: pointer;
