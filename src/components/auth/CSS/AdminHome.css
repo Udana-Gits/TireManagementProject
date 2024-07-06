@@ -1,0 +1,22 @@
+.adminhomebutton{
+    display: inline-block;
+    width: 1000px; /* set a fixed width for all buttons */
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 -38.17%, #054AAB 100%);
+    box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.50);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 10px;
+}
+
+.adminbuttonbox{
+    text-align: center;
+}

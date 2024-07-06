@@ -4,6 +4,8 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
 import { auth } from './firebase'; // Import the auth object from firebase.js
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import './CSS/AdminHome.css';
+
 
 function AdminHome() {
   const [authuser, setAuthUser] = useState(null);
@@ -34,18 +36,32 @@ function AdminHome() {
   return (
     <div>
       <NavBar authuser={authuser} />
-      <div>
-        <button onClick={handleAddNewUser} class="btn btn-primary me-2">
+      <br />
+      <div className='adminbuttonbox'>
+        <button onClick={handleEntertireData} class="adminhomebutton">
+        Input Tire Measurements
+        </button>
+        <br /><br />
+        <button onClick={handleTireData} class="adminhomebutton">
+        View Tire Information
+        </button>
+        <br /><br />
+        <button onClick={handleAddNewUser} class="adminhomebutton">
+        View Vehicle Information
+        </button>
+        <br /><br />
+        <button onClick={handleAddNewUser} class="adminhomebutton">
+        View Tire Performance
+        </button>
+        <br /><br />
+        <button onClick={handleAddNewUser} class="adminhomebutton">
+        User Account Management
+        </button>
+        <br /><br />
+        <button onClick={handleAddNewUser} class="adminhomebutton">
           Add New User
         </button>
         <br /><br />
-        <button onClick={handleEntertireData} class="btn btn-primary me-2">
-          Enter Tire Data
-        </button>
-        <br /><br />
-        <button onClick={handleTireData} class="btn btn-primary me-2">
-          Check Tire Data
-        </button>
       </div>
     </div>
   );

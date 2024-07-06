@@ -66,10 +66,10 @@ const Navbar = ({ authuser }) => {
               <div className="profile-actions">
                 {authuser ? (
                   <div>
-                    <button onClick={editProfile} className="btn btn-primary">
+                    <button onClick={editProfile} className="navbarbutton">
                       Edit Profile
                     </button>
-                    <button onClick={handleSignOut} className="btn btn-danger">
+                    <button onClick={handleSignOut} className="navbarbutton">
                       Sign Out
                     </button>
                   </div>
