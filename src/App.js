@@ -1,6 +1,5 @@
 //App.js
 import './components/auth/firebase';
-import logo from './logo.svg';
 import './App.css';
 import LogIn from './components/auth/LogIn';
 import SignUp from './components/auth/SignUp';
@@ -13,6 +12,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import ProfileEdit from './components/auth/ProfileEdit' ;
 import TireData from './components/auth/TireData' ;
+import Navbar from './components/auth/NavBar';
 
 
 
@@ -21,7 +21,7 @@ import TireData from './components/auth/TireData' ;
 function App() {
   return (
     <div className="App">
-              <Header/>
+      <Header/>
       <BrowserRouter>
         <Routes>
           <Route index element={<LogIn/>}/>
@@ -38,6 +38,8 @@ function App() {
           <Route path='/enterdata' element={<Enterdata/>}/>
           <Route index element={<ProfileEdit/>}/>
           <Route path='/profileedit' element={<ProfileEdit/>}/>
+          <Route index element={<Navbar/>}/>
+          <Route path='/navbar' element={<Navbar/>}/>
           <Route index element={<TireData/>}/>
           <Route path='/tiredata' element={<TireData/>}/>
         </Routes>

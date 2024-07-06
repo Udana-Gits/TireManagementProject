@@ -1,88 +1,98 @@
-/* Styles for EnterData component */
 
-.log-in-container {
-    max-width: 800px;
+  
+  
+  .formdropdown {
+    width: 280px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #F0EDFF;
+    display: inline-block;
+  }
+
+  .formdropdown option {
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .submitbutton{
+    width: 1182px;
+    height: 88px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    display: block;
   }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+  .label{
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+
   }
-  
-  .form-floating {
-    position: relative;
-    margin-bottom: 20px;
+
+  .backbutton{
+    width: 38px;
+    height: 42px;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 153px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
   }
-  
-  .form-floating input {
-    padding: 10px;
+
+  .leftarrow{
+    width: 38px;
+    height: 42px;
+    flex-shrink: 0;
   }
-  
-  .form-floating label {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    pointer-events: none;
-    color: #888;
-    transition: top 0.3s, left 0.3s, font-size 0.3s;
+
+  .textbox{
+    width: 280px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #F0EDFF;
+    display: inline-block;
   }
-  
-  .form-floating input:focus + label,
-  .form-floating input:not(:placeholder-shown) + label {
-    top: -10px;
-    left: 5px;
-    font-size: 12px;
-    color: #333;
-  }
-  
-  .dropdown {
-    margin-bottom: 20px;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .table-container {
-    margin-top: 20px;
-  }
-  
+
   table {
-    width: 400%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
   }
-  
-  table, th, td {
-    border: 1px solid #ccc;
-  }
-  
-  th, td {
+
+  table td{
     padding: 10px;
-    text-align: left;
   }
-  
-  th {
-    background-color: #f2f2f2;
+
+  .vehicale{
+    width: 383px;
+    height: 218px;
   }
-  
-  

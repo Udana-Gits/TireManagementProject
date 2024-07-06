@@ -1,15 +1,17 @@
 import React from 'react';
 import DateandTime from './DateandTime';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './auth/CSS/Footer.css';
 
 const Footer = () => {
   return (
-    <div className="footer-container">
-      <footer className="bg-primary text-white mt-auto d-flex align-items-center">
-        <div className="container text-center">
+    <div className="">
+      <footer className="footer">
+        <div >
           <center><p></p></center>
-          <center><DateandTime/></center>
-          <center><p className="text-muted">Copyright © 2024 Pavara Tire Management System</p></center>
+          <div className='timer'>
+            <center><DateandTime /></center>
+          </div>
+          <center><p className="footercomponent">Copyright © 2024 Pavara Tire Management System</p></center>
         </div>
       </footer>
     </div>

@@ -1,17 +1,17 @@
 import React from 'react';
+import './auth/CSS/Header.css';
 
 const Header = () => {
   return (
-    <header className="bg-primary text-white top d-flex align-items-center">
-      <div className="container">
-        <div className="d-flex align-items-center">
+    <header className="header">
+      <div className="">
+        <div>
           <img
-            src="/images/A.png"
+            src="/images/components/header.png"
             alt="Pavara Tire Management System"
-            className="img-fluid"
-            style={{ width: '200px', height: 'auto' }}
+            className='headerimage'
           />
-          <h1 className="text-center display-4 ml-3">Pavara Tire Management System</h1>
+          
         </div>
       </div>
     </header>

@@ -71,20 +71,26 @@ const EnterData = () => {
   };
 
   return (
-    <div className="log-in-container">
+    <div className="">
       <br />
-      <button onClick={backhandle} className="btn btn-primary me-2">
+      <button onClick={backhandle} className="backbutton">
+        <img
+          src="/images/components/Arrow_left.png"
+          alt="leftarrow"
+          className='leftarrow'
+        />
         Back
       </button>
-      <form action="" id="regform" className="w-25 m-4" onSubmit={handleFormSubmit}>
-        <h2 className="mb-3">Input Tire Measurements</h2>
+      
+      <form action="" id="dropdown" className="" onSubmit={handleFormSubmit}>
         <br />
-        <table border={5}>
+        <table id='tableenterdata'>
           <tr>
             <td>
-              <div className="dropdown">
-                <select id="dropdown" className="form-select" value={selectedOption} onChange={handleSelectChange}>
-                  <option value="D">Select Vehicle Type</option>
+              <div className="">
+              <label htmlFor="vehicleType" className='label'>Vehicle Type</label><br />
+                <select id="dropdown" className="formdropdown" value={selectedOption} onChange={handleSelectChange}>
+                  <option value="" disabled></option>
                   <option value="PM">PM</option>
                   <option value="TT">TT</option>
                   <option value="PI">PI</option>
@@ -95,54 +101,53 @@ const EnterData = () => {
                 </select>
               </div>
               <br />
-              <div className="form-floating mb-3">
+              <label htmlFor="vehicaleNumber" className='label'>Vehicle Number</label>
+              <div className="">
                 <input
                   type="text"
-                  className="form-control"
+                  className="textbox"
                   id="vehicleNo"
-                  placeholder="Vehicle Number"
                   value={vehicleNo}
                   onChange={(e) => setVehicleNo(e.target.value)}
                 />
-                <label htmlFor="vehicleNo">Vehicle Number</label>
               </div>
               <br />
-              <div className="form-floating mb-3">
+              <label htmlFor="tireNo" className='label'>Tire Serial Number</label>
+              <div className="">
                 <input
                   type="text"
-                  className="form-control"
+                  className="textbox"
                   id="tireNo"
-                  placeholder="Tire Number"
                   value={tireNo}
                   onChange={(e) => setTireNo(e.target.value)}
                 />
-                <label htmlFor="tireNo">Tire Serial Number</label>
               </div>
             </td>
             <td>
-              <div className="form-floating mb-3">
+            <label htmlFor="kmReading" className='label'>Km Reading</label>
+              <div className="">
                 <input
                   type="text"
-                  className="form-control"
+                  className="textbox"
                   id="kmReading"
-                  placeholder="Km reading"
                   value={kmReading}
                   onChange={(e) => setKmReading(e.target.value)}
                 />
-                <label htmlFor="kmReading">Km Reading</label>
               </div>
+              <label htmlFor="tireStatus" className='label'>Tire Status</label>
               <div className="dropdown">
-                <select id="dropdown" className="form-select" value={selectedOption2} onChange={handleSelectChange2}>
-                  <option value="">Tire Status</option>
+                <select id="dropdown" className="formdropdown" value={selectedOption2} onChange={handleSelectChange2}>
+                  <option value="" disabled></option>
                   <option value="good">Good</option>
                   <option value="bad">Bad</option>
                   <option value="average">Average</option>
                 </select>
               </div>
               <br />
+              <label htmlFor="tireBrand" className='label'>Tire Brand</label>
               <div className="dropdown">
-                <select id="dropdown" className="form-select" value={selectedOption3} onChange={handleSelectChange3}>
-                  <option value="">Tire Brand</option>
+                <select id="dropdown" className="formdropdown" value={selectedOption3} onChange={handleSelectChange3}>
+                  <option value="" disabled></option>
                   <option value="MRF">MRF</option>
                   <option value="CEAT">CEAT</option>
                   <option value="DSI">DSI</option>
@@ -154,9 +159,10 @@ const EnterData = () => {
           </tr>
           <tr>
             <td>
+              <label htmlFor="tirePosition" className='label'>Tire Position</label>
               <div className="dropdown">
-                <select id="dropdown" className="form-select" value={selectedOption1} onChange={handleSelectChange1}>
-                  <option value="">Select Tire Position</option>
+                <select id="dropdown" className="formdropdown" value={selectedOption1} onChange={handleSelectChange1}>
+                  <option value="" disabled></option>
                   <option value="Front Right">Front Right</option>
                   <option value="Front left">Front left</option>
                   <option value="Rear Right">Rear Right</option>
@@ -164,28 +170,26 @@ const EnterData = () => {
                 </select>
               </div>
               <br />
-              <div className="form-floating mb-3">
+              <label htmlFor="threadDepth" className='label'>Thread Depth (mm)</label>
+              <div className="">
                 <input
                   type="text"
-                  className="form-control"
+                  className="textbox"
                   id="threadDepth"
-                  placeholder="Thread Depth (mm)"
                   value={threadDepth}
                   onChange={(e) => setThreadDepth(e.target.value)}
                 />
-                <label htmlFor="threadDepth">Thread Depth (mm)</label>
               </div>
               <br />
-              <div className="form-floating mb-3">
+              <label htmlFor="tyrePressure" className='label'>Air Pressure (psi)</label>
+              <div className="">
                 <input
                   type="text"
-                  className="form-control"
+                  className="textbox"
                   id="tyrePressure"
-                  placeholder="Tyre Pressure (psi)"
                   value={tyrePressure}
                   onChange={(e) => setTyrePressure(e.target.value)}
                 />
-                <label htmlFor="tyrePressure">Air Pressure (psi)</label>
               </div>
             </td>
             <td>
@@ -193,48 +197,66 @@ const EnterData = () => {
                 <img
                   src="/images/vehicals/PM.png"
                   alt="Prime Mover"
-                  style={{ width: '200px', height: 'auto' }}
+                  className='vehicale'
+                />
+              )}
+              {selectedOption === "TT" && (
+                <img
+                  src="/images/vehicals/TT.png"
+                  alt="Terminal transport"
+                  className='vehicale'
+                />
+              )}
+              {selectedOption === "PI" && (
+                <img
+                  src="/images/vehicals/PI.png"
+                  alt="Prome Mover Internal"
+                  className='vehicale'
                 />
               )}
               {selectedOption === "IT" && (
                 <img
                   src="/images/vehicals/IT.png"
                   alt="Internal Transport"
-                  style={{ width: '200px', height: 'auto' }}
+                  className='vehicale'
                 />
               )}
               {selectedOption === "FS" && (
                 <img
                   src="/images/vehicals/FS.png"
                   alt="Small Forklift"
-                  style={{ width: '200px', height: 'auto' }}
+                  className='vehicale'
                 />
               )}
-              {selectedOption === "D" && (
+              {selectedOption === "RS" && (
                 <img
-                  src=""
-                  alt="Select Vehicale"
+                  src="/images/vehicals/RS.png"
+                  alt="Rings Tractor"
+                  className='vehicale'
+                />
+              )}
+              {selectedOption === "RTG" && (
+                <img
+                  src="/images/vehicals/RTG.png"
+                  alt="Rubber Tire Granty Crane"
+                  className='vehicale'
                 />
               )}
               {selectedOption === "" && (
                 <img
                   src=""
-                  alt="Select Vehicale"
-                />
-              )}
-              {["PM", "IT", "FS",].indexOf(selectedOption) === -1 && (
-                <img
-                  src="/images/vehicals/CAR.png"
-                  alt="Default"
-                  style={{ width: '200px', height: 'auto' }}
+                  
                 />
               )}
             </td>
           </tr>
         </table>
-        <button type="submit" className="btn btn-primary">
-          Submit Measurements
-        </button>
+        <br />
+        <div>
+          <button type="submit" className="submitbutton">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
