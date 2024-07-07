@@ -4,6 +4,8 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
 import { auth } from './firebase'; // Import the auth object from firebase.js
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import './CSS/EmployeeMain.css';
+
 
 
 export function EmployeeMain() {
@@ -39,12 +41,18 @@ export function EmployeeMain() {
     return (
         <div>
         <NavBar authuser={authuser} />
-            <div>
+            <div className='employeecontainer'>
                 {authuser ? (
                     <div>
                         <br />
-                        <button onClick={inputmeasurement} class="btn btn-primary me-2">Input Measurementrs</button>
+                        <button onClick={inputmeasurement} class="enterdatabutton">Input Tire Measurements</button>
+                        <br />
+                        <br />
+                        <br />
+                        <button onClick={inputmeasurement} class="enterdatabutton">View Tire Details</button>
                     </div>
+                    
+                    
                 ) : (
                     <p>Signed out</p>
                 )}

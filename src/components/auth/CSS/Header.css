@@ -12,3 +12,25 @@
     height: 110px;
     flex-shrink: 0;
 }
+
+.header {
+    width: 100%;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-heading {
+    margin: 0;
+    text-align: right;
+    margin-right: 30px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }

@@ -17,7 +17,7 @@ const EnterData = () => {
   const navigate = useNavigate();
 
   const backhandle = () => {
-    navigate('/emplyeehome');
+    navigate(-1);
   };
 
   const handleSelectChange = (event) => {

@@ -54,10 +54,13 @@ const Navbar = ({ authuser }) => {
         <div className="navbar-brand">
           <h4>Welcome to  {occupation} Page {firstName}</h4>
         </div>
-        <div className="navbar-toggler-container">
-          <button className="navbar-toggler" onClick={handleToggle}>
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        <div className="">
+            <img
+              src="/images/components/threelinebutton.png"
+              alt="Pavara Tire Management System"
+              className="togglebuttonimage"
+              onClick={handleToggle}
+            />
           {isOpen && (
             <div className="navbar-profile-popup">
               {profilePicture && (

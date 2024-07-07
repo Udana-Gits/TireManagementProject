@@ -1,0 +1,54 @@
+.searchcontainer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.Driverlabel{
+    color: #000;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vehicalenumberfield{
+    width: 374px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F0EDFF;
+    text-align: center;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vehicalenumberfield::placeholder{
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.3;
+    text-align: center;
+}
+
+.searchbutton{
+    width: 234px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

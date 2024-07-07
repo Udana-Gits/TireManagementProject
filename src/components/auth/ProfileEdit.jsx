@@ -11,6 +11,7 @@ const ProfileEdit = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
   const [profilePicture, setProfilePicture] = useState('');
+  const [personalemail, setpersonalemail] = useState('');
   const [user, setUser] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -30,6 +31,7 @@ const ProfileEdit = () => {
           setPhoneNumber(userData.phoneNumber || '');
           setAddress(userData.address || '');
           setProfilePicture(userData.profilePicture || '');
+          setpersonalemail(userData.personalemail || '');
         }
       } else {
         setUser(null); // Clear user state if not authenticated
@@ -67,6 +69,7 @@ const ProfileEdit = () => {
         address: address || existingUserData.address,
         dateOfBirth: dateOfBirth || existingUserData.dateOfBirth,
         profilePicture: profilePicture || existingUserData.profilePicture,
+        personalemail: personalemail || existingUserData.personalemail,
       };
       
       // Update user object in Realtime Database
@@ -129,7 +132,11 @@ const ProfileEdit = () => {
       </div>
       <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
       <form onSubmit={handleUpdateProfile}>
-        <div className="form-group">
+      <div className="form-group">
+          <label>Personal Email:</label>
+          <input type="email" value={personalemail} onChange={(e) => setpersonalemail(e.target.value)} />
+        </div>
+       <div className="form-group">
           <label>Date of Birth:</label>
           <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
         </div>

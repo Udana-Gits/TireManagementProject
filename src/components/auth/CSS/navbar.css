@@ -43,12 +43,7 @@
   cursor: pointer;
 }
 
-.navbar-toggler-icon {
-  display: block;
-  width: 24px;
-  height: 24px;
-  background: url('data:image/svg+xml;charset=UTF8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%287, 7, 7, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e') center/contain no-repeat;
-}
+
 
 .navbar-profile-popup {
   position: absolute;
@@ -81,4 +76,15 @@
   display: block;
   width: 100%;
   margin-top: 10px;
+}
+
+.togglebuttonimage{
+  width: 50px;
+  height: 40px;
+  background-color: transparent;
+}
+
+.togglebutton{
+  width: 50px;
+  height: 40px;
 }

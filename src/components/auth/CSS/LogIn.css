@@ -1,15 +1,21 @@
 .login-page {
-    background: url('/public/images/components/loginbackground.jpeg') lightgray 50%  / cover no-repeat;
-    background-size: 100vw 100vh; /* cover the entire viewport */
-    background-size: cover; /* add this to ensure the image is stretched to fit the full height */
-    width: auto; /* set width to 100% of viewport width */
-    height: 85vh; /* set height to 100% of viewport height */
-    flex-shrink: 0;
-    margin: 0; /* remove any margin */
-    padding: 0; /* remove any padding */
-    overflow: hidden; /* add this to prevent the page from becoming scrollable */
-    background-attachment: fixed;
+  background: url('/public/images/components/loginbackground.jpeg') no-repeat center 30% fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Add a whitish overlay */
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+@media (orientation: portrait) {
+  .login-page {
+    background-size: auto 100vh;
   }
+}
   
 .loginheading{
     width: 200.479px;
@@ -104,7 +110,7 @@
     width: 864px;
     height: 660px;
     flex-shrink: 0;
-    margin: 40px auto; /* center the box horizontally */
+    margin: 90px auto; /* center the box horizontally */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
   }
   
@@ -142,4 +148,11 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+  }
+
+  .loginheaderiamge{
+    width: 511px;
+    height: 110px;
+    flex-shrink: 0;
+    margin-top: 30px;
   }

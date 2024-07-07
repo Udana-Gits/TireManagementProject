@@ -1,3 +1,4 @@
+//LogIn.jsx
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
@@ -77,6 +78,13 @@ const LogIn = () => {
 
   return (
     <body className="login-page">
+      <div className='headiamge'>
+        <img
+          src="/images/components/loginheader.png"
+          alt="Pavara Tire Management System"
+          className="loginheaderiamge"
+        />
+      </div>
       <div className="login-container">
         <form onSubmit={logIn} className="login-form">
           <h2 className="loginheading">LOGIN</h2>

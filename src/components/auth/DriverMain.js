@@ -4,6 +4,8 @@ import { auth } from './firebase'; // Import 'auth' from your firebase module (a
 import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from 'react-router-dom'
 import { getDatabase, ref, onValue } from 'firebase/database'; // Import getDatabase, ref, and onValue from the 'firebase/database' module
 import NavBar from './NavBar';
+import './CSS/DriverMain.css';
+
 
 
 
@@ -113,8 +115,7 @@ export function DriverMain({ tireDataRef }) {
 
   return (
     <div>
-      <br/>
-      <div className="d-flex align-items-center justify-content-between">
+      <div className="">
         <div>
           <NavBar authuser={authuser} />
         </div>
@@ -130,15 +131,18 @@ export function DriverMain({ tireDataRef }) {
           <div>
             <br />
             <div>
-              <div className="form-floating ms-3">
-                <input type="text" className="form-control" id="VehicleNo" placeholder="VehicleNo" value={vehicleNumber} onChange={(e) => setVehicleNumber(e.target.value)} style={{ width: '200px' }} />
-                <label htmlFor="VehicleNo">Vehicle Number</label>
-              </div>
-              <div>
-                <br /><br />
-                <button onClick={handleSearch} className="btn btn-primary ms-3">Search</button>
-                <br />
-                <br />
+              <div className='searchcontainer'>
+                <div className="">
+                  <label htmlFor="VehicleNo" className='Driverlabel'>Vehicle Number</label>
+                  <br/><br/>
+                  <input type="text" className="vehicalenumberfield" id="VehicleNo" placeholder="Eg: V0006" value={vehicleNumber} onChange={(e) => setVehicleNumber(e.target.value)}  />
+                </div>
+                <div>
+                  <br /><br />
+                  <button onClick={handleSearch} className="searchbutton">Search</button>
+                  <br />
+                  <br />
+                </div>
               </div>
               {noDataFound && <p>No data found for the entered vehicle number.</p>}
               {displayTable && (
