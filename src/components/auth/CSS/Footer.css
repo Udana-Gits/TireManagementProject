@@ -1,9 +1,9 @@
 .footer{
-    height: 100px;
+    height: 90px;
     flex-shrink: 0;
-    border-radius: 5px;
+    border-radius: 0px;
     background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
