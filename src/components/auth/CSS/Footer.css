@@ -1,32 +1,34 @@
 .footer{
-    height: 90px;
+    height: 65px;
     flex-shrink: 0;
     border-radius: 0px;
     background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-    position: fixed;
+    position:fixed;
     bottom: 0;
     width: 100%;
 }
 
 .footercomponent{
     width: 608px;
-    height: 39.857px;
+    height: 30px;
     flex-shrink: 0;
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    transform: translateY(-70%);
 }
 
 .timer{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    transform: translateY(-30%);
 }
