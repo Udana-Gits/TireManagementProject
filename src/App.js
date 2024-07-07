@@ -1,5 +1,5 @@
 //App.js
-import logo from './logo.svg';
+import './components/auth/firebase';
 import './App.css';
 import LogIn from './components/auth/LogIn';
 import SignUp from './components/auth/SignUp';
@@ -10,6 +10,10 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Enterdata from './components/auth/Enterdata';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ProfileEdit from './components/auth/ProfileEdit' ;
+import TireData from './components/auth/TireData' ;
+import Navbar from './components/auth/NavBar';
+
 
 
 
@@ -17,7 +21,7 @@ import Header from './components/Header';
 function App() {
   return (
     <div className="App">
-              <Header/>
+      <Header/>
       <BrowserRouter>
         <Routes>
           <Route index element={<LogIn/>}/>
@@ -30,8 +34,14 @@ function App() {
           <Route path='/emplyeehome' element={<EmployeeMain/>}/>
           <Route index element={<DriverMain/>}/>
           <Route path='/driverhome' element={<DriverMain/>}/>
-          <Route index element={<DriverMain/>}/>
+          <Route index element={<Enterdata/>}/>
           <Route path='/enterdata' element={<Enterdata/>}/>
+          <Route index element={<ProfileEdit/>}/>
+          <Route path='/profileedit' element={<ProfileEdit/>}/>
+          <Route index element={<Navbar/>}/>
+          <Route path='/navbar' element={<Navbar/>}/>
+          <Route index element={<TireData/>}/>
+          <Route path='/tiredata' element={<TireData/>}/>
         </Routes>
       </BrowserRouter>
       <Footer/>

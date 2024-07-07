@@ -1,0 +1,162 @@
+.login-page {
+  background: url('/public/images/components/loginbackground.jpeg') lightgray 50% / cover no-repeat;
+  background-size: 100vw 100vh;
+  /* cover the entire viewport */
+  background-size: cover;
+  /* add this to ensure the image is stretched to fit the full height */
+  width: auto;
+  /* set width to 100% of viewport width */
+  height: 85vh;
+  /* set height to 100% of viewport height */
+  flex-shrink: 0;
+  margin: 0;
+  /* remove any margin */
+  padding: 0;
+  /* remove any padding */
+  overflow: hidden;
+  /* add this to prevent the page from becoming scrollable */
+  background-attachment: fixed;
+}
+
+.loginheading {
+  width: 200.479px;
+  height: 89.44px;
+  flex-shrink: 0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.loginbutton {
+  width: 480px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(270deg, #054AAB 0.43%, #021E45 99.57%);
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-right: 0px;
+  transform: translateY(-100%);
+}
+
+.logininput {
+  color: rgb(255, 255, 255);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 480px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.logininput::placeholder {
+  color: rgb(255, 255, 255);
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.forgetpassword {
+  background-color: transparent;
+  border: 0;
+  width: 194px;
+  height: 32px;
+  flex-shrink: 0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 240px;
+  transform: translateY(-70%);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-image {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-145%);
+  width: 20px;
+  height: 20px;
+}
+
+.login-container {
+  background-color: #f9f9f9;
+  /* light gray background */
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 20px;
+  /* add some padding inside the box */
+  width: 600px;
+  height: 410px;
+  flex-shrink: 0;
+  margin: 40px auto;
+  /* center the box horizontally */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* add a subtle shadow */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.passwordimage {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.passwordvisibilitybutton {
+  background-color: transparent;
+  border: 0;
+  width: 194px;
+  height: 32px;
+  flex-shrink: 0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 250px;
+  margin-right: 150px;
+  transform: translateY(-70%);
+}
+
+.password-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 0px;
+}

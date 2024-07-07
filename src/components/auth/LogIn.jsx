@@ -4,90 +4,143 @@ import { getAuth } from 'firebase/auth';
 import { ref, get } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import { db } from './firebase'; // Import your Firebase Realtime Database instance
+import { sendPasswordResetEmail } from 'firebase/auth';
+import './CSS/LogIn.css';
+
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to toggle show/hide password
   const navigate = useNavigate();
+  const auth = getAuth();
 
-  const logIn = (e) => {
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  const logIn = async (e) => {
     e.preventDefault();
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
-        // Get user's UID
-        const uid = userCredential.user.uid;
-        // Fetch user's data from Realtime Database
-        const userRef = ref(db, `UserauthList/${uid}`);
-        const snapshot = await get(userRef);
-        if (snapshot.exists()) {
-          const userData = snapshot.val();
-          const userOccupation = userData.occupation;
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const uid = userCredential.user.uid;
+      const userRef = ref(db, `UserauthList/${uid}`);
+      const snapshot = await get(userRef);
+      
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        const userOccupation = userData.occupation;
 
-          // Redirect based on user's occupation
-          if (userOccupation === 'admin') {
-            navigate('/adminhome');
-          } else if (userOccupation === 'employee') {
-            navigate('/emplyeehome');
-          } else if (userOccupation === 'driver') {
-            navigate('/driverhome');
-          } else {
-            // Handle other cases or show an alert
+        switch (userOccupation) {
+          case 'Admin':
+            if (showPassword) {
+              navigate('/adminhome', { state: { showPassword } });
+            } else {
+              navigate('/adminhome');
+            }
+            break;
+          case 'Employee':
+            if (showPassword) {
+              navigate('/emplyeehome', { state: { showPassword } });
+            } else {
+              navigate('/emplyeehome');
+            }
+            break;
+          case 'Driver':
+            if (showPassword) {
+              navigate('/driverhome', { state: { showPassword } });
+            } else {
+              navigate('/driverhome');
+            }
+            break;
+          default:
             alert('Invalid occupation. Please try again.');
-          }
-        } else {
-          // Handle case where user data doesn't exist
-          alert('User data not found. Please try again.');
         }
-      })
-      .catch((error) => {
-        console.error(error);
-        alert('Invalid email or password. Please try again.');
-      });
+      } else {
+        alert('User data not found. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Invalid email or password. Please try again.');
+    }
+  };
+
+  const resetPassword = async () => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert('Password reset email sent. Please check your email.');
+    } catch (error) {
+      console.error(error);
+      alert('Error sending password reset email. Please try again.');
+    }
   };
 
   return (
-    <div className='log-in-container'>
-      <form action="" id="regform" className="w-25 m-4" onSubmit={logIn}>
-        <h2 className="mb-3">Log In for Users</h2>
-        <div className="form-floating">
-          <label htmlFor="floatingInput">Email Address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <br />
-        <div className="form-floating">
-          <label htmlFor="floatingPassword">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <br />
-        <button type="submit" id="loginButton" className="btn btn-primary">
-          Log In
-        </button>
-      </form>
-      <p>udanaudana@gmail.com --- Admin</p>
-      <p>udanaudana01@gmail.com --- Employee</p>
-      <p>udanaudana02@gmail.com --- Driver</p>
-      <p>password --- udanaudana</p>
-    </div>
+    <body className="login-page">
+      <div className="login-container">
+        <form onSubmit={logIn} className="login-form">
+          <h2 className="loginheading">LOGIN</h2>
+          <div className="">
+            <div className="input-wrapper">
+              <input
+                type="email"
+                className="logininput"
+                id="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <img
+                    src="/images/components/email.png"
+                    alt="Pavara Tire Management System"
+                    className="input-image"
+              />
+            </div>
+          </div>
+          <br />
+          <div className="">
+            <div className="input-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className="logininput"
+                id="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <img
+                  src="/images/components/password.png"
+                  alt="Pavara Tire Management System"
+                  className="input-image"
+              />
+            </div>
+          </div>
+          <br /><br />
+          <div className="password-actions">
+          <button
+              type="button"
+              className="passwordvisibilitybutton"
+              onClick={togglePasswordVisibility}
+          >
+              <img
+                    src="/images/components/closedeye.png"
+                    alt="show/hide button"
+                    className="passwordimage"
+              />&nbsp;&nbsp;
+              {showPassword ? '  Hide' : '   Show'}  password
+          </button>
+          <button type="button" className="forgetpassword" onClick={resetPassword}>
+            Forgot Password?
+          </button>
+          </div>
+          <br /><br />
+          <button type="submit" className="loginbutton">
+            Log In
+          </button>
+        </form>
+      </div>
+    </body> 
   );
 };
 
 export default LogIn;
-
-
-
-
