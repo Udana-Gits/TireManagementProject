@@ -132,10 +132,10 @@ const LogIn = () => {
           >
               <img
                     src="/images/components/closedeye.png"
-                    alt="Pavara Tire Management System"
+                    alt="show/hide button"
                     className="passwordimage"
-              />
-              {showPassword ? '  Hide' : '  Show'} password
+              />&nbsp;&nbsp;
+              {showPassword ? '  Hide' : '   Show'}  password
           </button>
           <button type="button" className="forgetpassword" onClick={resetPassword}>
             Forgot Password?

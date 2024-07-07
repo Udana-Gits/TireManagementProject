@@ -11,7 +11,7 @@ const Footer = () => {
           <div className='timer'>
             <center><DateandTime /></center>
           </div>
-          <center><p className="footercomponent">Copyright © 2024 Pavara Tire Management System</p></center>
+          <center><p className="footercomponent">Copyright © 2024 TireOptiTrack (Pavara Tire Management System)</p></center>
         </div>
       </footer>
     </div>
