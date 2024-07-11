@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { get, set, ref } from 'firebase/database';
 import { db, app } from './firebase';
 import { getDownloadURL, getStorage, uploadBytes, ref as sRef } from 'firebase/storage';
+import { useNavigate } from 'react-router-dom';
 import './CSS/ProfileEdit.css';
 
 
@@ -14,6 +15,8 @@ const ProfileEdit = () => {
   const [personalemail, setpersonalemail] = useState('');
   const [user, setUser] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const auth = getAuth();
@@ -121,9 +124,23 @@ const ProfileEdit = () => {
     }
   };
 
+  const backhandle = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="edit-profile-container">
-    <h2>Edit Profile</h2>
+    <div >
+      <br />
+      <button onClick={backhandle} className="backbutton">
+        <img
+          src="/images/components/Arrow_left.png"
+          alt="leftarrow"
+          className='leftarrow'
+        />
+        Back
+      </button>
+      <div className="edit-profile-container">
+      <h2>Edit Profile</h2>
       <div className="profile-picture">
         {profilePicture ? ( <img src={profilePicture} alt="Profile" className="profile-picture" />) : ( <img src="https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/default.jpg?alt=media&token=be7f47f4-42ac-421b-a775-be76dd0de1bb" alt="Default" className="profile-picture" /> )}
         <br />
@@ -152,6 +169,8 @@ const ProfileEdit = () => {
           Update Profile
         </button>
       </form>
+      </div>
+    
     </div>
   );
 };

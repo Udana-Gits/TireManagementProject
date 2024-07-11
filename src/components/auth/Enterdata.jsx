@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
 import { ref, set } from 'firebase/database';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from 'eact-router-dom'
 import './CSS/Enterdata.css';
+import { Modal, Button } from 'react-bootstrap'; // Import Modal and Button from react-bootstrap
 
 const EnterData = () => {
   const [tireNo, setTireNo] = useState('');
@@ -15,6 +16,9 @@ const EnterData = () => {
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
   const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(false); // State to show/hide the modal
+  const [enteredData, setEnteredData] = useState(''); // State to store the entered data
 
   const backhandle = () => {
     navigate(-1);
@@ -39,11 +43,28 @@ const EnterData = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (!tireNo || !vehicleNo || !tyrePressure || !threadDepth || !selectedOption || !selectedOption1 || !selectedOption2 || !selectedOption3 || !kmReading) {
+    if (!tireNo ||!vehicleNo ||!tyrePressure ||!threadDepth ||!selectedOption ||!selectedOption1 ||!selectedOption2 ||!selectedOption3 ||!kmReading) {
       alert('Please fill in all required fields');
       return;
     }
 
+    const enteredData = `
+
+      Vehicle Type: ${selectedOption}\n
+      Vehicle Number: ${vehicleNo}\n
+      Tire Serial Number: ${tireNo}\n
+      Km Reading: ${kmReading}\n
+      Tire Status: ${selectedOption2}\n
+      Tire Brand: ${selectedOption3}\n
+      Tire Position: ${selectedOption1}\n
+      Thread Depth: ${threadDepth}\n
+      Air Pressure: ${tyrePressure}\n`;
+
+    setEnteredData(enteredData);
+    setShowModal(true);
+  };
+
+  const handleModalConfirm = () => {
     const userRef = ref(db, `TireData/${tireNo}`);
     set(userRef, {
       vehicleNo: vehicleNo,
@@ -65,9 +86,14 @@ const EnterData = () => {
         hour12: true,
       }),
     })
-    .then(() => {
-      window.location.reload();
+   .then(() => {
+      window.alert('Data entered successfully!');
+      setShowModal(false);
     });
+  };
+
+  const handleModalCancel = () => {
+    setShowModal(false);
   };
 
   return (
@@ -100,7 +126,7 @@ const EnterData = () => {
                   <option value="RTG">RTG</option>
                 </select>
               </div>
-              <br />
+              <br/>
               <label htmlFor="vehicaleNumber" className='label'>Vehicle Number</label>
               <div className="">
                 <input
@@ -214,7 +240,7 @@ const EnterData = () => {
                   className='vehicale'
                 />
               )}
-              {selectedOption === "IT" && (
+{selectedOption === "IT" && (
                 <img
                   src="/images/vehicals/IT.png"
                   alt="Internal Transport"
@@ -238,7 +264,7 @@ const EnterData = () => {
               {selectedOption === "RTG" && (
                 <img
                   src="/images/vehicals/RTG.png"
-                  alt="Rubber Tire Granty Crane"
+                 alt="Rubber Tire Granty Crane"
                   className='vehicale'
                 />
               )}
@@ -258,6 +284,44 @@ const EnterData = () => {
           </button>
         </div>
       </form>
+
+      <Modal show={showModal} onHide={handleModalCancel} className="modal-confirm">
+  <Modal.Header>
+    <Modal.Title>Click OK to confirm or Cancel to edit.</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div >
+        <p className='leftpart'>Vehicle Type: {selectedOption}</p>
+        <br />
+        <p>Vehicle Number: {vehicleNo}</p>
+        <br />
+        <p>Tire Serial Number: {tireNo}</p>
+        <br />
+        <p>Km Reading: {kmReading}</p>
+        <br />
+        <p>Tire Status: {selectedOption2}</p>
+      </div>
+      <div className='rightpart'>
+        <p>Tire Brand: {selectedOption3}</p>
+        <br />
+        <p>Tire Position: {selectedOption1}</p>
+        <br />
+        <p>Thread Depth: {threadDepth}</p>
+        <br />
+        <p>Air Pressure: {tyrePressure}</p>
+      </div>
+    </div>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="primary" onClick={handleModalConfirm} className='promtbutton'>
+      Confirm
+    </Button>
+    <Button variant="secondary" onClick={handleModalCancel} className='promtbutton' >
+      Cancel
+    </Button>
+  </Modal.Footer>
+</Modal>
     </div>
   );
 };

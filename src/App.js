@@ -8,12 +8,11 @@ import DriverMain from './components/auth/DriverMain';
 import EmployeeMain from './components/auth/EmployeeMain';
 import {BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Enterdata from './components/auth/Enterdata';
-import Footer from './components/Footer';
-import Header from './components/Header';
 import ProfileEdit from './components/auth/ProfileEdit' ;
 import TireData from './components/auth/TireData' ;
 import Navbar from './components/auth/NavBar';
 import LayOut from './components/LayOut';
+import VehicleData from './components/auth/VehicleData' ;
 
 
 
@@ -44,6 +43,8 @@ function App() {
           <Route path='/navbar' element={<LayOut><Navbar /></LayOut>} />
           <Route index element={<TireData/>}/>
           <Route path='/tiredata' element={<LayOut><TireData /></LayOut>} />
+          <Route index element={<VehicleData/>}/>
+          <Route path='/vehicledata' element={<LayOut><VehicleData /></LayOut>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -34,7 +34,11 @@ function Layout({ children }) {
 
     case '/signup':
       pageTitle = 'Add New User';
-      break;  
+      break;
+    
+    case '/vehicledata':
+        pageTitle = 'Vehicle Information';
+        break;
 
     default:
       pageTitle = 'Unknown Page';

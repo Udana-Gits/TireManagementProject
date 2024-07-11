@@ -1,6 +1,4 @@
 
-  
-  
   .formdropdown {
     width: 280px;
     height: 44px;
@@ -97,3 +95,60 @@
     width: 383px;
     height: 218px;
   }
+
+  .modal-confirm .modal-dialog {
+    position: fixed !important;
+    top: 50% !important;
+    left: 40% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 50px !important;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
+  }
+  .modal-confirm .modal-body {
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    color: #FFF;
+    padding: 20px;
+    width: 900px;
+  }
+  .modal-confirm .modal-header {
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    color: #FFF;
+    padding: 20px;
+    width: 900px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+  }
+  .modal-confirm .modal-footer {
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    color: #FFF;
+    padding: 20px;
+    width: 900px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  
+.promtbutton{
+  width: 420px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  color: #042D67;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.leftpart{
+  left: 40px;
+}
+  

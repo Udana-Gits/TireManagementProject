@@ -32,6 +32,9 @@ function AdminHome() {
   const handleTireData = () => {
     navigate('/tiredata');
   };
+  const handlvehicleinfo = () => {
+    navigate('/vehicledata');
+  };
   
   return (
     <div>
@@ -46,7 +49,7 @@ function AdminHome() {
         View Tire Information
         </button>
         <br /><br />
-        <button onClick={handleAddNewUser} class="adminhomebutton">
+        <button onClick={handlvehicleinfo} class="adminhomebutton">
         View Vehicle Information
         </button>
         <br /><br />
