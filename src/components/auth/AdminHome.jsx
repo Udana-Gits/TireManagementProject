@@ -29,7 +29,7 @@ function AdminHome() {
   const handleEntertireData = () => {
     navigate('/enterdata');
   };
-  const handleTireData = () => {
+  const tiredataview = () => {
     navigate('/tiredata');
   };
   const handlvehicleinfo = () => {
@@ -45,7 +45,7 @@ function AdminHome() {
         Input Tire Measurements
         </button>
         <br /><br />
-        <button onClick={handleTireData} class="adminhomebutton">
+        <button onClick={tiredataview} class="adminhomebutton">
         View Tire Information
         </button>
         <br /><br />

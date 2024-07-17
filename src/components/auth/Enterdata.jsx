@@ -15,6 +15,11 @@ const EnterData = () => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
+  const [date, setDate] = useState(new Date().toLocaleString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: 'numeric',
+  }));
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false); // State to show/hide the modal
@@ -65,7 +70,7 @@ const EnterData = () => {
   };
 
   const handleModalConfirm = () => {
-    const userRef = ref(db, `TireData/${tireNo}`);
+    const userRef = ref(db, `TireData/${date.replace(/\//g, '-')}/${tireNo}`);
     set(userRef, {
       vehicleNo: vehicleNo,
       tireNo: tireNo,

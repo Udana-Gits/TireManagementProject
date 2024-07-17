@@ -1,0 +1,86 @@
+.searchcontainer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.Driverlabel{
+    color: #000;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vehicalenumberfield{
+    width: 374px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F0EDFF;
+    text-align: center;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vehicalenumberfield::placeholder{
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.3;
+    text-align: center;
+}
+
+.searchbutton{
+    width: 234px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.custom-modal {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* make sure it's on top of other elements */
+  }
+
+  .clm1, .clm2, .clm3, .clm4 {
+    flex-shrink: 0;
+    border-radius: 15px;
+    text-align: center;
+    width: 25%; /* adjust the width value to your liking */
+  }
+  
+  .clm1, .clm3 {
+    font-size: 20px;
+    color: #FFF;
+    font-weight: 1000;
+    background-color: rgba(5, 72, 167, 0.5);
+  }
+  
+  .clm2, .clm4 {
+    font-size: 20px;
+    background: #F0EDFF;
+  }

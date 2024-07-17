@@ -38,6 +38,11 @@ export function EmployeeMain() {
         navigate('/enterdata');
     };
 
+    const tiredataview = () => {
+
+        navigate('/tiredata');
+    };
+
     return (
         <div>
         <NavBar authuser={authuser} />
@@ -49,7 +54,7 @@ export function EmployeeMain() {
                         <br />
                         <br />
                         <br />
-                        <button onClick={inputmeasurement} class="enterdatabutton">View Tire Details</button>
+                        <button onClick={tiredataview} class="enterdatabutton">View Tire Details</button>
                     </div>
                     
                     
