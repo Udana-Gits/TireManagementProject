@@ -108,7 +108,7 @@ const EnterData = () => {
         Back
       </button>
       
-      <form action="" id="dropdown" className="" onSubmit={handleFormSubmit}>
+      <form action="" id="dropdown" className="contentbox" onSubmit={handleFormSubmit}>
         <br />
         <table id='tableenterdata'>
           <tr>
