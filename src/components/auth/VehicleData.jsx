@@ -6,7 +6,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import './CSS/DriverMain.css';
 import Modal from 'react-modal';
 
-const DriverMain = ({ tireDataRef }) => {
+const VehicleData = ({ tireDataRef }) => {
   const [authuser, setAuthUser] = useState(null);
   const [tireData, setTireData] = useState([]);
   const [originalTireData, setOriginalTireData] = useState([]);
@@ -28,21 +28,26 @@ const DriverMain = ({ tireDataRef }) => {
   }, []);
 
   useEffect(() => {
-    const dbRef = ref(getDatabase(), tireDataRef);
+    const dbRef = ref(getDatabase(), 'TireData');
     return onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
-      const tireDataObject = data.TireData || {};
-      const tireDataArray = Object.keys(tireDataObject).map((key) => ({
-        id: key,
-        ...tireDataObject[key],
-      }));
-      setTireData(tireDataArray);
-      setOriginalTireData(tireDataArray);
+      if (data) {
+        const tireDataArray = [];
+        Object.keys(data).forEach(dateKey => {
+          Object.keys(data[dateKey]).forEach(tireNo => {
+            tireDataArray.push({
+              id: tireNo,
+              ...data[dateKey][tireNo]
+            });
+          });
+        });
+        setTireData(tireDataArray);
+        setOriginalTireData(tireDataArray);
+      }
     }, {
       onlyOnce: true,
     });
-  }, [tireDataRef]);  
-
+  }, []);
 
   const handleSearch = () => {
     if (vehicleNumber.trim() === '') {
@@ -51,7 +56,7 @@ const DriverMain = ({ tireDataRef }) => {
     }
 
     const filteredData = originalTireData.filter((tire) => {
-      const vehicleNo = tire.vehicleNo && typeof tire.vehicleNo === 'object' ? tire.vehicleNo.Value : tire.vehicleNo || '';
+      const vehicleNo = tire.vehicleNo || '';
       return vehicleNo.toLowerCase() === vehicleNumber.toLowerCase();
     });
 
@@ -91,7 +96,7 @@ const DriverMain = ({ tireDataRef }) => {
 
     if (tyrePressureColor === 'red' || threadDepthColor === 'red') {
       return 'BAD';
-    } else if (tyrePressureColor === 'yellow' || threadDepthColor === 'yello') {
+    } else if (tyrePressureColor === 'yellow' || threadDepthColor === 'yellow') {
       return 'BETTER TO CHECK';
     } else {
       return 'GOOD';
@@ -181,11 +186,11 @@ const DriverMain = ({ tireDataRef }) => {
             </div>
           </div>
         ) : (
-          <p>Please sign in to access Driver Main.</p>
+          <p>Please log in to view your tire data.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default DriverMain;
+export default VehicleData;
