@@ -28,21 +28,23 @@ const TireData = ({ tireDataRef }) => {
   }, []);
 
   useEffect(() => {
-    const dbRef = ref(getDatabase(), `${tireDataRef}/TireData`);
+    const dbRef = ref(getDatabase(), 'TireData');
     return onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
-      const tireDataObject = data.TireData || {};
-      const tireDataArray = Object.keys(tireDataObject).map((key) => ({
-        id: key,
-        ...tireDataObject[key],
-      }));
-      setTireData(tireDataArray);
-      setOriginalTireData(tireDataArray);
+      if (data) {
+        const tireDataArray = Object.keys(data).flatMap((date) =>
+          Object.keys(data[date]).map((tireNo) => ({
+            id: tireNo,
+            ...data[date][tireNo],
+          }))
+        );
+        setTireData(tireDataArray);
+        setOriginalTireData(tireDataArray);
+      }
     }, {
       onlyOnce: true,
     });
-  }, [tireDataRef]);  
-
+  }, []);
 
   const handleSearch = () => {
     if (tireNumber.trim() === '') {
@@ -51,9 +53,9 @@ const TireData = ({ tireDataRef }) => {
     }
 
     const filteredData = originalTireData.filter((tire) => {
-        const tireNo = tire.tireNo && typeof tire.tireNo === 'object' ? tire.tireNo.Value : tire.tireNo || '';
-        return tireNo.toLowerCase() === tireNumber.toLowerCase();
-      });
+      const tireNo = tire.tireNo && typeof tire.tireNo === 'object' ? tire.tireNo.Value : tire.tireNo || '';
+      return tireNo.toLowerCase() === tireNumber.toLowerCase();
+    });
 
     if (filteredData.length === 0) {
       setNoDataFound(true);
@@ -91,7 +93,7 @@ const TireData = ({ tireDataRef }) => {
 
     if (tyrePressureColor === 'red' || threadDepthColor === 'red') {
       return 'BAD';
-    } else if (tyrePressureColor === 'yellow' || threadDepthColor === 'yello') {
+    } else if (tyrePressureColor === 'yellow' || threadDepthColor === 'yellow') {
       return 'BETTER TO CHECK';
     } else {
       return 'GOOD';
@@ -105,7 +107,7 @@ const TireData = ({ tireDataRef }) => {
   const ModalTable = () => {
     return (
       <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} className="custom-modal">
-        <h2>Tire Details of Your Vehicale</h2>
+        <h2>Tire Details of Your Vehicle</h2>
         <table className="">
           <thead>
             <tr>
@@ -123,7 +125,7 @@ const TireData = ({ tireDataRef }) => {
                 <td className='clm3'>{tire.dateTime}</td>
                 <td className='clm4'>{tire.vehicleNo}</td>
                 <td className='clm3'>{tire.TirePosition}</td>
-                <td  className='clm4' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
+                <td className='clm4' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
                 <td className='clm3' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
                 <td className='clm4'>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
               </tr>
@@ -138,17 +140,17 @@ const TireData = ({ tireDataRef }) => {
     <div>
       <div className="">
         <br />
-      <button onClick={backhandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='leftarrow'
-        />
-        Back
-      </button>
+        <button onClick={backhandle} className="backbutton">
+          <img
+            src="/images/components/Arrow_left.png"
+            alt="leftarrow"
+            className='leftarrow'
+          />
+          Back
+        </button>
         <div>
         </div>
-        {authuser? (
+        {authuser ? (
           <div>
             <br />
             <div>
@@ -173,7 +175,7 @@ const TireData = ({ tireDataRef }) => {
                   <br />
                   <button onClick={handleSearch} className="searchbutton">
                     Search
-                  </button> 
+                  </button>
                   <br />
                   <br />
                 </div>
