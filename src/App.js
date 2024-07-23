@@ -13,6 +13,7 @@ import TireData from './components/auth/TireData' ;
 import Navbar from './components/auth/NavBar';
 import LayOut from './components/LayOut';
 import VehicleData from './components/auth/VehicleData' ;
+import AccountManage from './components/auth/AccountManage';
 
 
 
@@ -45,6 +46,8 @@ function App() {
           <Route path='/tiredata' element={<LayOut><TireData /></LayOut>} />
           <Route index element={<VehicleData/>}/>
           <Route path='/vehicledata' element={<LayOut><VehicleData /></LayOut>} />
+          <Route index element={<AccountManage/>}/>
+          <Route path='/accountmanage' element={<LayOut><AccountManage /></LayOut>} />
         </Routes>
       </BrowserRouter>
     </div>

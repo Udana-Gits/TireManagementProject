@@ -7,8 +7,8 @@ const Footer = () => {
     <div className="">
       <footer className="footer">
         <div >
-          <center><p></p></center>
           <div className='timer'>
+            <br />
             <center><DateandTime /></center>
           </div>
           <center><p className="footercomponent">Copyright © 2024 TireOptiTrack (Pavara Tire Management System)</p></center>

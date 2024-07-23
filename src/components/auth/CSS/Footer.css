@@ -1,9 +1,9 @@
 .footer{
-    height: 65px;
+    height: 100px;
     flex-shrink: 0;
     border-radius: 0px;
     background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-    position:fixed;
+    /* position:fixed; */
     bottom: 0;
     width: 100%;
 }
@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-    transform: translateY(-70%);
+    transform: translateY(10%);
 }
 
 .timer{

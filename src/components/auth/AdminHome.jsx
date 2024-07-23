@@ -36,6 +36,10 @@ function AdminHome() {
     navigate('/vehicledata');
   };
   
+  const handleAccountmanage = () => {
+    navigate('/accountmanage');
+  };
+  
   return (
     <div>
       <NavBar authuser={authuser} />
@@ -57,7 +61,7 @@ function AdminHome() {
         View Tire Performance
         </button>
         <br /><br />
-        <button onClick={handleAddNewUser} class="adminhomebutton">
+        <button onClick={handleAccountmanage} class="adminhomebutton">
         User Account Management
         </button>
         <br /><br />
@@ -66,6 +70,7 @@ function AdminHome() {
         </button>
         <br /><br />
       </div>
+      <br /><br /><br /><br /><br /><br /><br /><br />
     </div>
   );
 }

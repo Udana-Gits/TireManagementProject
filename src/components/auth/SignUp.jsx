@@ -48,6 +48,7 @@ const SignUp = () => {
             firstName: firstName,
             lastName: lastName,
             occupation: selectedOption,
+            officeemail:email,
             profilePicture: '', 
             personalemail: '',
             dateOfBirth: '', 
@@ -147,9 +148,10 @@ const SignUp = () => {
             </select>
           </div>
           <br />
-          <button type="submit" className="registerbutton" >Register</button>
+          <center><button type="submit" className="registerbutton" >Register</button></center>
         </form>
       </div>
+      <br /><br /><br /><br /><br />
     </div>
   );
 }

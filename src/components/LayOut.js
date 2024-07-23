@@ -39,11 +39,15 @@ function Layout({ children }) {
     case '/vehicledata':
         pageTitle = 'Vehicle Information';
         break;
+    
+    case '/accountmanage':
+        pageTitle = 'User Account Management';
+        break;
 
     default:
       pageTitle = 'Unknown Page';
   }
-
+  
   if (location.pathname === '/login') {
     return children;
   }
