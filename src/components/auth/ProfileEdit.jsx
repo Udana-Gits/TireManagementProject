@@ -140,13 +140,49 @@ const ProfileEdit = () => {
         Back
       </button>
       <div className="edit-profile-container">
-      <h2>Edit Profile</h2>
-      <div className="profile-picture">
-        {profilePicture ? ( <img src={profilePicture} alt="Profile" className="profile-picture" />) : ( <img src="https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/default.jpg?alt=media&token=be7f47f4-42ac-421b-a775-be76dd0de1bb" alt="Default" className="profile-picture" /> )}
-        <br />
-        <input type="file" onChange={handleImageChange} />
-        {/* <button disabled={uploading}>{uploading ? "Uploading..." : "Upload Image"}</button> */}
+      <div className="row">
+        <div className="col-md-3">
+          <br/><br/><br/><br/>
+          <div className="profile-picture">
+            {profilePicture ? (
+              <img src={profilePicture} alt="Profile" className="profile-picture" />
+            ) : (
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/default.jpg?alt=media&token=be7f47f4-42ac-421b-a775-be76dd0de1bb"
+                alt="Default"
+                className="profile-picture"
+              />
+            )}
+            <br />
+            <input type="file" onChange={handleImageChange} />
+            {/* <button disabled={uploading}>{uploading ? "Uploading..." : "Upload Image"}</button> */}
+          </div>
+        </div>
+        <div className="col-md-9">
+          <form onSubmit={handleUpdateProfile}>
+            <div className="form-group">
+              <label>Personal Email:</label>
+              <input type="email" value={personalemail} onChange={(e) => setpersonalemail(e.target.value)} />
+            </div>
+            <div className="form-group">
+              <label>Date of Birth:</label>
+              <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
+            </div>
+            <div className="form-group">
+              <label>Phone Number:</label>
+              <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+            </div>
+            <div className="form-group">
+              <label>Address:</label>
+              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+            </div>
+            <button type="submit" className="btn btn-prim">
+              Update Profile
+            </button>
+          </form>
+        </div>
       </div>
+<<<<<<< Updated upstream
       <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br />
       <form onSubmit={handleUpdateProfile}>
       <div className="form-group">
@@ -173,7 +209,10 @@ const ProfileEdit = () => {
       <br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br />
 
+=======
+>>>>>>> Stashed changes
     </div>
+  </div>
   );
 };
 
