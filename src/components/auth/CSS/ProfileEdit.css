@@ -82,23 +82,25 @@
   background-color: #0056b3;
 }
 
-/* Tablet and larger */
-@media (min-width: 768px) {
+
+ /* Tablet and larger */
+@media (min-width: 768px) and (max-width: 1024px) {
   .edit-profile-container {
-     width: 70%;
-   }
+    width: 70%;
+  }
   .profile-picture img {
-     width: 180px;
-     height: 180px;
-   }
+    width: 180px;
+    height: 180px;
+  }
   .form-group input {
-     padding: 10px;
-   }
+    padding: 10px;
+  }
   .btn-prim {
-     padding: 12px;
-     font-size: 18px;
-   }
- }
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+
  
  /* Mobile */
  @media (max-width: 767px) {
@@ -121,23 +123,38 @@
    }
  }
  
- /* Small mobile */
- @media (max-width: 479px) {
+ /* Mobile */
+@media (max-width: 767px) {
   .edit-profile-container {
-     width: 95%;
-   }
+    width: 90%;
+  }
+
+  .row {
+    flex-direction: column; /* Stack columns on mobile */
+    align-items: center; /* Center items on mobile */
+  }
+
+  .col-md-3, .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
   .profile-picture img {
-     width: 100px;
-     height: 100px;
-   }
+    width: 120px;
+    height: 120px;
+  }
+
   .form-group {
-     margin-bottom: 6px;
-   }
+    margin-bottom: 8px;
+  }
+
   .form-group input {
-     padding: 6px;
-   }
+    padding: 8px;
+  }
+
   .btn-prim {
-     padding: 8px;
-     font-size: 12px;
-   }
- }
+    padding: 10px;
+    font-size: 14px;
+  }
+}

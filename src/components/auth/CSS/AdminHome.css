@@ -1,7 +1,8 @@
-.adminhomebutton{
+.adminhomebutton {
     display: inline-block;
-    width: 1000px; /* set a fixed width for all buttons */
-    height: 80px;
+    width: 80%; /* Reduce width to 80% */
+    max-width: 600px; /* Set a maximum width */
+    height: auto; /* Adjust height to content */
     justify-content: center;
     align-items: center;
     border-radius: 15px;
@@ -10,13 +11,45 @@
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 46px;
+    font-size: 1.5rem; /* Use rem for font size */
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: 10px;
+    margin: 5px auto; /* Center buttons and reduce margin */
+    padding: 10px; /* Adjust padding for better spacing */
 }
 
-.adminbuttonbox{
+.adminbuttonbox {
     text-align: center;
+    padding: 0 10px; /* Add some padding for smaller screens */
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .adminhomebutton {
+        font-size: 1.2rem; /* Adjust font size for tablet */
+        max-width: 500px; /* Adjust max-width for tablets */
+        padding: 8px; /* Adjust padding for tablets */
+        margin: 5px auto; /* Center buttons and reduce margin for tablets */
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .adminhomebutton {
+        font-size: 1rem; /* Adjust font size for mobile */
+        max-width: 400px; /* Adjust max-width for mobile */
+        padding: 8px; /* Adjust padding for mobile */
+        margin: 5px auto; /* Center buttons and reduce margin for mobile */
+    }
+}
+
+/* Small mobile */
+@media (max-width: 479px) {
+    .adminhomebutton {
+        font-size: 0.9rem; /* Adjust font size for small mobile */
+        max-width: 350px; /* Adjust max-width for small mobile */
+        padding: 6px; /* Adjust padding for small mobile */
+        margin: 5px auto; /* Center buttons and reduce margin for small mobile */
+    }
 }
