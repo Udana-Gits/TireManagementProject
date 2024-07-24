@@ -14,6 +14,7 @@ import Navbar from './components/auth/NavBar';
 import LayOut from './components/LayOut';
 import VehicleData from './components/auth/VehicleData' ;
 import AccountManage from './components/auth/AccountManage';
+import TirePerformance from './components/auth/TirePerformance';
 
 
 
@@ -48,6 +49,8 @@ function App() {
           <Route path='/vehicledata' element={<LayOut><VehicleData /></LayOut>} />
           <Route index element={<AccountManage/>}/>
           <Route path='/accountmanage' element={<LayOut><AccountManage /></LayOut>} />
+          <Route index element={<TirePerformance/>}/>
+          <Route path='/tireperformance' element={<LayOut><TirePerformance /></LayOut>} />
         </Routes>
       </BrowserRouter>
     </div>
