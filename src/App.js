@@ -6,7 +6,7 @@ import SignUp from './components/auth/SignUp';
 import AdminHome from './components/auth/AdminHome';
 import DriverMain from './components/auth/DriverMain';
 import EmployeeMain from './components/auth/EmployeeMain';
-import {BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Enterdata from './components/auth/Enterdata';
 import ProfileEdit from './components/auth/ProfileEdit' ;
 import TireData from './components/auth/TireData' ;
