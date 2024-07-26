@@ -113,8 +113,8 @@ const AccountManage = () => {
               <h4>
                 {selectedAccount.firstName} {selectedAccount.lastName}
               </h4>
-              <p>Personal Email: {selectedAccount.personalemail}</p>
-              <p>Email: {selectedAccount.email}</p>
+              <p>Personal Email: {selectedAccount.personalEmail}</p>
+              <p>Email: {selectedAccount.officeemail}</p>
               <p>Address: {selectedAccount.address}</p>
               <p>Phone Number: {selectedAccount.phoneNumber}</p>
               <p>Date of Birth: {selectedAccount.dateOfBirth}</p>

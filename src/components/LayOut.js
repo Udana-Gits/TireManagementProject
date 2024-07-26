@@ -43,6 +43,10 @@ function Layout({ children }) {
     case '/accountmanage':
         pageTitle = 'User Account Management';
         break;
+    
+    case '/tireperformance':
+        pageTitle = 'Tire Performance';
+        break;
 
     default:
       pageTitle = 'Unknown Page';

@@ -72,7 +72,7 @@ const LogIn = () => {
       alert('Password reset email sent. Please check your email.');
     } catch (error) {
       console.error(error);
-      alert('Error sending password reset email. Please try again.');
+      alert('Error sending password reset email. Please try again after entering your email in email box.');
     }
   };
 

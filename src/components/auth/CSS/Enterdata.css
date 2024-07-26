@@ -156,3 +156,58 @@
   text-align: center;
 }
   
+
+/* Add this CSS to your existing Enterdata.css file */
+
+.vehicle-options {
+  display: flex;
+  justify-content: center;  /* Center the vehicle options horizontally */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.vehicle-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.vehicle-option img {
+  width: 60px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.vehicle-option p {
+  font-size: 12px; /* Adjust the size as needed */
+  text-align: center;
+  margin: 0;
+}
+
+.vehicle-option.selected {
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.selected-vehicle {
+  display: flex;
+  justify-content: center;  /* Center the selected vehicle horizontally */
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.selected-vehicle img {
+  width: 300px; /* Adjust the size as needed */
+  height: 150px;
+}
+
+.selected-vehicle p {
+  font-size: 14px; /* Adjust the size as needed */
+  text-align: center;
+  margin-top: 10px; /* Adjust spacing as needed */
+}

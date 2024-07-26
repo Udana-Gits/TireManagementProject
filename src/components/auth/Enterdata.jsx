@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
 import { ref, set } from 'firebase/database';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from 'eact-router-dom'
+import { useNavigate } from 'react-router-dom';
 import './CSS/Enterdata.css';
-import { Modal, Button } from 'react-bootstrap'; // Import Modal and Button from react-bootstrap
+import { Modal, Button } from 'react-bootstrap';
 
 const EnterData = () => {
   const [tireNo, setTireNo] = useState('');
@@ -22,39 +22,34 @@ const EnterData = () => {
   }));
   const navigate = useNavigate();
 
-  const [showModal, setShowModal] = useState(false); // State to show/hide the modal
-  const [enteredData, setEnteredData] = useState(''); // State to store the entered data
+  const [showModal, setShowModal] = useState(false);
+  const [enteredData, setEnteredData] = useState('');
 
   const backhandle = () => {
     navigate(-1);
   };
 
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
   const handleSelectChange1 = (event) => {
-    setSelectedOption1(event.target.value); // Corrected from setSelectedOption1
+    setSelectedOption1(event.target.value);
   };
 
   const handleSelectChange2 = (event) => {
-    setSelectedOption2(event.target.value); // Corrected from setSelectedOption1
+    setSelectedOption2(event.target.value);
   };
 
   const handleSelectChange3 = (event) => {
-    setSelectedOption3(event.target.value); // Corrected from setSelectedOption1
+    setSelectedOption3(event.target.value);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (!tireNo ||!vehicleNo ||!tyrePressure ||!threadDepth ||!selectedOption ||!selectedOption1 ||!selectedOption2 ||!selectedOption3 ||!kmReading) {
+    if (!tireNo || !vehicleNo || !tyrePressure || !threadDepth || !selectedOption || !selectedOption1 || !selectedOption2 || !selectedOption3 || !kmReading) {
       alert('Please fill in all required fields');
       return;
     }
 
     const enteredData = `
-
       Vehicle Type: ${selectedOption}\n
       Vehicle Number: ${vehicleNo}\n
       Tire Serial Number: ${tireNo}\n
@@ -91,7 +86,7 @@ const EnterData = () => {
         hour12: true,
       }),
     })
-   .then(() => {
+    .then(() => {
       window.alert('Data entered successfully!');
       setShowModal(false);
     });
@@ -100,6 +95,16 @@ const EnterData = () => {
   const handleModalCancel = () => {
     setShowModal(false);
   };
+
+  const vehicleOptions = [
+    { value: 'PM', label: 'Prime Mover', imgSrc: '/images/vehicals/PM.png' },
+    { value: 'TT', label: 'Terminal Transport', imgSrc: '/images/vehicals/TT.png' },
+    { value: 'PI', label: 'Prime Mover Internal', imgSrc: '/images/vehicals/PI.png' },
+    { value: 'IT', label: 'Internal Transport', imgSrc: '/images/vehicals/IT.png' },
+    { value: 'FS', label: 'Small Forklift', imgSrc: '/images/vehicals/FS.png' },
+    { value: 'RS', label: 'Rings Tractor', imgSrc: '/images/vehicals/RS.png' },
+    { value: 'RTG', label: 'Rubber Tire Granty Crane', imgSrc: '/images/vehicals/RTG.png' },
+  ];
 
   return (
     <div className="">
@@ -115,23 +120,21 @@ const EnterData = () => {
       
       <form action="" id="dropdown" className="contentbox" onSubmit={handleFormSubmit}>
         <br />
+        <div className="vehicle-options">
+          {vehicleOptions.map(option => (
+            <div
+              key={option.value}
+              className={`vehicle-option ${selectedOption === option.value ? 'selected' : ''}`}
+              onClick={() => setSelectedOption(option.value)}
+            >
+              <img src={option.imgSrc} alt={option.label} className='vehicale' />
+              <p>{option.label}</p>
+            </div>
+          ))}
+        </div>
         <table id='tableenterdata'>
           <tr>
             <td>
-              <div className="">
-              <label htmlFor="vehicleType" className='label'>Vehicle Type</label><br />
-                <select id="dropdown" className="formdropdown" value={selectedOption} onChange={handleSelectChange}>
-                  <option value="" disabled></option>
-                  <option value="PM">PM</option>
-                  <option value="TT">TT</option>
-                  <option value="PI">PI</option>
-                  <option value="IT">IT</option>
-                  <option value="FS">FS</option>
-                  <option value="RS">RS</option>
-                  <option value="RTG">RTG</option>
-                </select>
-              </div>
-              <br/>
               <label htmlFor="vehicaleNumber" className='label'>Vehicle Number</label>
               <div className="">
                 <input
@@ -155,7 +158,7 @@ const EnterData = () => {
               </div>
             </td>
             <td>
-            <label htmlFor="kmReading" className='label'>Km Reading</label>
+              <label htmlFor="kmReading" className='label'>Km Reading</label>
               <div className="">
                 <input
                   type="text"
@@ -224,60 +227,15 @@ const EnterData = () => {
               </div>
             </td>
             <td>
-              {selectedOption === "PM" && (
-                <img
-                  src="/images/vehicals/PM.png"
-                  alt="Prime Mover"
-                  className='vehicale'
-                />
-              )}
-              {selectedOption === "TT" && (
-                <img
-                  src="/images/vehicals/TT.png"
-                  alt="Terminal transport"
-                  className='vehicale'
-                />
-              )}
-              {selectedOption === "PI" && (
-                <img
-                  src="/images/vehicals/PI.png"
-                  alt="Prome Mover Internal"
-                  className='vehicale'
-                />
-              )}
-{selectedOption === "IT" && (
-                <img
-                  src="/images/vehicals/IT.png"
-                  alt="Internal Transport"
-                  className='vehicale'
-                />
-              )}
-              {selectedOption === "FS" && (
-                <img
-                  src="/images/vehicals/FS.png"
-                  alt="Small Forklift"
-                  className='vehicale'
-                />
-              )}
-              {selectedOption === "RS" && (
-                <img
-                  src="/images/vehicals/RS.png"
-                  alt="Rings Tractor"
-                  className='vehicale'
-                />
-              )}
-              {selectedOption === "RTG" && (
-                <img
-                  src="/images/vehicals/RTG.png"
-                 alt="Rubber Tire Granty Crane"
-                  className='vehicale'
-                />
-              )}
-              {selectedOption === "" && (
-                <img
-                  src=""
-                  
-                />
+              {selectedOption && (
+                <div className='selected-vehicle'>
+                  <img
+                    src={vehicleOptions.find(option => option.value === selectedOption).imgSrc}
+                    alt={vehicleOptions.find(option => option.value === selectedOption).label}
+                    className='vehicale'
+                  />
+                  <p>{vehicleOptions.find(option => option.value === selectedOption).label}</p>
+                </div>
               )}
             </td>
           </tr>
@@ -291,42 +249,42 @@ const EnterData = () => {
       </form>
 
       <Modal show={showModal} onHide={handleModalCancel} className="modal-confirm">
-  <Modal.Header>
-    <Modal.Title>Click OK to confirm or Cancel to edit.</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div >
-        <p className='leftpart'>Vehicle Type: {selectedOption}</p>
-        <br />
-        <p>Vehicle Number: {vehicleNo}</p>
-        <br />
-        <p>Tire Serial Number: {tireNo}</p>
-        <br />
-        <p>Km Reading: {kmReading}</p>
-        <br />
-        <p>Tire Status: {selectedOption2}</p>
-      </div>
-      <div className='rightpart'>
-        <p>Tire Brand: {selectedOption3}</p>
-        <br />
-        <p>Tire Position: {selectedOption1}</p>
-        <br />
-        <p>Thread Depth: {threadDepth}</p>
-        <br />
-        <p>Air Pressure: {tyrePressure}</p>
-      </div>
-    </div>
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="primary" onClick={handleModalConfirm} className='promtbutton'>
-      Confirm
-    </Button>
-    <Button variant="secondary" onClick={handleModalCancel} className='promtbutton' >
-      Cancel
-    </Button>
-  </Modal.Footer>
-</Modal>
+        <Modal.Header>
+          <Modal.Title>Click OK to confirm or Cancel to edit.</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div >
+              <p className='leftpart'>Vehicle Type: {selectedOption}</p>
+              <br />
+              <p>Vehicle Number: {vehicleNo}</p>
+              <br />
+              <p>Tire Serial Number: {tireNo}</p>
+              <br />
+              <p>Km Reading: {kmReading}</p>
+              <br />
+              <p>Tire Status: {selectedOption2}</p>
+            </div>
+            <div className='rightpart'>
+              <p>Tire Brand: {selectedOption3}</p>
+              <br />
+              <p>Tire Position: {selectedOption1}</p>
+              <br />
+              <p>Thread Depth: {threadDepth}</p>
+              <br />
+              <p>Air Pressure: {tyrePressure}</p>
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleModalConfirm} className='promtbutton'>
+            Confirm
+          </Button>
+          <Button variant="secondary" onClick={handleModalCancel} className='promtbutton' >
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

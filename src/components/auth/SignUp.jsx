@@ -50,7 +50,6 @@ const SignUp = () => {
             occupation: selectedOption,
             officeemail:email,
             profilePicture: '', 
-            personalemail: '',
             dateOfBirth: '', 
             phoneNumber: '', 
             address: '', 
