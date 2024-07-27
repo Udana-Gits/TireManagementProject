@@ -1,5 +1,13 @@
+.backbutton{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    
+}
+
 .account-manage-container {
     max-width: 1200px;
+    max-width: 90%;
     margin: 40px auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -96,7 +104,7 @@
     height: 40px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: #1c13c5;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -104,7 +112,7 @@
   }
   
   .search-button:hover {
-    background-color: #3e8e41;
+    background-color: #22be8a;
   }
   
   .search-input:focus {
@@ -127,9 +135,39 @@
     }
   }
   
+  @media (max-width: 660px) {
+    .account-manage-container {
+      max-width: 90%;
+      margin: 15px auto;
+    }
+  
+    table {
+      font-size: 12px;
+    }
+  
+    td button {
+      padding: 5px 5px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .account-manage-container {
+      max-width: 90%;
+      margin: 10px auto;
+    }
+  
+    table {
+      font-size: 8px;
+    }
+  
+    td button {
+      padding: 3px 3px;
+    }
+  }
+
   @media (max-width: 480px) {
     .account-manage-container {
-      max-width: 100%;
+      max-width: 90%;
       margin: 10px auto;
     }
     

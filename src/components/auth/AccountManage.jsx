@@ -81,7 +81,6 @@ const AccountManage = () => {
 
   return (
     <div className="account-manage-container">
-      <br />
       <button onClick={backhandle} className="backbutton">
         <img
           src="/images/components/Arrow_left.png"
@@ -109,7 +108,7 @@ const AccountManage = () => {
           onChange={handleSearchChange}
           placeholder="Search by name"
           className="search-input"
-        />
+        /> &nbsp;
         <button onClick={handleSearch} className="search-button">
           Search
         </button>
@@ -168,7 +167,7 @@ const AccountManage = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <br /><br /><br /><br /><br />
+      
     </div>
   );
 };
