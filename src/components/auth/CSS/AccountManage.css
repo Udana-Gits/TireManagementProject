@@ -62,7 +62,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
-
   .account-list {
     display: flex;
     flex-wrap: wrap;
@@ -86,21 +85,24 @@
   .account-info {
     width: 60%;
     float: left;
-    padding-left: 60px;
+    padding-left: 40px;
     margin: 10px;
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 790px) {
     .account-item {
       width: 100%;
+      text-align: center;
     }
     .profile-picture-container {
-      width: 100%;
+      width: 50%;
+      margin: 0 auto;
       float: none;
     }
     .account-info {
       width: 100%;
-      float: none;
       padding-left: 0;
+      margin: 10px;
+      text-align: center;
     }
   }
