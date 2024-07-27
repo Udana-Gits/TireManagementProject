@@ -14,6 +14,7 @@
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     justify-content: center;
+    border-radius: 10px;
   }
 
   .account-manage-title{
@@ -74,12 +75,18 @@
     margin: 10px;
     background-color: #f7f7f7;
     border: 1px solid #ddd;
+    border-radius: 10px;
+    justify-content: center;
   }
   
   .profile-picture-container {
     width: 30%;
     float: left;
     margin: 15px;
+  }
+
+  .profile-picture-button{
+    border-radius: 10px;
   }
   
   .account-info {
