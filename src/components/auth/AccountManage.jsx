@@ -81,14 +81,6 @@ const AccountManage = () => {
 
   return (
     <div className="account-manage-container">
-      <button onClick={backhandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='left-arrow'
-        />
-        Back
-      </button>
       <h2 className="account-manage-title">Account Management</h2>
       <br />
       <div className="filter-container">
@@ -114,30 +106,22 @@ const AccountManage = () => {
         </button>
       </div>
       <br />
-      <table className="account-table">
-        <thead>
-          <tr>
-            <th>Profile Picture</th>
-            <th>Name</th>
-            <th>Official Email</th>
-            <th>Phone No</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredAccounts.map((account) => (
-            <tr key={account.id} className="account-row">
-              <td>
-                <button onClick={() => handleProfilePictureClick(account)} className="profile-picture-button">
-                  <img src={account.profilePicture} alt="Profile" className="navbar-profile-picture" />
-                </button>
-              </td>
-              <td>{account.firstName} {account.lastName}</td>
-              <td>{account.officeemail}</td>
-              <td>{account.phoneNumber}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="account-list">
+        {filteredAccounts.map((account) => (
+          <div key={account.id} className="account-item">
+            <div className="profile-picture-container">
+              <button onClick={() => handleProfilePictureClick(account)} className="profile-picture-button">
+                <img src={account.profilePicture} alt="Profile" className="navbar-profile-picture" />
+              </button>
+            </div>
+            <div className="account-info">
+              <h4>{account.firstName} {account.lastName}</h4>
+              <p>Official Email: {account.officeemail}</p>
+              <p>Phone No: {account.phoneNumber}</p>
+            </div>
+          </div>
+        ))}
+      </div>
       <Modal show={showModal} onHide={handleModalCancel} className="modal-confirm">
         <Modal.Header>
           <Modal.Title>Account Details</Modal.Title>
@@ -167,7 +151,6 @@ const AccountManage = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      
     </div>
   );
 };
