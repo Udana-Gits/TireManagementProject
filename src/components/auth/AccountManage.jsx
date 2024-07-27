@@ -3,11 +3,13 @@ import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
+import './CSS/AccountManage.css';
 
 const AccountManage = () => {
   const [accounts, setAccounts] = useState([]);
   const [filteredAccounts, setFilteredAccounts] = useState([]);
   const [occupation, setOccupation] = useState('');
+  const [searchQuery, setSearchQuery] = useState(''); // Add a state for the search query
   const [showModal, setShowModal] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
   const navigate = useNavigate();
@@ -26,8 +28,29 @@ const AccountManage = () => {
   }, []);
 
   const handleOccupationChange = (event) => {
-    setOccupation(event.target.value);
-    const filteredAccounts = accounts.filter((account) => account.occupation === event.target.value);
+    const occupation = event.target.value;
+    setOccupation(occupation);
+
+    if (occupation === "") {
+      // Show all accounts when "All" is selected
+      setFilteredAccounts(accounts);
+    } else {
+      // Filter accounts by occupation when a specific occupation is selected
+      const filteredAccounts = accounts.filter((account) => account.occupation === occupation);
+      setFilteredAccounts(filteredAccounts);
+    }
+  };
+
+  const handleSearchChange = (event) => {
+    const searchQuery = event.target.value;
+    setSearchQuery(searchQuery);
+  };
+
+  const handleSearch = () => {
+    const filteredAccounts = accounts.filter((account) => {
+      const fullName = `${account.firstName} ${account.lastName}`;
+      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+    });
     setFilteredAccounts(filteredAccounts);
   };
 
@@ -57,20 +80,21 @@ const AccountManage = () => {
   };
 
   return (
-    <div>
-        <br />
+    <div className="account-manage-container">
+      <br />
       <button onClick={backhandle} className="backbutton">
         <img
           src="/images/components/Arrow_left.png"
           alt="leftarrow"
-          className='leftarrow'
+          className='left-arrow'
         />
         Back
       </button>
-      <h2>Account Management</h2>
-      <div>
-        <label>Filter by Occupation:</label>
-        <select value={occupation} onChange={handleOccupationChange}>
+      <h2 className="account-manage-title">Account Management</h2>
+      <br />
+      <div className="filter-container">
+        <label>Filter by Occupation: &nbsp; </label>
+        <select value={occupation} onChange={handleOccupationChange} className="occupation-select">
           <option value="">All</option>
           <option value="Admin">Admin</option>
           <option value="Driver">Driver</option>
@@ -78,7 +102,20 @@ const AccountManage = () => {
         </select>
       </div>
       <br />
-      <table>
+      <div className="search-container">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          placeholder="Search by name"
+          className="search-input"
+        />
+        <button onClick={handleSearch} className="search-button">
+          Search
+        </button>
+      </div>
+      <br />
+      <table className="account-table">
         <thead>
           <tr>
             <th>Profile Picture</th>
@@ -89,9 +126,9 @@ const AccountManage = () => {
         </thead>
         <tbody>
           {filteredAccounts.map((account) => (
-            <tr key={account.id}>
+            <tr key={account.id} className="account-row">
               <td>
-                <button onClick={() => handleProfilePictureClick(account)}>
+                <button onClick={() => handleProfilePictureClick(account)} className="profile-picture-button">
                   <img src={account.profilePicture} alt="Profile" className="navbar-profile-picture" />
                 </button>
               </td>
@@ -123,10 +160,10 @@ const AccountManage = () => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleModalConfirm} className="promtbutton">
+          <Button variant="primary" onClick={handleModalConfirm} className="confirm-button">
             Delete
           </Button>
-          <Button variant="secondary" onClick={handleModalCancel} className="promtbutton">
+          <Button variant="secondary" onClick={handleModalCancel} className="cancel-button">
             Cancel
           </Button>
         </Modal.Footer>

@@ -1,0 +1,143 @@
+.account-manage-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f0f0f0;
+  }
+  
+  td {
+    background-color: #fff;
+  }
+  
+  td button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a91ed;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  td button:hover {
+    background-color: #3e8e41;
+  }
+
+  .modal-confirm {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-confirm .modal-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .modal-confirm .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-confirm .modal-footer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .modal-confirm button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .modal-confirm button:hover {
+    background-color: #3e8e41;
+  }
+
+  .search-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-button {
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .search-input:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .account-manage-container {
+      max-width: 90%;
+      margin: 20px auto;
+    }
+    
+    table {
+      font-size: 14px;
+    }
+    
+    td button {
+      padding: 5px 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .account-manage-container {
+      max-width: 100%;
+      margin: 10px auto;
+    }
+    
+    table {
+      font-size: 12px;
+    }
+    
+    td button {
+      padding: 5px 5px;
+    }
+  }
