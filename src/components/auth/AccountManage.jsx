@@ -123,30 +123,30 @@ const AccountManage = () => {
         ))}
       </div>
       <Modal show={showModal} onHide={handleModalCancel} className="modal-confirm">
-        <Modal.Header>
-          <Modal.Title>Account Details</Modal.Title>
+        <Modal.Header className="modal-header">
+          <Modal.Title className="modal-title">Account Details</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-body">
           {selectedAccount && (
             <div>
-              <img src={selectedAccount.profilePicture} alt="Profile" className="navbar-profile-picture" />
-              <h4>
+              <img src={selectedAccount.profilePicture} alt="Profile" className="profile-picture" />
+              <h4 className="account-name">
                 {selectedAccount.firstName} {selectedAccount.lastName}
               </h4>
-              <p>Personal Email: {selectedAccount.personalEmail}</p>
-              <p>Email: {selectedAccount.officeemail}</p>
-              <p>Address: {selectedAccount.address}</p>
-              <p>Phone Number: {selectedAccount.phoneNumber}</p>
-              <p>Date of Birth: {selectedAccount.dateOfBirth}</p>
-              <p>Occupation: {selectedAccount.occupation}</p>
+              <p className="account-info">Personal Email: {selectedAccount.personalEmail}</p>
+              <p className="account-info">Email: {selectedAccount.officeemail}</p>
+              <p className="account-info">Address: {selectedAccount.address}</p>
+              <p className="account-info">Phone Number: {selectedAccount.phoneNumber}</p>
+              <p className="account-info">Date of Birth: {selectedAccount.dateOfBirth}</p>
+              <p className="account-info">Occupation: {selectedAccount.occupation}</p>
             </div>
           )}
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleModalConfirm} className="confirm-button">
+        <Modal.Footer className="modal-footer">
+          <Button variant="primary" onClick={handleModalConfirm} className="confirm-button btn-primary">
             Delete
           </Button>
-          <Button variant="secondary" onClick={handleModalCancel} className="cancel-button">
+          <Button variant="secondary" onClick={handleModalCancel} className="cancel-button btn-secondary">
             Cancel
           </Button>
         </Modal.Footer>
