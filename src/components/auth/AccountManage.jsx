@@ -122,10 +122,13 @@ const AccountManage = () => {
           </div>
         ))}
       </div>
+
       <Modal show={showModal} onHide={handleModalCancel} className="modal-confirm">
+
         <Modal.Header className="modal-header">
           <Modal.Title className="modal-title">Account Details</Modal.Title>
         </Modal.Header>
+
         <Modal.Body className="modal-body">
           {selectedAccount && (
             <div>
@@ -142,6 +145,7 @@ const AccountManage = () => {
             </div>
           )}
         </Modal.Body>
+
         <Modal.Footer className="modal-footer">
           <Button variant="primary" onClick={handleModalConfirm} className="confirm-button btn-primary">
             Delete
@@ -150,7 +154,9 @@ const AccountManage = () => {
             Cancel
           </Button>
         </Modal.Footer>
+
       </Modal>
+
     </div>
   );
 };

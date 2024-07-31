@@ -1,86 +1,217 @@
-.searchcontainer{
-    margin-top: 50px;
-    text-align: center;
+.driver-main-page {
+  width: 100%;
+  height: 77vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
 }
 
-.Driverlabel{
-    color: #000;
-    font-family: Poppins;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.header-container {
+  width: 100%;
+  height: 80px;
+  background-color: #021E45;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.vehicalenumberfield{
-    width: 374px;
-    height: 70px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: #F0EDFF;
-    text-align: center;
-    color: #000;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.main-content {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.vehicalenumberfield::placeholder{
-    color: #000;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    opacity: 0.3;
-    text-align: center;
+.button-group {
+  width: 1000px;
+  height: 600px;
+  margin: 70px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.searchbutton{
-    width: 234px;
-    height: 90px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.button-container {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
 }
 
-.custom-modal {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
+.tire-data-button {
+  width: 300px;
+  height: 300px;
+  background-color: #054AAB;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tire-data-button img {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 10px;
+}
+
+.vehicle-data-button {
+  width: 300px;
+  height: 300px;
+  background-color: #054AAB;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicle-data-button img {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1120px){
+  .button-group {
+    width: 90%;
+    height: 72%;
+    margin: 70px;
+    }
+  
+  .button-container {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .tire-data-button {
+    width: 300px;
+    height: 300px;
+    background-color: #054AAB;
+    color: #fff;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* make sure it's on top of other elements */
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tire-data-button img {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 10px;
+  }
+  
+  .vehicle-data-button {
+    width: 300px;
+    height: 300px;
+    background-color: #054AAB;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .vehicle-data-button img {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
   }
 
-  .clm1, .clm2, .clm3, .clm4 {
-    flex-shrink: 0;
-    border-radius: 15px;
-    text-align: center;
-    width: 25%; /* adjust the width value to your liking */
+  .button-container {
+    width: 80%;
+    height: 100px;
   }
-  
-  .clm1, .clm3 {
-    font-size: 20px;
-    color: #FFF;
-    font-weight: 1000;
-    background-color: rgba(5, 72, 167, 0.5);
+
+  .tire-data-button {
+    font-size: 18px;
   }
-  
-  .clm2, .clm4 {
-    font-size: 20px;
-    background: #F0EDFF;
+
+  .tire-data-button img {
+    width: 30px;
+    height: 30px;
   }
+
+  .vehicle-data-button {
+    font-size: 18px;
+  }
+
+  .vehicle-data-button img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-container {
+    width: 80%;
+    height: 80px;
+  }
+
+  .tire-data-button {
+    font-size: 14px;
+  }
+
+  .tire-data-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vehicle-data-button {
+    font-size: 14px;
+  }
+
+  .vehicle-data-button img {
+    width: 20px;
+    height: 20px;
+  }
+}

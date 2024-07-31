@@ -29,31 +29,30 @@ const DriverMain = ({ tireDataRef }) => {
   };
   
   return (
-    <div>
-      <div className="">
-        <div>
-          <NavBar authuser={authuser} />
-        </div>
-        {authuser? (
-          <div>
-            <br />
-            <div>
-                <div>
-                  <button onClick={gototiredata} className="searchbutton">
-                    Tire Data
-                  </button> 
-                  <br />
-                  <br />
-                  <button onClick={gotovehicledata} className="searchbutton">
-                    VehicleData
-                  </button> 
-                </div>
+    <div className="driver-main-page">
+      <div className="header-container">
+        <NavBar authuser={authuser} />
+      </div>
+      {authuser ? (
+        <div className="main-content">
+          <div className="button-group">
+            <div className="button-container">
+              <button onClick={gototiredata} className="tire-data-button">
+                <img src="/images/components/tire.png" alt="Tire Icon" className="tire-icon" />
+                Tire Data
+              </button>
+            </div>
+            <div className="button-container">
+              <button onClick={gotovehicledata} className="vehicle-data-button">
+                <img src="/images/components/vehicle.png" alt="Vehicle Icon" className="vehicle-icon" />
+                Vehicle Data
+              </button>
             </div>
           </div>
-        ) : (
-          <p>Please sign in to access Driver Main.</p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p>Please sign in to access Driver Main.</p>
+      )}
     </div>
   );
 };
