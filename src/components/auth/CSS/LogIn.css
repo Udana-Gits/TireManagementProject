@@ -1,159 +1,115 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
-.login-page {
-    background: url('/public/images/components/loginbackground.jpeg') lightgray 50%  / cover no-repeat;
-    background-size: 100vw 100vh; /* cover the entire viewport */
-    background-size: cover; /* add this to ensure the image is stretched to fit the full height */
-    width: auto; /* set width to 100% of viewport width */
-    height: 85vh; /* set height to 100% of viewport height */
-    flex-shrink: 0;
-    margin: 0; /* remove any margin */
-    padding: 0; /* remove any padding */
-    overflow: hidden; /* add this to prevent the page from becoming scrollable */
-    background-attachment: fixed;
-  background: url('/public/images/components/loginbackground.jpeg') no-repeat center 30% fixed;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  /* Add a whitish overlay */
-  background-color: rgba(255, 255, 255, 0.8);
-  background-blend-mode: lighten;
-}
+
 
 @media (orientation: portrait) {
   .login-page {
     background-size: auto 100vh;
   }
 }
-  
+
 .loginheading{
-    width: 200.479px;
-    height: 89.44px;
+    width: 100%;
     flex-shrink: 0;
-    color: #000;
+    color: #ffffff;
     text-align: center;
-    font-family: Poppins;
-    font-size: 64px;
-    font-style: normal;
+    font-family: Poppins;   
     font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
 }
 
 .loginbutton{
-    width: 748.999px;
-    height: 66px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: linear-gradient(270deg, #054AAB 0.43%, #021E45 99.57%);
-    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding-right: 40px
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 45px;
+  background-color:rgb(80, 83, 85);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: aliceblue;
+  font-weight: 600;
 }
 
 .logininput{
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 748.999px;
-    height: 66.018px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-    text-align: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(225, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: aliceblue;
+  padding-left:20px;
+  padding-right:60px;
 }
 
 .logininput::placeholder {
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
+  color: aliceblue;
   }
-
-.forgetpassword{
-    background-color: transparent;
-    border: 0;
-    width: 194px;
-    height: 32px;
-    flex-shrink: 0;
-    color: #000;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-left: auto;
-}
 
 .input-wrapper {
     position: relative;
+    width:100%;
+    height: 50px;
   }
 
-  .input-image {
+  .input-image1 {
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: -10px;
     transform: translateY(-50%);
-    width: 49.385px;
-    height: 44.316px;
+    width: 90px;
+    height: 90px;
+    color: #FFF;
+  }
+  .input-image2{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    color: #FFF;
   }
 
   .login-container {
-    background-color: #f9f9f9; /* light gray background */
-    border-radius: 50px;
-    background: rgba(0, 0, 0, 0.18);
-    padding: 20px; /* add some padding inside the box */
-    width: 864px;
-    height: 660px;
-    flex-shrink: 0;
-    margin: 40px auto; /* center the box horizontally */
-    margin: 90px auto; /* center the box horizontally */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 83.3vh;
+    
+
   }
   
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
 
   .passwordimage{
-    width: 39px;
-    height: 35px;
+    width: 19px;
+    height: 19px;
     flex-shrink: 0;
   }
 
   .passwordvisibilitybutton{
     background-color: transparent;
     border: 0;
-    width: 224px;
     height: 32px;
     flex-shrink: 0;
-    color: #000;
+    color: aliceblue;
     text-align: center;
     font-family: Poppins;
-    font-size: 22px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-right: 380px;
   }
 
   .password-actions {
@@ -162,10 +118,78 @@
     align-items: center;
     margin-bottom: 20px;
   }
-
-  .loginheaderiamge{
-    width: 511px;
-    height: 110px;
+  .forgetpassword{
+    background-color: transparent;
+    border: 0;
     flex-shrink: 0;
-    margin-top: 30px;
+    color: aliceblue;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: auto;
+    margin-top: -1px;
+}
+
+  @media screen and (min-width: 580px){
+    .loginheaderiamge{
+      height: 80px;
+      flex-shrink: 0;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      
+    }
+    .login-page {
+      background: url('/public/images/components/BG2.png') lightgray 50%  / cover no-repeat;
+      background-size: cover;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
+    
+    }
+    .login-form {
+      width: 520px;
+      background-color:transparent;
+      color: aliceblue;
+      border: 2px solid rgba(225, 255, 255, .2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 30px 40px;
+  
+    }
+  
+
   }
+  
+  @media screen and (max-width: 580px){
+    .loginheaderiamge{
+      height: 60px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    .headiamge{
+      text-align: center;  
+    }
+    .login-page {
+      background: url('/public/images/components/BG2.png') lightgray 50%  / cover no-repeat;
+      background-size: cover;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .login-form {
+      width: 520px;
+      background-color:transparent;
+      color: aliceblue;
+      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      padding: 30px 40px;
+  
+    }
+  }
+ 

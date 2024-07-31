@@ -25,9 +25,6 @@ const EnterData = () => {
   const [showModal, setShowModal] = useState(false);
   const [enteredData, setEnteredData] = useState('');
 
-  const backhandle = () => {
-    navigate(-1);
-  };
 
   const handleSelectChange1 = (event) => {
     setSelectedOption1(event.target.value);
@@ -101,24 +98,27 @@ const EnterData = () => {
     { value: 'TT', label: 'Terminal Transport', imgSrc: '/images/vehicals/TT.png' },
     { value: 'PI', label: 'Prime Mover Internal', imgSrc: '/images/vehicals/PI.png' },
     { value: 'IT', label: 'Internal Transport', imgSrc: '/images/vehicals/IT.png' },
-    { value: 'FS', label: 'Small Forklift', imgSrc: '/images/vehicals/FS.png' },
+    { value: 'FS', label: 'Forklift', imgSrc: '/images/vehicals/FS.png' },
     { value: 'RS', label: 'Rings Tractor', imgSrc: '/images/vehicals/RS.png' },
     { value: 'RTG', label: 'Rubber Tire Granty Crane', imgSrc: '/images/vehicals/RTG.png' },
   ];
 
   return (
     <div className="">
-      <br />
-      <button onClick={backhandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='leftarrow'
+      <div className='EnderBack'>
+      <img
+          src="/images/components/EnterDatabackground.png"
+          alt="Background"
+          className='EnderBackimg'
         />
-        Back
-      </button>
+      </div>
+
+    <div className='title' > 
+      <p><b>Input Tire Measurements</b></p>
+    </div>
       
       <form action="" id="dropdown" className="contentbox" onSubmit={handleFormSubmit}>
+        <p className='vtype'><b>Chose your Vehicle Type</b></p>
         <br />
         <div className="vehicle-options">
           {vehicleOptions.map(option => (
@@ -132,9 +132,10 @@ const EnterData = () => {
             </div>
           ))}
         </div>
-        <table id='tableenterdata'>
-          <tr>
-            <td>
+
+        <div id='tableenterdata'>
+          
+            <div className='td1'>
               <label htmlFor="vehicaleNumber" className='label'>Vehicle Number</label>
               <div className="">
                 <input
@@ -156,8 +157,7 @@ const EnterData = () => {
                   onChange={(e) => setTireNo(e.target.value)}
                 />
               </div>
-            </td>
-            <td>
+              <br />
               <label htmlFor="kmReading" className='label'>Km Reading</label>
               <div className="">
                 <input
@@ -168,42 +168,47 @@ const EnterData = () => {
                   onChange={(e) => setKmReading(e.target.value)}
                 />
               </div>
+              <br />
+
               <label htmlFor="tireStatus" className='label'>Tire Status</label>
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption2} onChange={handleSelectChange2}>
                   <option value="" disabled></option>
-                  <option value="good">Good</option>
-                  <option value="bad">Bad</option>
-                  <option value="average">Average</option>
+                  <option value="good">&nbsp;&nbsp;Good</option>
+                  <option value="bad">&nbsp;&nbsp;Bad</option>
+                  <option value="average">&nbsp;&nbsp;Average</option>
                 </select>
               </div>
               <br />
-              <label htmlFor="tireBrand" className='label'>Tire Brand</label>
+
+            </div>
+            
+
+
+            <div className='td2'>
+            <label htmlFor="tireBrand" className='label'>Tire Brand</label>
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption3} onChange={handleSelectChange3}>
                   <option value="" disabled></option>
-                  <option value="MRF">MRF</option>
-                  <option value="CEAT">CEAT</option>
-                  <option value="DSI">DSI</option>
+                  <option value="MRF">&nbsp;&nbsp;MRF</option>
+                  <option value="CEAT">&nbsp;&nbsp;CEAT</option>
+                  <option value="DSI">&nbsp;&nbsp;DSI</option>
                 </select>
               </div>
               <br />
-              
-            </td>
-          </tr>
-          <tr>
-            <td>
+
               <label htmlFor="tirePosition" className='label'>Tire Position</label>
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption1} onChange={handleSelectChange1}>
                   <option value="" disabled></option>
-                  <option value="Front Right">Front Right</option>
-                  <option value="Front left">Front left</option>
-                  <option value="Rear Right">Rear Right</option>
-                  <option value="Rear Left">Rear Left</option>
+                  <option value="Front Right">&nbsp;&nbsp;Front Right</option>
+                  <option value="Front left">&nbsp;&nbsp;Front left</option>
+                  <option value="Rear Right">&nbsp;&nbsp;Rear Right</option>
+                  <option value="Rear Left">&nbsp;&nbsp;Rear Left</option>
                 </select>
               </div>
               <br />
+
               <label htmlFor="threadDepth" className='label'>Thread Depth (mm)</label>
               <div className="">
                 <input
@@ -225,8 +230,8 @@ const EnterData = () => {
                   onChange={(e) => setTyrePressure(e.target.value)}
                 />
               </div>
-            </td>
-            <td>
+            </div>
+            {/* <td>
               {selectedOption && (
                 <div className='selected-vehicle'>
                   <img
@@ -237,9 +242,10 @@ const EnterData = () => {
                   <p>{vehicleOptions.find(option => option.value === selectedOption).label}</p>
                 </div>
               )}
-            </td>
-          </tr>
-        </table>
+            </td> */}
+          
+        </div>
+
         <br />
         <div>
           <button type="submit" className="submitbutton">
