@@ -80,7 +80,7 @@ const LogIn = () => {
     <body className="login-page">
       <div className='headiamge'>
         <img
-          src="/images/components/loginheader.png"
+          src="/images/components/header.png"
           alt="Pavara Tire Management System"
           className="loginheaderiamge"
         />
