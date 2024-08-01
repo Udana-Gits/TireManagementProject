@@ -1,27 +1,12 @@
-.registerbutton{
-    width: 150px;
-    height: 50px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #021E45 0.29%, #054AAB 99.82%);
-    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
+
 .body{
-  background-image: url('/public/images/components/BG3.png');
+  background-image: url('/public/images/components/tire_management_system.jpeg');
   overflow: hidden;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   justify-content: center;
   display: flex;
-  position: relative;
   margin-top: -20px;
 }
 
@@ -74,22 +59,72 @@
     border: 2px solid rgba(225, 255, 255, .2);
 
   }
-
-
-  .fieldcontainer {
-    width: 520px;
-    background-color:transparent;
-    color: aliceblue;
-    border: 2px solid rgba(225, 255, 255, .2);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 30px 40px;
-    margin-top: 80px;
-    margin-bottom:80px;
-
-  }
   .op{
     background-color: rgb(255, 255, 255);
     background: transparent;
     color: black;
+  }
+
+
+  @media screen and (min-width: 600px) {
+    .fieldcontainer {
+      width: 520px;
+      background-color:transparent;
+      color: aliceblue;
+      border: 2px solid rgba(225, 255, 255, .2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 30px 40px;
+      margin-top: 80px;
+      margin-bottom:80px;
+  
+    }
+    .registerbutton{
+      width: 140px;
+      height: 50px;
+      flex-shrink: 0;
+      border-radius: 15px;
+      border:solid 1px white;     
+      background: linear-gradient(90deg, #021E45 0.29%, #054AAB 99.82%);
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+  }
+
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+    .fieldcontainer {
+      width: 520px;
+      color: aliceblue;
+      backdrop-filter: blur(5px);
+      border-radius: 12px;
+      padding: 30px 40px;
+      margin-top: 80px;
+      margin-bottom:80px;
+  
+    }
+    .registerbutton{
+      width: 130px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 15px;
+      border:solid 1px white;     
+
+      background: linear-gradient(90deg, #021E45 0.29%, #054AAB 99.82%);
+      color: #FFF;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+  }
+
   }

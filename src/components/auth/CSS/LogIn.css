@@ -143,7 +143,7 @@
       
     }
     .login-page {
-      background: url('/public/images/components/BG2.png') lightgray 50%  / cover no-repeat;
+      background: url('/public/images/components/BG2.png') lightgray 50% / cover no-repeat;
       background-size: cover;
       width: 100vw;
       height: 100vh;
