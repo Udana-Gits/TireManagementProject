@@ -49,7 +49,7 @@ const SignUp = () => {
             lastName: lastName,
             occupation: selectedOption,
             officeemail:email,
-            profilePicture: '', 
+            profilePicture: 'https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/profilePictures%2Fdefault.jpg?alt=media&token=8ad886f5-29e0-459e-a29a-d3db94fc9857', 
             dateOfBirth: '', 
             phoneNumber: '', 
             address: '', 
