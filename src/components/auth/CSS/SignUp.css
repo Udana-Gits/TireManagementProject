@@ -1,6 +1,6 @@
 .registerbutton{
-    width: 250.725px;
-    height: 103.061px;
+    width: 150px;
+    height: 50px;
     flex-shrink: 0;
     border-radius: 15px;
     background: linear-gradient(90deg, #021E45 0.29%, #054AAB 99.82%);
@@ -8,33 +8,46 @@
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
+.body{
+  background-image: url('/public/images/components/BG3.png');
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  justify-content: center;
+  display: flex;
+  position: relative;
+  margin-top: -20px;
+}
 
 .registrationtextfield{
-    width: 886px;
-    height: 84px;
+    width: 100%;
+    height: 50px;
     flex-shrink: 0;
     border-radius: 50px;
-    background: rgba(240, 237, 255, 0.80);
+    background:transparent;
     text-align: center;
-    color: #1C1C1C;
+    color: aliceblue;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    border: 2px solid rgba(225, 255, 255, .2);
+
 }
 
 .registrationtextfield::placeholder {
-    color: #1C1C1C;
+    color: aliceblue;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -45,25 +58,38 @@
   }
 
   .signupformdropdown{
-    width: 886px;
-    height: 84px;
+    width: 100%;
+    height: 50px;
     flex-shrink: 0;
     border-radius: 50px;
-    background: rgba(240, 237, 255, 0.80);
-    color: #1C1C1C;
+    background:transparent;
+    text-align: center;
+    color: aliceblue;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    border: 2px solid rgba(225, 255, 255, .2);
+
   }
 
+
   .fieldcontainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 800px; /* adjust the max-width to your liking */
+    width: 520px;
+    background-color:transparent;
+    color: aliceblue;
+    border: 2px solid rgba(225, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin-top: 80px;
+    margin-bottom:80px;
+
+  }
+  .op{
+    background-color: rgb(255, 255, 255);
+    background: transparent;
+    color: black;
   }
