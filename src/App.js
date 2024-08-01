@@ -15,6 +15,8 @@ import LayOut from './components/LayOut';
 import VehicleData from './components/auth/VehicleData' ;
 import AccountManage from './components/auth/AccountManage';
 import TirePerformance from './components/auth/TirePerformance';
+import { generateToken } from './components/auth/firebase';
+import { useEffect } from 'react';
 
 
 
@@ -22,6 +24,9 @@ import TirePerformance from './components/auth/TirePerformance';
 
 function App() {
 
+  useEffect(() => {
+    generateToken();
+  },[])
 
   return (
     <div className="App">
