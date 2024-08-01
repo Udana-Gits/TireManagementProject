@@ -80,7 +80,7 @@ const LogIn = () => {
     <body className="login-page">
       <div className='headiamge'>
         <img
-          src="/images/components/loginheader.png"
+          src="/images/components/header.png"
           alt="Pavara Tire Management System"
           className="loginheaderiamge"
         />
@@ -99,9 +99,9 @@ const LogIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <img
-                    src="/images/components/email.png"
+                    src="/images/components/pavaraacc.png"
                     alt="Pavara Tire Management System"
-                    className="input-image"
+                    className="input-image1"
               />
             </div>
           </div>
@@ -117,9 +117,9 @@ const LogIn = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <img
-                  src="/images/components/password.png"
+                  src="/images/components/pavaralock.png"
                   alt="Pavara Tire Management System"
-                  className="input-image"
+                  className="input-image2"
               />
             </div>
           </div>

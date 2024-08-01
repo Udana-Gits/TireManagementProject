@@ -21,7 +21,6 @@ function Layout({ children }) {
       break;
 
     case '/enterdata':
-      pageTitle = 'Tire Inflation, Thread depth & Tire Status Record';
       break;
 
     case '/profileedit':
