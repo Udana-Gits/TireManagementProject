@@ -1,0 +1,18 @@
+.enterdatabutton{
+    width: 947px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 -38.17%, #054AAB 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.employeecontainer{
+    text-align: center;
+}

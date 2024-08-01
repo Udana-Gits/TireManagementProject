@@ -1,0 +1,276 @@
+.account-manage-container {
+  max-width: 1200px;
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.account-manage-title {
+  text-align: center;
+}
+
+.filter-container {
+  text-align: center;
+}
+
+
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+  height: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1c13c5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #22be8a;
+}
+
+.search-input:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.account-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.account-item {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.profile-picture-container {
+  width: 30%;
+  float: left;
+  margin: 15px;
+}
+
+.profile-picture-button {
+  border-radius: 10px;
+}
+
+.account-info {
+  width: 60%;
+  float: left;
+  padding-left: 40px;
+  margin: 10px;
+}
+
+
+@media (min-width: 950px) {
+  .account-item {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-picture-container {
+    margin: 25;
+    margin-left: 15%;
+  }
+
+  .account-info {
+    margin: 10px;
+  }
+
+  .profile-picture-container,
+  .account-info {
+    flex: 1;
+  }
+}
+
+@media (max-width: 790px) {
+  .account-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-picture-container {
+    width: 50%;
+    margin: 0 auto;
+    float: none;
+  }
+
+  .account-info {
+    width: 100%;
+    padding-left: 0;
+    margin: 10px;
+    text-align: center;
+  }
+}
+
+
+
+/* Modal styles */
+
+.account-details {
+  background-color: inherit;
+  
+}
+
+.modal-confirm {
+
+  /* Add responsive styles */
+  @media (max-width: 1200px) {
+    .modal-dialog {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .modal-dialog {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modal-dialog {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .modal-dialog {
+      width: 100%;
+    }
+  }
+}
+
+.modal-confirm .modal-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+}
+
+.modal-confirm .modal-body {
+  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+  color: #FFF;
+  padding: 50px;
+
+  /* Add responsive styles */
+  @media (max-width: 1200px) {
+    width: 80%;
+  }
+
+  @media (max-width: 992px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+}
+
+.modal-confirm .modal-header {
+  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+  color: #FFF;
+  padding: 20px;
+
+  /* Add responsive styles */
+  @media (max-width: 1200px) {
+    width: 80%;
+  }
+
+  @media (max-width: 992px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-confirm .modal-footer {
+  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+  color: #FFF;
+  padding: 20px;
+
+  /* Add responsive styles */
+  @media (max-width: 1200px) {
+    width: 80%;
+  }
+
+  @media (max-width: 992px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Add styles for profile picture */
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+
+/* Add styles for account information */
+.account-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.account-info {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

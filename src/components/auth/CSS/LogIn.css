@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+
+
+@media (orientation: portrait) {
+  .login-page {
+    background-size: auto 100vh;
+  }
+}
+
+.loginheading{
+    width: 100%;
+    flex-shrink: 0;
+    color: #ffffff;
+    text-align: center;
+    font-family: Poppins;   
+    font-weight: 700;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+}
+
+.loginbutton{
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 45px;
+  background-color:rgb(80, 83, 85);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: aliceblue;
+  font-weight: 600;
+}
+
+.logininput{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(225, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: aliceblue;
+  padding-left:20px;
+  padding-right:60px;
+}
+
+.logininput::placeholder {
+  color: aliceblue;
+  }
+
+.input-wrapper {
+    position: relative;
+    width:100%;
+    height: 50px;
+  }
+
+  .input-image1 {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    color: #FFF;
+  }
+  .input-image2{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    color: #FFF;
+  }
+
+  .login-container {
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 83.3vh;
+    
+
+  }
+  
+
+  .passwordimage{
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+  }
+
+  .passwordvisibilitybutton{
+    background-color: transparent;
+    border: 0;
+    height: 32px;
+    flex-shrink: 0;
+    color: aliceblue;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .password-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .forgetpassword{
+    background-color: transparent;
+    border: 0;
+    flex-shrink: 0;
+    color: aliceblue;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: auto;
+    margin-top: -1px;
+}
+
+  @media screen and (min-width: 580px){
+    .loginheaderiamge{
+      height: 80px;
+      flex-shrink: 0;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      
+    }
+    .login-page {
+      background: url('/public/images/components/BG2.png') lightgray 50%  / cover no-repeat;
+      background-size: cover;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
+    
+    }
+    .login-form {
+      width: 520px;
+      background-color:transparent;
+      color: aliceblue;
+      border: 2px solid rgba(225, 255, 255, .2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 30px 40px;
+  
+    }
+  
+
+  }
+  
+  @media screen and (max-width: 580px){
+    .loginheaderiamge{
+      height: 60px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    .headiamge{
+      text-align: center;  
+    }
+    .login-page {
+      background: url('/public/images/components/BG2.png') lightgray 50%  / cover no-repeat;
+      background-size: cover;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .login-form {
+      width: 520px;
+      background-color:transparent;
+      color: aliceblue;
+      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      padding: 30px 40px;
+  
+    }
+  }
+ 

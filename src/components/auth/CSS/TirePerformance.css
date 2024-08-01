@@ -1,0 +1,84 @@
+.searchcontainer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.Driverlabel{
+    color: #000;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vehicalenumberfield{
+    width: 374px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F0EDFF;
+    text-align: center;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vehicalenumberfield::placeholder{
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.3;
+    text-align: center;
+}
+
+.searchbutton{
+    width: 234px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+  /* Graph Container */
+.chart-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* General Styles for Charts */
+.chartjs-render-monitor {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Responsive Chart Container */
+.chart-container canvas {
+  width: 100% !important;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Customizing Bar Colors */
+.bar {
+  background-color: rgba(255, 99, 132, 0.2) !important;
+  border-color: rgba(255, 99, 132, 1) !important;
+  border-width: 1 !important;
+}

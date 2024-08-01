@@ -1,0 +1,160 @@
+/* ProfileEdit.css */
+.edit-profile-container {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+  font-family: Poppins;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-md-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 15px;
+}
+
+.col-md-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+  padding: 0 15px;
+}
+
+.profile-picture {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-picture input[type="file"] {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn-prim {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+
+ /* Tablet and larger */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .edit-profile-container {
+    width: 70%;
+  }
+  .profile-picture img {
+    width: 180px;
+    height: 180px;
+  }
+  .form-group input {
+    padding: 10px;
+  }
+  .btn-prim {
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+
+ 
+ /* Mobile */
+ @media (max-width: 767px) {
+  .edit-profile-container {
+     width: 90%;
+   }
+  .profile-picture img {
+     width: 120px;
+     height: 120px;
+   }
+  .form-group {
+     margin-bottom: 8px;
+   }
+  .form-group input {
+     padding: 8px;
+   }
+  .btn-prim {
+     padding: 10px;
+     font-size: 14px;
+   }
+ }
+ 
+ /* Mobile */
+@media (max-width: 767px) {
+  .edit-profile-container {
+    width: 90%;
+  }
+
+  .row {
+    flex-direction: column; /* Stack columns on mobile */
+    align-items: center; /* Center items on mobile */
+  }
+
+  .col-md-3, .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .profile-picture img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .form-group {
+    margin-bottom: 8px;
+  }
+
+  .form-group input {
+    padding: 8px;
+  }
+
+  .btn-prim {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

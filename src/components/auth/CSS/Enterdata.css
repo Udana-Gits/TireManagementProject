@@ -1,0 +1,503 @@
+
+
+  @media screen and (min-width: 830px) {
+    .label{
+      color: #164483;
+      font-family: Poppins;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400px;
+      line-height: normal;
+      display: inline-block;
+  
+    }
+    .td1{
+      padding-left: 100px;
+      width: 50%;
+      float: left;
+
+    }
+    .td2{
+      padding-right: 100px;
+      width: 50%;
+      float: left;
+
+    }
+
+    .textbox{
+      width: 280px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #F0EDFF;
+      display: inline-block;
+      padding: 14px;
+      border: 2px solid #20447c;
+      margin-bottom: 20px;
+
+    }
+    .formdropdown {
+      width: 280px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #F0EDFF;
+      border: 2px solid #20447c;
+      display: inline-block;
+      margin-bottom: 20px;
+
+    }
+  
+    .formdropdown option {
+      color: #000;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  @media (min-width: 600px) and (max-width: 830px){
+    .label{
+      color: #164483;
+      font-family: Poppins;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400px;
+      line-height: normal;
+      display: inline-block;
+  
+    }
+    .td1{
+      padding-left: 25m;
+      width: 50%;
+      float: left;
+
+    }
+    .td2{
+      padding-right: 25px;
+      width: 50%;
+      float: left;
+
+    }
+
+    .textbox{
+      width: 240px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #F0EDFF;
+      display: inline-block;
+      padding: 14px;
+      border: 2px solid #20447c;
+      margin-bottom: 20px;
+
+
+    }
+    .formdropdown {
+      width: 240px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #F0EDFF;
+      display: inline-block;
+      border: 2px solid #20447c;
+      margin-bottom: 20px;
+
+    }
+  
+    .formdropdown option {
+      color: #000;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+  }
+  @media screen and (max-width: 600px){
+    .label{
+      color: #164483;
+      font-family: Poppins;
+      font-size: 16px; 
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      display: inline-block;
+  
+    }
+
+    .textbox{
+      width: 280px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #F0EDFF;
+      display: inline-block;
+      padding: 14px;
+      border: 2px solid #20447c;
+
+    }
+    .formdropdown {
+      width: 280px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #F0EDFF;
+      display: inline-block;
+      border: 2px solid #20447c;
+      
+
+    }
+  
+    .formdropdown option {
+      color: #000000;
+      font-family: Poppins;
+      font-size: 14px; 
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+    }
+  }
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  .vehicale{
+    width: 383px;
+    height: 218px;
+  }
+
+  .modal-confirm .modal-dialog {
+    position: fixed !important;
+    top: 50% !important;
+    left: 40% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 50px !important;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
+  }
+  .modal-confirm .modal-body {
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    color: #FFF;
+    padding: 20px;
+    width: 900px;
+  }
+  .modal-confirm .modal-header {
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    color: #FFF;
+    padding: 20px;
+    width: 900px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+  }
+  .modal-confirm .modal-footer {
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
+    color: #FFF;
+    padding: 20px;
+    width: 900px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  
+.promtbutton{
+  width: 420px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  color: #042D67;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.leftpart{
+  left: 40px;
+}
+
+.contentbox{
+  position: relative;
+  z-index: 7;
+  background-color: #ffffff;
+  text-align: center;
+  margin-top: 200px;
+}
+  
+
+/* Add this CSS to your existing Enterdata.css file */
+
+.vehicle-options {
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 100px;
+}
+
+.vehicle-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  border: 2px solid #84888e;
+  border-radius: 6%;
+  background: #F0EDFF;
+
+
+}
+
+
+.vehicle-option img {
+  width: 70px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 15px;
+  padding-top: 50px;
+
+}
+
+.vehicle-option p {
+  font-size: 18px; /* Adjust the size as needed */
+  text-align: center;
+  color: #164483;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.vehicle-option.selected {
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  padding: 15px;
+  border-radius: 6%;
+}
+
+.selected-vehicle {
+  display: flex;
+  justify-content: center;  /* Center the selected vehicle horizontally */
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.selected-vehicle img {
+  width: 300px; /* Adjust the size as needed */
+  height: 150px;
+}
+
+.selected-vehicle p {
+  font-size: 14px; /* Adjust the size as needed */
+  text-align: center;
+  margin-top: 10px; /* Adjust spacing as needed */
+}
+@media screen and (min-width: 600px) {
+
+  .backbutton{
+    position: relative;
+    z-index: 5;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 505;
+    line-height: normal;
+    width: 120px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+    margin-left: 50px;
+  }
+  .leftarrow{
+    position: relative;
+    width: 20px;
+    height: 30px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    z-index: 5;
+  }
+  .EnderBack{
+    position: relative;
+    z-index: 2;
+  
+  }
+  .EnderBackimg{
+    position: fixed;
+    width:100%;
+    height:110vh;
+    overflow: hidden;
+    top: -360px;
+  }
+  .title{
+    margin: 0px;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 200px;
+    z-index: 3;
+    font-size: 40px;
+
+  }
+  .vtype{
+    padding-top: 70px;
+    padding-bottom: 30px;
+    color: #5d5757;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    opacity: 0.8;
+    
+  }
+  .submitbutton{
+    position: relative;
+    width: 500px;
+    height: 48px;
+    border-radius: 15px;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  #tableenterdata{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:60vh;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .backbutton{
+    position: relative;
+    z-index: 5;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 0;
+    font-style: normal;
+    font-weight: 505;
+    line-height: normal;
+    width:40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+    box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+    margin-left: 50px;
+    border-radius:50px ;
+  }
+  .leftarrow{
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .EnderBack{
+    width:100% ;
+    z-index: 2;
+  
+  }
+  .EnderBackimg{
+    position: fixed;
+    width:100%;
+    top: -220px;
+    height:80vh ;
+  }
+  .title{
+    font-size: 20px;
+    margin: 0px;
+    color: #FFF;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 200px;
+  }
+  .vtype{
+    font-size: 20px;
+    color: #5d5757;
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+    
+  }
+
+
+  
+.vehicle-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  border: 2px solid #84888e;
+  border-radius: 6%;
+
+}
+
+
+.vehicle-option img {
+  width: 50px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  
+
+}
+
+.vehicle-option p {
+  font-size: 14px; /* Adjust the size as needed */
+  text-align: center;
+  color: #164483;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.submitbutton{
+  width: 150px;
+  height: 48px;
+  border-radius: 15px;
+  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  color: #FFF;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+}

@@ -3,6 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
 import { auth } from './firebase'; // Import the auth object from firebase.js
 import { Link, useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
+import './CSS/EmployeeMain.css';
+
+
 
 export function EmployeeMain() {
     const [authuser, setAuthUser] = useState(null);
@@ -34,17 +38,26 @@ export function EmployeeMain() {
         navigate('/enterdata');
     };
 
+    const tiredataview = () => {
+
+        navigate('/tiredata');
+    };
+
     return (
         <div>
-          <h1>Welcome to Employee Main</h1>
-            <div>
+        <NavBar authuser={authuser} />
+            <div className='employeecontainer'>
                 {authuser ? (
                     <div>
-                        <h3>Signed In as {authuser.email}</h3>
                         <br />
-                        <button onClick={inputmeasurement} class="btn btn-primary me-2">Input Measurementrs</button>
-                        <button onClick={handleSignOut} class="btn btn-primary me-2">Sign Out</button>
+                        <button onClick={inputmeasurement} class="enterdatabutton">Input Tire Measurements</button>
+                        <br />
+                        <br />
+                        <br />
+                        <button onClick={tiredataview} class="enterdatabutton">View Tire Details</button>
                     </div>
+                    
+                    
                 ) : (
                     <p>Signed out</p>
                 )}

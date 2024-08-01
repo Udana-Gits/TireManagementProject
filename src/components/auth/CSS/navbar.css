@@ -1,0 +1,90 @@
+.navbar {
+  background: linear-gradient(92deg, #021E45 -4.32%, #054AAB 107.92%);
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.navbarbutton{
+  width: 200px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
+  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
+  color: #FFF;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand h4 {
+  margin: 0;
+}
+
+.navbar-toggler-container {
+  position: relative;
+}
+
+.navbar-toggler {
+  background: white;
+  border: 2px;
+  border-color: aliceblue;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+.navbar-profile-popup {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  width: 250px;
+}
+
+.navbar-profile-picture {
+  display: block;
+  margin: auto;
+  width: 100px; /* Increased size */
+  height: 100px; /* Increased size */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-actions {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-actions button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.togglebuttonimage{
+  width: 50px;
+  height: 40px;
+  background-color: transparent;
+}
+
+.togglebutton{
+  width: 50px;
+  height: 40px;
+}
