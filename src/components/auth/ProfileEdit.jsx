@@ -129,14 +129,6 @@ const ProfileEdit = () => {
   return (
     <div>
       <br />
-      <button onClick={backHandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='leftarrow'
-        />
-        Back
-      </button>
       <div className="edit-profile-container">
         <div className="row">
           <div className="col-md-3">
