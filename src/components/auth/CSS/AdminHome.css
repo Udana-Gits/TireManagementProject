@@ -15,13 +15,23 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: 5px auto; /* Center buttons and reduce margin */
+    margin: 15px auto; /* Center buttons and reduce margin */
     padding: 10px; /* Adjust padding for better spacing */
+    transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.adminhomebutton:hover {
+    transform: translateY(-5px); /* Move button up on hover */
+    box-shadow: 6px 8px 6px 0px rgba(0, 0, 0, 0.70); /* Increase shadow on hover */
 }
 
 .adminbuttonbox {
-    text-align: center;
+    display: flex; /* Use flexbox for better button arrangement */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center; /* Center buttons */
+    align-items: center; /* Center buttons vertically */
     padding: 0 10px; /* Add some padding for smaller screens */
+    gap: 15px; /* Add gap between buttons */
 }
 
 /* Tablet and larger */
@@ -30,7 +40,7 @@
         font-size: 1.2rem; /* Adjust font size for tablet */
         max-width: 500px; /* Adjust max-width for tablets */
         padding: 8px; /* Adjust padding for tablets */
-        margin: 5px auto; /* Center buttons and reduce margin for tablets */
+        margin: 10px auto; /* Center buttons and reduce margin for tablets */
     }
 }
 
@@ -38,9 +48,9 @@
 @media (max-width: 767px) {
     .adminhomebutton {
         font-size: 1rem; /* Adjust font size for mobile */
-        max-width: 400px; /* Adjust max-width for mobile */
+        max-width: 90%; /* Adjust max-width for mobile */
         padding: 8px; /* Adjust padding for mobile */
-        margin: 5px auto; /* Center buttons and reduce margin for mobile */
+        margin: 10px auto; /* Center buttons and reduce margin for mobile */
     }
 }
 
@@ -48,8 +58,8 @@
 @media (max-width: 479px) {
     .adminhomebutton {
         font-size: 0.9rem; /* Adjust font size for small mobile */
-        max-width: 350px; /* Adjust max-width for small mobile */
+        max-width: 90%; /* Adjust max-width for small mobile */
         padding: 6px; /* Adjust padding for small mobile */
-        margin: 5px auto; /* Center buttons and reduce margin for small mobile */
+        margin: 10px auto; /* Center buttons and reduce margin for small mobile */
     }
 }
