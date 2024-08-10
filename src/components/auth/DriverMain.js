@@ -36,18 +36,18 @@ const DriverMain = ({ tireDataRef }) => {
       {authuser ? (
         <div className="main-content">
           <div className="button-group">
-            <div className="button-container">
-              <button onClick={gototiredata} className="tire-data-button">
+            <button onClick={gototiredata} className="tire-data-button">
+              <div className="icon-container">
                 <img src="/images/components/tire.png" alt="Tire Icon" className="tire-icon" />
-                Tire Data
-              </button>
-            </div>
-            <div className="button-container">
-              <button onClick={gotovehicledata} className="vehicle-data-button">
+              </div>
+              <span>View Tire Information</span>
+            </button>
+            <button onClick={gotovehicledata} className="vehicle-data-button">
+              <div className="icon-container">
                 <img src="/images/components/vehicle.png" alt="Vehicle Icon" className="vehicle-icon" />
-                Vehicle Data
-              </button>
-            </div>
+              </div>
+              <span>View Vehicle Information</span>
+            </button>
           </div>
         </div>
       ) : (
