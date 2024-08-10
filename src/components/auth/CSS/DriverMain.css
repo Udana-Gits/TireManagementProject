@@ -1,9 +1,3 @@
-.icon-container {}
-
-.body{
-  background-image: url("/public/images/components/DriverHomeBG.jpg");
-}
-
 .tire-data-button,
 .vehicle-data-button {
   background-image: linear-gradient(to right , #03275a, #054AAB);

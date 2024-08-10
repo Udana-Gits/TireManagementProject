@@ -49,7 +49,7 @@ const DriverMain = ({ tireDataRef }) => {
           </div>
         </div>
       ) : (
-        <p>Please sign in to access Driver Main.</p>
+        <p>Please Sign in to Access Driver Dashboard.</p>
       )}
     </div>
   );
