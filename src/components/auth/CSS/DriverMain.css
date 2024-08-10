@@ -1,5 +1,9 @@
 .icon-container {}
 
+.body{
+  background-image: url("/public/images/components/DriverHomeBG.jpg");
+}
+
 .tire-data-button,
 .vehicle-data-button {
   background-image: linear-gradient(to right , #03275a, #054AAB);
@@ -23,8 +27,9 @@
   height: 221px;
 }
 
-.button-group{
-  background-color: #E9E9E9;
+/*Button group opacity*/
+.button-group {
+  position: relative;
   width: 80%;
   height: 80%;
   border-radius: 20px;
@@ -33,9 +38,49 @@
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 40px;
+  z-index: 1; /* Ensure it's on top of any background layers */
 }
 
-.main-content{
+.button-group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E9E9E9;
+  border-radius: 20px;
+  opacity: 0.8;
+  z-index: -1; /* Place behind the content */
+}
+
+.button-group > * {
+  position: relative;
+  z-index: 1;
+}
+
+/*Main content and bg image opacity*/
+.main-content {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.driver-main-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 102%;
+  background-image: url("/public/images/components/DriverHomeBG.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.main-content > * {
+  position: relative;
+  z-index: 1;
 }
