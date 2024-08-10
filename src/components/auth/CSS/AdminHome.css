@@ -3,7 +3,7 @@
     width: 80%; /* Reduce width to 80% */
     max-width: 600px; /* Set a maximum width */
     height: auto; /* Adjust height to content */
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     border-radius: 15px;
     background: linear-gradient(90deg, #021E45 -38.17%, #054AAB 100%);
@@ -20,6 +20,17 @@
     transition: transform 0.3s ease; /* Add a transition for hover effect */
 }
 
+.adminhomebutton img {
+    
+  margin: 0 auto; /* Center image horizontally */
+  width: 150px; /* Adjust the width*/
+  height: auto;
+  display: block; /* For centering*/
+  margin: 0 auto; /* Center image horizontally */
+  width: 150px; /* Adjust the width*/
+  height: auto;
+  }
+
 .adminhomebutton:hover {
     transform: translateY(-5px); /* Move button up on hover */
     box-shadow: 6px 8px 6px 0px rgba(0, 0, 0, 0.70); /* Increase shadow on hover */
@@ -32,6 +43,7 @@
     align-items: center; /* Center buttons vertically */
     padding: 0 10px; /* Add some padding for smaller screens */
     gap: 15px; /* Add gap between buttons */
+    
 }
 
 /* Tablet and larger */
