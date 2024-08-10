@@ -8,7 +8,7 @@ import './CSS/DriverMain.css';
 const DriverMain = ({ tireDataRef }) => {
   const [authuser, setAuthUser] = useState(null);
   const navigate = useNavigate();
-  
+
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -27,12 +27,10 @@ const DriverMain = ({ tireDataRef }) => {
   const gotovehicledata = () => {
     navigate('/vehicledata');
   };
-  
+
   return (
     <div className="driver-main-page">
-      <div className="header-container">
-        <NavBar authuser={authuser} />
-      </div>
+      <NavBar authuser={authuser} />
       {authuser ? (
         <div className="main-content">
           <div className="button-group">
