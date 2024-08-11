@@ -39,6 +39,10 @@ function AdminHome() {
   const handleAccountmanage = () => {
     navigate('/accountmanage');
   };
+
+  const handleTirePerformance = () => {
+    navigate('/tireperformance');
+  };
   
   return (
     <div>
@@ -69,7 +73,7 @@ function AdminHome() {
           </div>
         </button>
         <br />
-        <button onClick={handleAddNewUser} class="adminhomebutton">
+        <button onClick={handleTirePerformance} class="adminhomebutton">
         <div>
               <img src="/images/components/ReportIcon.png" alt=" " />
               <span class="text">View Tire Performance
