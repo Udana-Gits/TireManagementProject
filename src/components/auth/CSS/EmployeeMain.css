@@ -39,9 +39,9 @@
   align-self: center;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  z-index: 1; /* Ensure it's on top of any background layers */
+  margin-top: 0%;
+  margin-bottom: 2%;
+  margin-left: 10%;
 }
 
 .button-group::before {
@@ -62,12 +62,8 @@
   z-index: 1;
 }
 
-/*Main content and bg image opacity*/
-.main-content {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
+/*bg image opacity*/
+
 
 .employee-main-page::before {
   content: "";
@@ -81,9 +77,4 @@
   background-position: center;
   opacity: 0.85;
   z-index: -1;
-}
-
-.main-content > * {
-  position: relative;
-  z-index: 1;
 }

@@ -45,9 +45,8 @@ export function EmployeeMain() {
 
     return (
         <div className="employee-main-page">
-        <NavBar authuser={authuser} />
-        {authuser ? (
-            <div className="main-content">
+            <NavBar authuser={authuser} />
+            {authuser ? (
                 <div className="button-group">
                     <button onClick={inputmeasurement} className="input-data-button">
                         <div className="icon-container">
@@ -62,11 +61,10 @@ export function EmployeeMain() {
                         <span>View Tire Details</span>
                     </button>
                 </div>
-            </div>
-        ) : (
-            <p>Please Sign in to Access Employee Dashboard</p>
-        )}
-    </div>
-  );
+            ) : (
+                <p>Please Sign in to Access Employee Dashboard</p>
+            )}
+        </div>
+    );
 }
 export default EmployeeMain;
