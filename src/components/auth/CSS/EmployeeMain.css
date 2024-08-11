@@ -1,14 +1,22 @@
 .tire-data-button,
 .input-data-button {
   background-image: linear-gradient(to right , #03275a, #054AAB);
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.50);
   border-radius: 20px;
   color: white;
-  font-family: poppins;
+  font-family:'poppins';
   font-size: 26px;
   font-weight: bold;
   width: 435px;
   height: 330px;
   margin: 60px;
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.tire-data-button:hover,
+.input-data-button:hover{
+  transform: translateY(-5px); /* Move button up on hover */
+  box-shadow: 6px 8px 6px 0px rgba(0, 0, 0, 0.70); /* Increase shadow on hover */
 }
 
 .input-data-icon {
