@@ -39,9 +39,6 @@ function AdminHome() {
   const handleAccountmanage = () => {
     navigate('/accountmanage');
   };
-  const handleTirePerformance = () => {
-    navigate('/tireperformance');
-  };
   
   return (
     <div>
@@ -49,31 +46,55 @@ function AdminHome() {
       <br />
       <div className='adminbuttonbox'>
         <button onClick={handleEntertireData} class="adminhomebutton">
-        Input Tire Measurements
+          <div>
+              <img src="/images/components/TireMeasureIcon.png" alt=" " />
+              <span class="text">Input Tire Measurements
+              </span>
+          </div>
         </button>
-        <br /><br />
+        <br />
         <button onClick={tiredataview} class="adminhomebutton">
-        View Tire Information
+        <div>
+              <img src="/images/components/tire.png" alt=" " />
+              <span class="text">View Tire Information
+              </span>
+          </div>
         </button>
-        <br /><br />
+        <br />
         <button onClick={handlvehicleinfo} class="adminhomebutton">
-        View Vehicle Information
+        <div>
+              <img src="/images/components/vehicle.png" alt=" " />
+              <span class="text">View Vehicle Information
+              </span>
+          </div>
         </button>
-        <br /><br />
-        <button onClick={handleTirePerformance} class="adminhomebutton">
-        View Tire Performance
-        </button>
-        <br /><br />
-        <button onClick={handleAccountmanage} class="adminhomebutton">
-        User Account Management
-        </button>
-        <br /><br />
+        <br />
         <button onClick={handleAddNewUser} class="adminhomebutton">
-          Add New User
+        <div>
+              <img src="/images/components/ReportIcon.png" alt=" " />
+              <span class="text">View Tire Performance
+              </span>
+          </div>
         </button>
-        <br /><br />
+        <br />
+        <button onClick={handleAccountmanage} class="adminhomebutton">
+        <div>
+              <img src="/images/components/ManageAccountIcon.png" alt=" " />
+              <span class="text">User Account Management
+              </span>
+          </div>
+        </button>
+        <br />
+        <button onClick={handleAddNewUser} class="adminhomebutton">
+        <div>
+              <img src="/images/components/AddUserIcon.png" alt=" " />
+              <span class="text">Add New User
+              </span>
+          </div>
+        </button>
+        <br />
       </div>
-      <br /><br /><br /><br /><br /><br /><br /><br />
+      <br />
     </div>
   );
 }
