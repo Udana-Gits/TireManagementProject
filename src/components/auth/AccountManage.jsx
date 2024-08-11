@@ -112,100 +112,102 @@ const AccountManage = () => {
                   <strong>Personal Email : </strong> {selectedAccount.personalEmail}
                 </p>
                 <p className="account-info">
-                <strong>Email : </strong> {selectedAccount.officeemail}
+                  <strong>Email : </strong> {selectedAccount.officeemail}
                 </p>
                 <p className="account-info">
-                <strong>Address : </strong> {selectedAccount.address}
+                  <strong>Address : </strong> {selectedAccount.address}
                 </p>
                 <p className="account-info">
-                <strong>Phone Number : </strong> {selectedAccount.phoneNumber}
+                  <strong>Phone Number : </strong> {selectedAccount.phoneNumber}
                 </p>
                 <p className="account-info">
-                <strong>Date of Birth : </strong> {selectedAccount.dateOfBirth}
+                  <strong>Date of Birth : </strong> {selectedAccount.dateOfBirth}
                 </p>
                 <p className="account-info">
-                <strong>Occupation : </strong> {selectedAccount.occupation}
+                  <strong>Occupation : </strong> {selectedAccount.occupation}
                 </p>
               </div>
             </div>
           )}
-        <div className='modal-buttons'>
-          <button
-            variant="secondary"
-            onClick={handleModalCancel}
-            className="cancel-button btn-secondary"
+          <div className='modal-buttons'>
+            <button
+              variant="secondary"
+              onClick={handleModalCancel}
+              className="cancel-button btn-secondary"
             >
-            Cancel
-          </button>
-          <button
-            variant="primary"
-            onClick={handleModalConfirm}
-            className="confirm-button btn-primary"
-          >
-            Delete
-          </button>
+              Cancel
+            </button>
+            <button
+              variant="primary"
+              onClick={handleModalConfirm}
+              className="confirm-button btn-primary"
+            >
+              Delete
+            </button>
+          </div>
         </div>
-            </div>
       </Modal>
     );
   };
 
   return (
-    <div className="account-manage-container">
-      <h2 className="account-manage-title">Account Management</h2>
-      <br />
-      <div className="filter-container">
-        <label>Filter by Occupation: &nbsp; </label>
-        <select
-          value={occupation}
-          onChange={handleOccupationChange}
-          className="occupation-select"
-        >
-          <option value="">All</option>
-          <option value="Admin">Admin</option>
-          <option value="Driver">Driver</option>
-          <option value="Employee">Employee</option>
-        </select>
-      </div>
-      <br />
-      <div className="search-container" style={{ visibility: showSearchContainer ? 'visible' : 'hidden' }}>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search by name"
-          className="search-input"
-        />{' '}
-        &nbsp;
-        <button onClick={handleSearch} className="search-button">
-          Search
-        </button>
-      </div>
-      <br />
-      <div className="account-list">
-        {filteredAccounts.map((account) => (
-          <div key={account.id} className="account-item">
-            <div className="profile-picture-container">
-              <button
-                onClick={() => handleProfilePictureClick(account)}
-                className="profile-picture-button"
-              >
-                <img
-                  src={account.profilePicture}
-                  alt="Profile"
-                  className="navbar-profile-picture"
-                />
-              </button>
+    <div className='account-manage-bg'>
+      <div className="account-manage-container">
+        <h2 className="account-manage-title">Account Management</h2>
+        <br />
+        <div className="filter-container">
+          <label>Filter by Occupation: &nbsp; </label>
+          <select
+            value={occupation}
+            onChange={handleOccupationChange}
+            className="occupation-select"
+          >
+            <option value="">All</option>
+            <option value="Admin">Admin</option>
+            <option value="Driver">Driver</option>
+            <option value="Employee">Employee</option>
+          </select>
+        </div>
+        <br />
+        <div className="search-container" style={{ visibility: showSearchContainer ? 'visible' : 'hidden' }}>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            placeholder="Search by name"
+            className="search-input"
+          />{' '}
+          &nbsp;
+          <button onClick={handleSearch} className="search-button">
+            Search
+          </button>
+        </div>
+        <br />
+        <div className="account-list">
+          {filteredAccounts.map((account) => (
+            <div key={account.id} className="account-item">
+              <div className="profile-picture-container">
+                <button
+                  onClick={() => handleProfilePictureClick(account)}
+                  className="profile-picture-button"
+                >
+                  <img
+                    src={account.profilePicture}
+                    alt="Profile"
+                    className="navbar-profile-picture"
+                  />
+                </button>
+              </div>
+              <div className="account-info-main">
+                <h4>{account.firstName} {account.lastName}</h4>
+                <p><strong>Official Email : </strong> {account.officeemail}</p>
+                <p><strong>Phone No : </strong> {account.phoneNumber}</p>
+              </div>
             </div>
-            <div className="account-info-main">
-              <h4>{account.firstName} {account.lastName}</h4>
-              <p><strong>Official Email : </strong> {account.officeemail}</p>
-              <p><strong>Phone No : </strong> {account.phoneNumber}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <ModalDetails /> {/* Render the ModalDetails component */}
       </div>
-      <ModalDetails /> {/* Render the ModalDetails component */}
     </div>
   );
 };
