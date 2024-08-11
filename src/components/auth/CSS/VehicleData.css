@@ -10,6 +10,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
     /* make sure it's on top of other elements */
+    font-family: "poppins";
   }
   
   .clm1,
@@ -37,7 +38,6 @@
   }
   
   .table-title{
-    font-family: 'poppins';
     font-weight: bold;
     text-align: center;
   }
@@ -47,6 +47,7 @@
     justify-content: center;
     z-index: 1;
     visibility: visible;
+    font-family: "poppins";
   }
   
   .searchbox {
@@ -84,7 +85,6 @@
   
   .input-container {
     display: grid;
-    font-family: 'poppins';
   }
   
   .Vehiclelabel {
@@ -107,7 +107,6 @@
     background: #ffffff;
     text-align: center;
     color: #000;
-    font-family: Poppins;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -116,7 +115,6 @@
   
   .vehicalenumberfield::placeholder {
     color: #000;
-    font-family: Poppins;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -138,7 +136,6 @@
     background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
     color: #FFF;
     text-align: center;
-    font-family: Poppins;
     font-style: normal;
     line-height: normal;
     font-size: 28px;
@@ -157,6 +154,7 @@
     background-position: center;
     opacity: 0.6;
     z-index: -1;
+ 
   }
   
   .vehicle-search-bg>* {
