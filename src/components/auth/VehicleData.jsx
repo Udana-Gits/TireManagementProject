@@ -154,7 +154,7 @@ const VehicleData = ({ tireDataRef }) => {
               <div className="searchbox">
                 <div className="input-container">
                   <label htmlFor="VehicleNo" className="Vehiclelabel">
-                    Tire Number
+                    Vehicle Number
                   </label>
                   <input
                     type="text"
