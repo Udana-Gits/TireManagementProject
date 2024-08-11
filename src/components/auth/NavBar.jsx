@@ -52,7 +52,7 @@ const Navbar = ({ authuser }) => {
     <nav className="navbar">
       <div className="container">
         <div className="navbar-brand">
-          <h4>Welcome to  {occupation} Page {firstName}</h4>
+          <h4>Welcome Back {firstName}!</h4>
         </div>
         <div className="">
             <img

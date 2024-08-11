@@ -95,10 +95,9 @@ const ProfileEdit = () => {
       try {
         setUploading(true);
         const storage = getStorage(app);
-        const imageName = user.uid;
-        const storageRef = sRef(storage, imageName);
-        await uploadBytes(storageRef, image);
-        const downloadURL = await getDownloadURL(storageRef);
+        const storageRef = sRef(storage, `profilePictures/${user.uid}`); // Change 1: Storage reference
+        await uploadBytes(storageRef, image); // Change 2: Uploading Image
+        const downloadURL = await getDownloadURL(storageRef); // Change 3: Getting Download URL
         setProfilePicture(downloadURL); // Update state with new profile picture URL
 
         // Retrieve existing user data from Realtime Database
@@ -111,7 +110,7 @@ const ProfileEdit = () => {
         }
 
         // Update profile picture in Realtime Database
-        await set(userRef, { ...existingUserData, profilePicture: downloadURL });
+        await set(userRef, { ...existingUserData, profilePicture: downloadURL }); // Change 4: Updating Database
 
         console.log("Profile picture uploaded successfully");
       } catch (error) {
@@ -129,14 +128,6 @@ const ProfileEdit = () => {
   return (
     <div>
       <br />
-      <button onClick={backHandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='leftarrow'
-        />
-        Back
-      </button>
       <div className="edit-profile-container">
         <div className="row">
           <div className="col-md-3">

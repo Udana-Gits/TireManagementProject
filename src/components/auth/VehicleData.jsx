@@ -3,7 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import './CSS/DriverMain.css';
+import './CSS/VehicleData.css';
 import Modal from 'react-modal';
 
 const VehicleData = ({ tireDataRef }) => {
@@ -49,6 +49,7 @@ const VehicleData = ({ tireDataRef }) => {
     });
   }, []);
 
+  // Handle Search function with search container visibility
   const handleSearch = () => {
     if (vehicleNumber.trim() === '') {
       setDisplayTable(true);
@@ -68,6 +69,9 @@ const VehicleData = ({ tireDataRef }) => {
 
     setTireData(filteredData);
     setIsModalOpen(true);
+
+    // Hide search container after modal opens
+    document.querySelector('.searchcontainer').style.visibility = 'hidden';
   };
 
   const getTyrePressureColor = (tyrePressure) => {
@@ -109,8 +113,13 @@ const VehicleData = ({ tireDataRef }) => {
 
   const ModalTable = () => {
     return (
-      <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} className="custom-modal">
-        <h2>Tire Details of Your Vehicale</h2>
+      <Modal isOpen={isModalOpen} onRequestClose={() => {
+        setIsModalOpen(false);
+        // Show search container again when modal closes
+        document.querySelector('.searchcontainer').style.visibility = 'visible';
+      }} className="custom-modal">
+
+        < h2 className='table-title' > Tire Details of Your Vehicale</h2 >
         <table className="">
           <thead>
             <tr>
@@ -126,42 +135,27 @@ const VehicleData = ({ tireDataRef }) => {
               <tr key={tire.id}>
                 <td className='clm3'>{tire.tireNo}</td>
                 <td className='clm4'>{tire.TirePosition}</td>
-                <td  className='clm3' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
+                <td className='clm3' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
                 <td className='clm4' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
                 <td className='clm3'>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-      </Modal>
+      </Modal >
     );
   };
-
   return (
     <div>
-      <div className="">
-        <br />
-      <button onClick={backhandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='leftarrow'
-        />
-        Back
-      </button>
-        <div>
-        </div>
-        {authuser? (
-          <div>
-            <br />
-            <div>
-              <div className="searchcontainer">
-                <div className="">
-                  <label htmlFor="VehicleNo" className="Driverlabel">
+      <div className="vehicle-search-bg">
+        {authuser ? (
+          <div className="">
+            <div className="searchcontainer">
+              <div className="searchbox">
+                <div className="input-container">
+                  <label htmlFor="VehicleNo" className="Vehiclelabel">
                     Vehicle Number
                   </label>
-                  <br />
-                  <br />
                   <input
                     type="text"
                     className="vehicalenumberfield"
@@ -171,19 +165,15 @@ const VehicleData = ({ tireDataRef }) => {
                     onChange={(e) => setVehicleNumber(e.target.value)}
                   />
                 </div>
-                <div>
-                  <br />
-                  <br />
-                  <button onClick={handleSearch} className="searchbutton">
+                <div className="button-container">
+                  <button onClick={handleSearch} className="searchbutton1">
                     Search
-                  </button> 
-                  <br />
-                  <br />
+                  </button>
                 </div>
               </div>
-              {noDataFound && <p>No data found for the entered vehicle number.</p>}
-              <ModalTable />
             </div>
+            {noDataFound && <p>No data found for the entered Tire Number.</p>}
+            <ModalTable />
           </div>
         ) : (
           <p>Please log in to view your tire data.</p>

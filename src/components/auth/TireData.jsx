@@ -65,6 +65,9 @@ const TireData = ({ tireDataRef }) => {
 
     setTireData(filteredData);
     setIsModalOpen(true);
+
+    // Hide search container after modal opens
+    document.querySelector('.searchcontainer').style.visibility = 'hidden';
   };
 
   const getTyrePressureColor = (tyrePressure) => {
@@ -106,28 +109,33 @@ const TireData = ({ tireDataRef }) => {
 
   const ModalTable = () => {
     return (
-      <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} className="custom-modal">
-        <h2>Tire Details of Your Vehicle</h2>
+      <Modal isOpen={isModalOpen} onRequestClose={() => {
+        setIsModalOpen(false);
+        // Show search container again when modal closes
+        document.querySelector('.searchcontainer').style.visibility = 'visible';
+      }} className="custom-modal-Tire">
+
+        <h2 className='table-title'>Tire Details of Your Vehicle</h2>
         <table className="">
           <thead>
             <tr>
-              <th className='clm1'>Date</th>
-              <th className='clm2'>Vehicle Number</th>
-              <th className='clm1'>Tire Position</th>
-              <th className='clm2'>Tire Pressure</th>
-              <th className='clm1'>Thread Depth</th>
-              <th className='clm2'>Tire Status</th>
+              <th className='tclm1'>Date</th>
+              <th className='tclm2'>Vehicle Number</th>
+              <th className='tclm1'>Tire Position</th>
+              <th className='tclm2'>Tire Pressure</th>
+              <th className='tclm1'>Thread Depth</th>
+              <th className='tclm2'>Tire Status</th>
             </tr>
           </thead>
           <tbody>
             {tireData.map((tire) => (
               <tr key={tire.id}>
-                <td className='clm3'>{tire.dateTime}</td>
-                <td className='clm4'>{tire.vehicleNo}</td>
-                <td className='clm3'>{tire.TirePosition}</td>
-                <td className='clm4' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
-                <td className='clm3' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
-                <td className='clm4'>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
+                <td className='tclm3'>{tire.dateTime}</td>
+                <td className='tclm4'>{tire.vehicleNo}</td>
+                <td className='tclm3'>{tire.TirePosition}</td>
+                <td className='tclm4' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
+                <td className='tclm3' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
+                <td className='tclm4'>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
               </tr>
             ))}
           </tbody>
@@ -138,51 +146,33 @@ const TireData = ({ tireDataRef }) => {
 
   return (
     <div>
-      <div className="">
-        <br />
-        <button onClick={backhandle} className="backbutton">
-          <img
-            src="/images/components/Arrow_left.png"
-            alt="leftarrow"
-            className='leftarrow'
-          />
-          Back
-        </button>
-        <div>
-        </div>
+      <div className="tire-search-bg">
         {authuser ? (
-          <div>
-            <br />
-            <div>
-              <div className="searchcontainer">
-                <div className="">
-                  <label htmlFor="tireNo" className="Driverlabel">
+          <div className="">
+            <div className="searchcontainer">
+              <div className="searchbox">
+                <div className="input-container">
+                  <label htmlFor="tireNo" className="Tirelabel">
                     Tire Number
                   </label>
-                  <br />
-                  <br />
                   <input
                     type="text"
-                    className="vehicalenumberfield"
+                    className="tirenumberfield"
                     id="tireNo"
                     placeholder="Eg: T01"
                     value={tireNumber}
                     onChange={(e) => settireNumber(e.target.value)}
                   />
                 </div>
-                <div>
-                  <br />
-                  <br />
-                  <button onClick={handleSearch} className="searchbutton">
+                <div className="button-container">
+                  <button onClick={handleSearch} className="searchbutton1">
                     Search
                   </button>
-                  <br />
-                  <br />
                 </div>
               </div>
-              {noDataFound && <p>No data found for the entered Tire Number.</p>}
-              <ModalTable />
             </div>
+            {noDataFound && <p>No data found for the entered Tire Number.</p>}
+            <ModalTable />
           </div>
         ) : (
           <p>Please sign in to access Driver Main.</p>

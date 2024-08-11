@@ -55,7 +55,7 @@ const TirePerformance = ({ tireDataRef }) => {
         const tireDataArray = Object.keys(data).flatMap((date) =>
           Object.keys(data[date]).map((tireNo) => ({
             id: tireNo,
-           ...data[date][tireNo],
+            ...data[date][tireNo],
           }))
         );
         setTireData(tireDataArray);
@@ -101,7 +101,7 @@ const TirePerformance = ({ tireDataRef }) => {
     }
 
     const filteredData = originalTireData.filter((tire) => {
-      const tireNo = tire.tireNo && typeof tire.tireNo === 'object'? tire.tireNo.Value : tire.tireNo || '';
+      const tireNo = tire.tireNo && typeof tire.tireNo === 'object' ? tire.tireNo.Value : tire.tireNo || '';
       return tireNo.toLowerCase() === tireNumber.toLowerCase();
     });
 
@@ -121,55 +121,37 @@ const TirePerformance = ({ tireDataRef }) => {
 
   return (
     <div>
-      <div className="">
-        <br />
-        <button onClick={backhandle} className="backbutton">
-          <img
-            src="/images/components/Arrow_left.png"
-            alt="leftarrow"
-            className='leftarrow'
-          />
-          Back
-        </button>
-        <div>
-        </div>
+      <div className="tire-perform-bg">
         {authUser ? (
-          <div>
-            <br />
-            <div>
-              <div className="searchcontainer">
-                <div className="">
-                  <label htmlFor="tireNo" className="Driverlabel">
+          <div className="">
+            <div className="searchcontainer">
+              <div className="searchbox">
+                <div className="input-container">
+                  <label htmlFor="tireNo" className="Tirelabel">
                     Tire Number
                   </label>
-                  <br />
-                  <br />
                   <input
                     type="text"
-                    className="vehicalenumberfield"
+                    className="tirenumberfield"
                     id="tireNo"
                     placeholder="Eg: T01"
                     value={tireNumber}
                     onChange={(e) => setTireNumber(e.target.value)}
                   />
                 </div>
-                <div>
-                  <br />
-                  <br />
-                  <button onClick={handleSearch} className="searchbutton">
+                <div className="button-container">
+                  <button onClick={handleSearch} className="searchbutton1">
                     Search
                   </button>
-                  <br />
-                  <br />
                 </div>
               </div>
-              {noDataFound && <p>No data found for the entered Tire Number.</p>}
-              {displayTable && (
-                <div>
-                  <Bar data={chartData} />
-                </div>
-              )}
             </div>
+            {noDataFound && <p>No data found for the entered Tire Number.</p>}
+            {displayTable && (
+              <div className='perform-chart'>
+                <Bar data={chartData} />
+              </div>
+            )}
           </div>
         ) : (
           <p>Please sign in to access Driver Main.</p>

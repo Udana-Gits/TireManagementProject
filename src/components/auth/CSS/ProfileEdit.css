@@ -102,26 +102,6 @@
 }
 
  
- /* Mobile */
- @media (max-width: 767px) {
-  .edit-profile-container {
-     width: 90%;
-   }
-  .profile-picture img {
-     width: 120px;
-     height: 120px;
-   }
-  .form-group {
-     margin-bottom: 8px;
-   }
-  .form-group input {
-     padding: 8px;
-   }
-  .btn-prim {
-     padding: 10px;
-     font-size: 14px;
-   }
- }
  
  /* Mobile */
 @media (max-width: 767px) {

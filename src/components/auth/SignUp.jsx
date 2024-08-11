@@ -49,7 +49,7 @@ const SignUp = () => {
             lastName: lastName,
             occupation: selectedOption,
             officeemail:email,
-            profilePicture: '', 
+            profilePicture: 'https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/profilePictures%2Fdefault.jpg?alt=media&token=8ad886f5-29e0-459e-a29a-d3db94fc9857', 
             dateOfBirth: '', 
             phoneNumber: '', 
             address: '', 
@@ -105,16 +105,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className=''>
-      <br />
-      <button onClick={backhandle} className="backbutton">
-        <img
-          src="/images/components/Arrow_left.png"
-          alt="leftarrow"
-          className='leftarrow'
-        />
-        Back
-      </button>
+    <div className='body'>
       <div className='fieldcontainer'>
         <form action="" id="regform" className="" onSubmit={signUp}>
           <div className="">
@@ -141,16 +132,15 @@ const SignUp = () => {
           <div className="dropdown">
             <select id="dropdown" className="signupformdropdown" value={selectedOption} onChange={handleSelectChange}>
               <option value="" disabled>Account Type</option>
-              <option value="Admin">Admin</option>
-              <option value="Driver">Driver</option>
-              <option value="Employee">Employee</option>
+              <option className='op' value="Admin">Admin</option>
+              <option className='op' value="Driver">Driver</option>
+              <option className='op' value="Employee">Employee</option>
             </select>
           </div>
           <br />
           <center><button type="submit" className="registerbutton" >Register</button></center>
         </form>
       </div>
-      <br /><br /><br /><br /><br />
     </div>
   );
 }
