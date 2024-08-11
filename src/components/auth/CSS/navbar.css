@@ -1,7 +1,8 @@
 .navbar {
-  background: linear-gradient(92deg, #021E45 -4.32%, #054AAB 107.92%);
+  background: linear-gradient(92deg, #021e45c8 -4.32%, #054aabd0 107.92%);
   padding: 10px 20px;
   color: #fff;
+  transform: translateY(-35%);
 }
 
 .navbarbutton{
