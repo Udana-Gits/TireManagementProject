@@ -1,7 +1,7 @@
 .adminhomebutton {
     display: inline-block;
     width: 80%; /* Reduce width to 80% */
-    max-width: 600px; /* Set a maximum width */
+    max-width: 500px; /* Set a maximum width */
     height: auto; /* Adjust height to content */
     justify-content:center;
     align-items: center;
@@ -11,25 +11,25 @@
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 1.5rem; /* Use rem for font size */
+    font-size: 1.4rem; /* Use rem for font size */
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: 15px auto; /* Center buttons and reduce margin */
+    margin: 10px auto; /* Center buttons and reduce margin */
     padding: 10px; /* Adjust padding for better spacing */
     transition: transform 0.3s ease; /* Add a transition for hover effect */
 }
 
 .adminhomebutton img {
     
-  margin: 0 auto; /* Center image horizontally */
-  width: 150px; /* Adjust the width*/
-  height: auto;
-  display: block; /* For centering*/
-  margin: 0 auto; /* Center image horizontally */
-  width: 150px; /* Adjust the width*/
-  height: auto;
-  }
+    margin: 0 auto; /* Center image horizontally */
+    width: 120px; /* Adjust the width*/
+    height: auto;
+    display: block; /* For centering*/
+    margin: 0 auto; /* Center image horizontally */
+    width: 120px; /* Adjust the width*/
+    height: auto;
+}
 
 .adminhomebutton:hover {
     transform: translateY(-5px); /* Move button up on hover */
@@ -37,13 +37,26 @@
 }
 
 .adminbuttonbox {
-    display: flex; /* Use flexbox for better button arrangement */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-    justify-content: center; /* Center buttons */
-    align-items: center; /* Center buttons vertically */
-    padding: 0 10px; /* Add some padding for smaller screens */
-    gap: 15px; /* Add gap between buttons */
-    
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: center; /* Distribute space evenly */
+    align-items: center;
+    padding: 30px; /* Add padding to the container */
+    gap: 15px; /* Increase gap between buttons */
+    background-color: #F0F0F0; /* Light grey background */
+    border-radius: 15px; /* Round the corners of the box */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Center the box and add margin */
+    max-width: 1200px; /* Set a max-width for the container */
+    row-gap: 40px; /* Increase vertical gap between rows */
+
+}
+
+/* Style for three buttons in one row */
+.adminbuttonbox .adminhomebutton {
+    flex: 1 0 30%; /* Divide the available space equally among three buttons */
+    min-width: 100px; /* Set a minimum width for buttons */
+    margin: 5px; /* Add some margin between buttons */
 }
 
 /* Tablet and larger */
