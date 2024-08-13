@@ -313,7 +313,7 @@
   margin-top: 10px; /* Adjust spacing as needed */
 }
 .contentbox{
-  background-image: url('/public/images/components/BG2.png');
+  background-image: url('/public/images/components/BG2.png') ;
   overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
@@ -353,6 +353,7 @@
   .EnderBack{
     position: relative;
     z-index: 2;
+
   
   }
   .EnderBackimg{
@@ -361,6 +362,8 @@
     height:110vh;
     overflow: hidden;
     top: -360px;
+    filter: brightness(40%);
+    
   }
   .title{
     margin: 0px;
@@ -444,6 +447,8 @@
     width:100%;
     top: -220px;
     height:80vh ;
+    filter: brightness(40%);
+
   }
   .title{
     font-size: 20px;
