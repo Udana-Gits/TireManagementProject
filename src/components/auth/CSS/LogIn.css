@@ -87,6 +87,7 @@
     align-items: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 83.3vh;
+    margin-bottom: 7px;
     
 
   }
@@ -110,6 +111,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    
   }
 
   .password-actions {
@@ -117,6 +119,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    /* display:flexbox; */
   }
   .forgetpassword{
     background-color: transparent;
@@ -145,8 +148,6 @@
     .login-page {
       background: url('/public/images/components/BG2.png') lightgray 50% / cover no-repeat;
       background-size: cover;
-      width: 100vw;
-      height: 100vh;
       overflow: hidden;
       background-color: rgba(0, 0, 0, 0.8);
     
@@ -177,8 +178,6 @@
     .login-page {
       background: url('/public/images/components/BG2.png') lightgray 50%  / cover no-repeat;
       background-size: cover;
-      width: 100vw;
-      height: 100vh;
       overflow: hidden;
       background-color: rgba(0, 0, 0, 0.8);
     }

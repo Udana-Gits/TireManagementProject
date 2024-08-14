@@ -32,7 +32,7 @@ const DriverMain = ({ tireDataRef }) => {
     <div className="driver-main-page">
       <NavBar authuser={authuser} />
       {authuser ? (
-        <div className="main-content">
+        
           <div className="button-group">
             <button onClick={gototiredata} className="tire-data-button">
               <div className="icon-container">
@@ -47,7 +47,6 @@ const DriverMain = ({ tireDataRef }) => {
               <span>View Vehicle Information</span>
             </button>
           </div>
-        </div>
       ) : (
         <p>Please Sign in to Access Driver Dashboard.</p>
       )}

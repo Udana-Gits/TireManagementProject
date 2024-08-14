@@ -8,6 +8,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   justify-content: center;
   border-radius: 10px;
+  font-family: "poppins";
 }
 
 .account-manage-title {
@@ -82,7 +83,7 @@
   border-radius: 10px;
 }
 
-.account-info {
+.account-info-main {
   width: 60%;
   float: left;
   padding-left: 40px;
@@ -101,7 +102,7 @@
     margin-left: 15%;
   }
 
-  .account-info {
+  .account-info-main {
     margin: 10px;
   }
 
@@ -123,7 +124,7 @@
     float: none;
   }
 
-  .account-info {
+  .account-info-main {
     width: 100%;
     padding-left: 0;
     margin: 10px;
@@ -133,127 +134,7 @@
 
 
 
-/* Modal styles */
 
-.account-details {
-  background-color: inherit;
-  
-}
-
-.modal-confirm {
-
-  /* Add responsive styles */
-  @media (max-width: 1200px) {
-    .modal-dialog {
-      width: 80%;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .modal-dialog {
-      width: 90%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .modal-dialog {
-      width: 80%;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .modal-dialog {
-      width: 100%;
-    }
-  }
-}
-
-.modal-confirm .modal-dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
-  border-radius: 20px;
-  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
-  box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16);
-}
-
-.modal-confirm .modal-body {
-  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
-  color: #FFF;
-  padding: 50px;
-
-  /* Add responsive styles */
-  @media (max-width: 1200px) {
-    width: 80%;
-  }
-
-  @media (max-width: 992px) {
-    width: 90%;
-  }
-
-  @media (max-width: 768px) {
-    width: 95%;
-  }
-
-  @media (max-width: 576px) {
-    width: 100%;
-  }
-}
-
-.modal-confirm .modal-header {
-  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
-  color: #FFF;
-  padding: 20px;
-
-  /* Add responsive styles */
-  @media (max-width: 1200px) {
-    width: 80%;
-  }
-
-  @media (max-width: 992px) {
-    width: 90%;
-  }
-
-  @media (max-width: 768px) {
-    width: 95%;
-  }
-
-  @media (max-width: 576px) {
-    width: 100%;
-  }
-
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.modal-confirm .modal-footer {
-  background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%);
-  color: #FFF;
-  padding: 20px;
-
-  /* Add responsive styles */
-  @media (max-width: 1200px) {
-    width: 80%;
-  }
-
-  @media (max-width: 992px) {
-    width: 90%;
-  }
-
-  @media (max-width: 768px) {
-    width: 95%;
-  }
-
-  @media (max-width: 576px) {
-    width: 100%;
-  }
-
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
 
 /* Add styles for profile picture */
 .profile-picture {
@@ -261,16 +142,122 @@
   height: 100px;
   border-radius: 50%;
   margin: 20px auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* Add styles for account information */
 .account-name {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  text-align: center;
 }
 
 .account-info {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
+  width: 90%;
+  float: left;
+  margin: 10px;
+}
+
+.custom-modal1 {
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 80%;
+  padding: 20px;
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: grid;
+  font-family: "poppins";
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: -2%;
+  color: #054AAB;
+  background-color: #fff; /* Light grey background */
+    border-radius: 5px; /* Round the corners of the box */
+  width: 35%;
+  justify-self: center;
+}
+
+.info-container {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Distribute space evenly */
+  align-items: center;
+  gap: 10%;
+  /* Increase gap between buttons */
+  row-gap: 25px;
+  /* Increase vertical gap between rows */
+  margin: 5px;
+  /* Add some margin between buttons */
+  background-color: #fff; /* Light grey background */
+    border-radius: 10px; /* Round the corners of the box */
+  padding: 10px;
+
+}
+
+.modal-body-in {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-body .profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.confirm-button {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #000;
+}
+
+.account-manage-bg::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  background-image: url("/public/images/components/DriverHomeBG.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
 }
