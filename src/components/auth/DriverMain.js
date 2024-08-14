@@ -8,7 +8,7 @@ import './CSS/DriverMain.css';
 const DriverMain = ({ tireDataRef }) => {
   const [authuser, setAuthUser] = useState(null);
   const navigate = useNavigate();
-  
+
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -27,33 +27,29 @@ const DriverMain = ({ tireDataRef }) => {
   const gotovehicledata = () => {
     navigate('/vehicledata');
   };
-  
+
   return (
-    <div>
-      <div className="">
-        <div>
-          <NavBar authuser={authuser} />
-        </div>
-        {authuser? (
-          <div>
-            <br />
-            <div>
-                <div>
-                  <button onClick={gototiredata} className="searchbutton">
-                    Tire Data
-                  </button> 
-                  <br />
-                  <br />
-                  <button onClick={gotovehicledata} className="searchbutton">
-                    VehicleData
-                  </button> 
-                </div>
-            </div>
+    <div className="driver-main-page">
+      <NavBar authuser={authuser} />
+      {authuser ? (
+        
+          <div className="button-group">
+            <button onClick={gototiredata} className="tire-data-button">
+              <div className="icon-container">
+                <img src="/images/components/tire.png" alt="Tire Icon" className="tire-icon" />
+              </div>
+              <span>View Tire Information</span>
+            </button>
+            <button onClick={gotovehicledata} className="vehicle-data-button">
+              <div className="icon-container">
+                <img src="/images/components/vehicle.png" alt="Vehicle Icon" className="vehicle-icon" />
+              </div>
+              <span>View Vehicle Information</span>
+            </button>
           </div>
-        ) : (
-          <p>Please sign in to access Driver Main.</p>
-        )}
-      </div>
+      ) : (
+        <p>Please Sign in to Access Driver Dashboard.</p>
+      )}
     </div>
   );
 };

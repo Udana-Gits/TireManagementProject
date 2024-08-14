@@ -1,86 +1,165 @@
-.searchcontainer{
-    margin-top: 50px;
-    text-align: center;
+.custom-modal-Tire {
+  margin: 10%;
+  margin-top: 8%;
+  width: 80%;
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  /* make sure it's on top of other elements */
 }
 
-.Driverlabel{
-    color: #000;
-    font-family: Poppins;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.tclm1,
+.tclm2,
+.tclm3,
+.tclm4 {
+  flex-shrink: 0;
+  text-align: center;
+  width: 15%;
+  /* adjust the width value to your liking */
 }
 
-.vehicalenumberfield{
-    width: 374px;
-    height: 70px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: #F0EDFF;
-    text-align: center;
-    color: #000;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.tclm1,
+.tclm3 {
+  font-size: 20px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: rgba(5, 72, 167, 0.5);
 }
 
-.vehicalenumberfield::placeholder{
-    color: #000;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    opacity: 0.3;
-    text-align: center;
+.tclm2,
+.tclm4 {
+  font-size: 20px;
+  background: #F0EDFF;
 }
 
-.searchbutton{
-    width: 234px;
-    height: 90px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.table-title{
+  font-family: 'poppins';
+  font-weight: bold;
+  text-align: center;
 }
 
-.custom-modal {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* make sure it's on top of other elements */
-  }
 
-  .clm1, .clm2, .clm3, .clm4 {
-    flex-shrink: 0;
-    border-radius: 15px;
-    text-align: center;
-    width: 25%; /* adjust the width value to your liking */
-  }
-  
-  .clm1, .clm3 {
-    font-size: 20px;
-    color: #FFF;
-    font-weight: 1000;
-    background-color: rgba(5, 72, 167, 0.5);
-  }
-  
-  .clm2, .clm4 {
-    font-size: 20px;
-    background: #F0EDFF;
-  }
+.searchcontainer {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  visibility: visible;
+}
+
+.searchbox {
+  position: relative;
+  width: 30%;
+  height: 80%;
+  border-radius: 20px;
+  align-self: center;
+  display: grid;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 60px;
+  z-index: 1;
+  /* Ensure it's on top of any background layers */
+}
+
+.searchbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E9E9E9;
+  border-radius: 20px;
+  opacity: 0.8;
+  z-index: -1;
+  /* Place behind the content */
+}
+
+.searchbox>* {
+  position: relative;
+  z-index: 1;
+}
+
+.input-container {
+  display: grid;
+  font-family: 'poppins';
+}
+
+.Tirelabel {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px;
+  margin-top: 25px;
+}
+
+.tirenumberfield {
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+
+  width: 360px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #ffffff;
+  text-align: center;
+  color: #000;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tirenumberfield::placeholder {
+  color: #000;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.3;
+  text-align: center;
+}
+
+.button-container {
+  margin: 20px;
+  margin-bottom: 60px;
+}
+
+.searchbutton1 {
+  width: 360px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+  color: #FFF;
+  text-align: center;
+  font-family: Poppins;
+  font-style: normal;
+  line-height: normal;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tire-search-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/images/components/BG4.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.tire-search-bg>* {
+  position: relative;
+  z-index: 1;
+}

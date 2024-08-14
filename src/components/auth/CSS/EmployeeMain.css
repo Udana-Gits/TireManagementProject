@@ -1,18 +1,80 @@
-.enterdatabutton{
-    width: 947px;
-    height: 120px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #021E45 -38.17%, #054AAB 100%);
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 46px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.tire-data-button,
+.input-data-button {
+  background-image: linear-gradient(to right , #03275a, #054AAB);
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.50);
+  border-radius: 20px;
+  color: white;
+  font-family:'poppins';
+  font-size: 26px;
+  font-weight: bold;
+  width: 435px;
+  height: 330px;
+  margin: 60px;
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
 }
 
-.employeecontainer{
-    text-align: center;
+.tire-data-button:hover,
+.input-data-button:hover{
+  transform: translateY(-5px); /* Move button up on hover */
+  box-shadow: 6px 8px 6px 0px rgba(0, 0, 0, 0.70); /* Increase shadow on hover */
+}
+
+.input-data-icon {
+  height: 224px;
+  width: 238px;
+  transform: rotate(-18.83deg);
+}
+
+.tire-icon {
+  width: 239px;
+  height: 221px;
+}
+
+/*Button group opacity*/
+.button-group {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  border-radius: 20px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 0%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+}
+
+.button-group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E9E9E9;
+  border-radius: 20px;
+  opacity: 0.8;
+  z-index: -1; /* Place behind the content */
+}
+
+.button-group > * {
+  position: relative;
+  z-index: 1;
+}
+
+/*bg image opacity*/
+
+
+.employee-main-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 102%;
+  background-image: url("/public/images/components/EmployeeHomeBG3.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
+  z-index: -1;
 }
