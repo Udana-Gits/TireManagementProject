@@ -155,54 +155,48 @@ const TirePerformance = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="tire-perform-bg">
         <br />
-        <div></div>
         {authUser ? (
           <div>
             <br />
             <div>
-              <div className="searchcontainer">
-                <div className="inputbox">
-                  <div className="">
-                    <label htmlFor="tireNo1" className="Driverlabel">
-                      Tire Number 1
-                    </label>
-                    <br />
-                    <br />
-                    <input
-                      type="text"
-                      className="vehicalenumberfield"
-                      id="tireNo1"
-                      placeholder="Eg: T01"
-                      value={tireNumber1}
-                      onChange={(e) => setTireNumber1(e.target.value)}
-                    />
+              <div className="searchcontainer1">
+                <div className="gray-container">
+                  <div className="searchbox1">
+                    <div className="input-container">
+                      <label htmlFor="tireNo1" className="Tirelabel">
+                        Tire Number 1
+                        <br /> &nbsp;
+                      </label>
+                      <input
+                        type="text"
+                        className="tirenumberfield1"
+                        id="tireNo1"
+                        placeholder="Eg: T01"
+                        value={tireNumber1}
+                        onChange={(e) => setTireNumber1(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-container">
+                      <label htmlFor="tireNo2" className="Tirelabel">
+                        Tire Number 2 <br /> (Optional)
+                      </label>
+                      <input
+                        type="text"
+                        className="tirenumberfield1"
+                        id="tireNo2"
+                        placeholder="Eg: T02"
+                        value={tireNumber2}
+                        onChange={(e) => setTireNumber2(e.target.value)}
+                      />
+                    </div>
                   </div>
-                  <div className="">
-                    <label htmlFor="tireNo2" className="Driverlabel">
-                      Tire Number 2 (Optional)
-                    </label>
-                    <br />
-                    <br />
-                    <input
-                      type="text"
-                      className="vehicalenumberfield"
-                      id="tireNo2"
-                      placeholder="Eg: T02"
-                      value={tireNumber2}
-                      onChange={(e) => setTireNumber2(e.target.value)}
-                    />
+                  <div className="button-container">
+                    <button onClick={handleAnalyze} className="searchbutton1">
+                      Analyze
+                    </button>
                   </div>
-                </div>
-                <div>
-                  <br />
-                  <br />
-                  <button onClick={handleAnalyze} className="searchbutton">
-                    Analyze
-                  </button>
-                  <br />
-                  <br />
                 </div>
               </div>
               {noDataFound && <p>No data found for the entered Tire Number(s).</p>}
