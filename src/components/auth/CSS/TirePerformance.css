@@ -82,3 +82,17 @@
   border-color: rgba(255, 99, 132, 1) !important;
   border-width: 1 !important;
 }
+
+.chart-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.chart-container {
+  width: 45%;
+}
+.inputbox{
+  display: flex;
+  justify-content: space-around;
+}

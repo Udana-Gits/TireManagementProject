@@ -15,11 +15,14 @@ const EnterData = () => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
-  const [date, setDate] = useState(new Date().toLocaleString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: 'numeric',
-  }));
+  const [date, setDate] = useState(() => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    return `${day}-${month}-${year}`;
+  });
+  
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
