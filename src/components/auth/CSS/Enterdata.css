@@ -312,6 +312,16 @@
   text-align: center;
   margin-top: 10px; /* Adjust spacing as needed */
 }
+.contentbox{
+  background-image: url('/public/images/components/BG2.png') ;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+
+}
+
 @media screen and (min-width: 600px) {
 
   .backbutton{
@@ -343,6 +353,7 @@
   .EnderBack{
     position: relative;
     z-index: 2;
+
   
   }
   .EnderBackimg{
@@ -351,6 +362,8 @@
     height:110vh;
     overflow: hidden;
     top: -360px;
+    filter: brightness(40%);
+    
   }
   .title{
     margin: 0px;
@@ -390,11 +403,11 @@
   }
   #tableenterdata{
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height:60vh;
-    
+    width: 100%;  
+    align-content: center;
+
   }
+
 
 }
 
@@ -434,6 +447,8 @@
     width:100%;
     top: -220px;
     height:80vh ;
+    filter: brightness(40%);
+
   }
   .title{
     font-size: 20px;
@@ -499,6 +514,13 @@
   font-weight: 700;
   margin-bottom: 50px;
   margin-top: 20px;
+}
+#tableenterdata{
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  align-content: center;
+
 }
 
 }

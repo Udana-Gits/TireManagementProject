@@ -1,6 +1,8 @@
-.searchcontainer{
+.searchcontainer1{
     margin-top: 50px;
     text-align: center;
+    display: grid;
+    justify-content: center;
 }
 
 .Driverlabel{
@@ -12,12 +14,12 @@
     line-height: normal;
 }
 
-.vehicalenumberfield{
-    width: 374px;
+.tirenumberfield1{
+    width: 324px;
     height: 70px;
     flex-shrink: 0;
     border-radius: 15px;
-    background: #F0EDFF;
+    background: #ffffff;
     text-align: center;
     color: #000;
     font-family: Poppins;
@@ -25,9 +27,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin: 30px;
 }
 
-.vehicalenumberfield::placeholder{
+.tirenumberfield1::placeholder{
     color: #000;
     font-family: Poppins;
     font-size: 30px;
@@ -95,4 +98,60 @@
 .inputbox{
   display: flex;
   justify-content: space-around;
+}
+
+.tire-perform-bg::before {
+  content: "";
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/images/components/BG4.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.searchbox1 {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  border-radius: 15px;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0px;
+  margin-bottom: 60px;
+  z-index: 1;
+  /* Ensure it's on top of any background layers */
+  flex-wrap: wrap;
+}
+
+.searchbox1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  z-index: -1;
+  display: grid;
+}
+
+.searchbox1>* {
+  position: relative;
+  z-index: 1;
+}
+
+.gray-container{
+  position: relative;
+  width: 100%;
+  height: 80%;
+  border-radius: 15px;
+  margin-bottom: 60px;
+  opacity: 0.8;
+  background-color: #E9E9E9;
 }

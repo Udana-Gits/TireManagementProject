@@ -44,25 +44,27 @@ export function EmployeeMain() {
     };
 
     return (
-        <div>
-        <NavBar authuser={authuser} />
-            <div className='employeecontainer'>
-                {authuser ? (
-                    <div>
-                        <br />
-                        <button onClick={inputmeasurement} class="enterdatabutton">Input Tire Measurements</button>
-                        <br />
-                        <br />
-                        <br />
-                        <button onClick={tiredataview} class="enterdatabutton">View Tire Details</button>
-                    </div>
-                    
-                    
-                ) : (
-                    <p>Signed out</p>
-                )}
-            </div>
+        <div className="employee-main-page">
+            <NavBar authuser={authuser} />
+            {authuser ? (
+                <div className="button-group">
+                    <button onClick={inputmeasurement} className="input-data-button">
+                        <div className="icon-container">
+                            <img src="/images/components/TireMeasureIcon.png" alt="Input data Icon" className="input-data-icon" />
+                        </div>
+                        <span>Input Tire Measurements</span>
+                    </button>
+                    <button onClick={tiredataview} className="tire-data-button">
+                        <div className="icon-container">
+                            <img src="/images/components/tire.png" alt="Tire Icon" className="tire-icon" />
+                        </div>
+                        <span>View Tire Details</span>
+                    </button>
+                </div>
+            ) : (
+                <p>Please Sign in to Access Employee Dashboard</p>
+            )}
         </div>
-  );
+    );
 }
 export default EmployeeMain;
