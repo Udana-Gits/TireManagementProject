@@ -22,42 +22,45 @@ function AdminHome() {
     return () => listen(); // Cleanup the listener when the component unmounts
   }, []);
 
-  const handleTire = () => {
-    navigate('/tire');
-  };
-  const handleVehicle = () => {
-    navigate('/vehicle');
-  };
-  const handleAdministrative = () => {
-    navigate('/administrative');
+  const handleAddNewUser = () => {
+    navigate('/signup');
   };
   
+  const handleEntertireData = () => {
+    navigate('/enterdata');
+  };
+  const tiredataview = () => {
+    navigate('/tiredata');
+  };
+  const handlvehicleinfo = () => {
+    navigate('/vehicledata');
+  };
+  
+  const handleAccountmanage = () => {
+    navigate('/accountmanage');
+  };
+
+  const handleTirePerformance = () => {
+    navigate('/tireperformance');
+  };
   
   return (
     <div>
       <NavBar authuser={authuser} />
       <br />
       <div className='adminbuttonbox'>
-        <button onClick={handleTire} class="adminhomebutton">
-          <div>
-              <img src="/images/components/TireMeasureIcon.png" alt=" " />
-              <span class="text">Tire
+        <button onClick={handleAccountmanage} class="adminhomebutton">
+        <div>
+              <img src="/images/components/ManageAccountIcon.png" alt=" " />
+              <span class="text">User Account Management
               </span>
           </div>
         </button>
         <br />
-        <button onClick={handleVehicle} class="adminhomebutton">
+        <button onClick={handleAddNewUser} class="adminhomebutton">
         <div>
-              <img src="/images/components/tire.png" alt=" " />
-              <span class="text">Vehicle
-              </span>
-          </div>
-        </button>
-        <br />
-        <button onClick={handleAdministrative} class="adminhomebutton">
-        <div>
-              <img src="/images/components/vehicle.png" alt=" " />
-              <span class="text">Administrative
+              <img src="/images/components/AddUserIcon.png" alt=" " />
+              <span class="text">Add New User
               </span>
           </div>
         </button>

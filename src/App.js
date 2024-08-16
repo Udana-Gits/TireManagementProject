@@ -4,6 +4,9 @@ import './App.css';
 import LogIn from './components/auth/LogIn';
 import SignUp from './components/auth/SignUp';
 import AdminHome from './components/auth/AdminHome';
+import Tire from './components/auth/Tire';
+import Vehicle from './components/auth/Vehicle';
+import Administrative from './components/auth/Administrative';
 import DriverMain from './components/auth/DriverMain';
 import EmployeeMain from './components/auth/EmployeeMain';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -39,6 +42,12 @@ function App() {
           <Route index element={<AdminHome/>}/>
           <Route path='/adminhome' element={<LayOut><AdminHome /></LayOut>} />
           <Route index element={<EmployeeMain/>}/>
+          <Route index element={<Tire/>}/>
+          <Route path='/tire' element={<LayOut><Tire /></LayOut>} />
+          <Route index element={<AdminHome/>}/>
+          <Route path='/vehicle' element={<LayOut><Vehicle /></LayOut>} />
+          <Route index element={<AdminHome/>}/>
+          <Route path='/administrative' element={<LayOut><Administrative /></LayOut>} />
           <Route path='/emplyeehome' element={<LayOut><EmployeeMain /></LayOut>} />
           <Route index element={<DriverMain/>}/>
           <Route path='/driverhome' element={<LayOut><DriverMain /></LayOut>} />

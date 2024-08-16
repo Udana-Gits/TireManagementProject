@@ -22,42 +22,53 @@ function AdminHome() {
     return () => listen(); // Cleanup the listener when the component unmounts
   }, []);
 
-  const handleTire = () => {
-    navigate('/tire');
-  };
-  const handleVehicle = () => {
-    navigate('/vehicle');
-  };
-  const handleAdministrative = () => {
-    navigate('/administrative');
+  const handleAddNewUser = () => {
+    navigate('/signup');
   };
   
+  const handleEntertireData = () => {
+    navigate('/enterdata');
+  };
+  const tiredataview = () => {
+    navigate('/tiredata');
+  };
+  const handlvehicleinfo = () => {
+    navigate('/vehicledata');
+  };
+  
+  const handleAccountmanage = () => {
+    navigate('/accountmanage');
+  };
+
+  const handleTirePerformance = () => {
+    navigate('/tireperformance');
+  };
   
   return (
     <div>
       <NavBar authuser={authuser} />
       <br />
       <div className='adminbuttonbox'>
-        <button onClick={handleTire} class="adminhomebutton">
+        <button onClick={handleEntertireData} class="adminhomebutton">
           <div>
               <img src="/images/components/TireMeasureIcon.png" alt=" " />
-              <span class="text">Tire
+              <span class="text">Input Tire Measurements
               </span>
           </div>
         </button>
         <br />
-        <button onClick={handleVehicle} class="adminhomebutton">
+        <button onClick={tiredataview} class="adminhomebutton">
         <div>
               <img src="/images/components/tire.png" alt=" " />
-              <span class="text">Vehicle
+              <span class="text">View Tire Information
               </span>
           </div>
         </button>
         <br />
-        <button onClick={handleAdministrative} class="adminhomebutton">
+        <button onClick={handleTirePerformance} class="adminhomebutton">
         <div>
-              <img src="/images/components/vehicle.png" alt=" " />
-              <span class="text">Administrative
+              <img src="/images/components/ReportIcon.png" alt=" " />
+              <span class="text">View Tire Performance
               </span>
           </div>
         </button>
