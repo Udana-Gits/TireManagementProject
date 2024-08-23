@@ -1,7 +1,6 @@
-// AdminHome.js
 import React, { useEffect, useState } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
-import { auth } from './firebase'; // Import the auth object from firebase.js
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from './firebase'; 
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import './CSS/AdminHome.css';
