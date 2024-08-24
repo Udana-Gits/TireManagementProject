@@ -21,77 +21,42 @@ function AdminHome() {
     return () => listen(); // Cleanup the listener when the component unmounts
   }, []);
 
-  const handleAddNewUser = () => {
-    navigate('/signup');
+  const handleTire = () => {
+    navigate('/tire');
+  };
+  const handleVehicle = () => {
+    navigate('/vehicle');
+  };
+  const handleAdministrative = () => {
+    navigate('/administrative');
   };
   
-  const handleEntertireData = () => {
-    navigate('/enterdata');
-  };
-  const tiredataview = () => {
-    navigate('/tiredata');
-  };
-  const handlvehicleinfo = () => {
-    navigate('/vehicledata');
-  };
-  
-  const handleAccountmanage = () => {
-    navigate('/accountmanage');
-  };
-
-  const handleTirePerformance = () => {
-    navigate('/tireperformance');
-  };
   
   return (
-    <div>
+    <div className='admin-home-bg'>
       <NavBar authuser={authuser} />
       <br />
       <div className='adminbuttonbox'>
-        <button onClick={handleEntertireData} class="adminhomebutton">
+        <button onClick={handleTire} class="adminhomebutton">
           <div>
-              <img src="/images/components/TireMeasureIcon.png" alt=" " />
-              <span class="text">Input Tire Measurements
-              </span>
-          </div>
-        </button>
-        <br />
-        <button onClick={tiredataview} class="adminhomebutton">
-        <div>
               <img src="/images/components/tire.png" alt=" " />
-              <span class="text">View Tire Information
+              <span class="text">Tire Management
               </span>
           </div>
         </button>
         <br />
-        <button onClick={handlvehicleinfo} class="adminhomebutton">
+        <button onClick={handleVehicle} class="adminhomebutton">
         <div>
               <img src="/images/components/vehicle.png" alt=" " />
-              <span class="text">View Vehicle Information
+              <span class="text">Vehicle Management
               </span>
           </div>
         </button>
         <br />
-        <button onClick={handleTirePerformance} class="adminhomebutton">
-        <div>
-              <img src="/images/components/ReportIcon.png" alt=" " />
-              <span class="text">View Tire Performance
-              </span>
-          </div>
-        </button>
-        <br />
-        <button onClick={handleAccountmanage} class="adminhomebutton">
+        <button onClick={handleAdministrative} class="adminhomebutton">
         <div>
               <img src="/images/components/ManageAccountIcon.png" alt=" " />
-              <span class="text">User Account Management
-              </span>
-          </div>
-        </button>
-        <br />
-        <button onClick={handleAddNewUser} class="adminhomebutton">
-        <div>
-              <img src="/images/components/AddUserIcon.png" alt=" " />
-              <span class="text">Add New User
+              <span class="text">Administrative
               </span>
           </div>
         </button>

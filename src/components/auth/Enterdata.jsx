@@ -15,11 +15,14 @@ const EnterData = () => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
-  const [date, setDate] = useState(new Date().toLocaleString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: 'numeric',
-  }));
+  const [date, setDate] = useState(() => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    return `${day}-${month}-${year}`;
+  });
+  
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
@@ -174,9 +177,9 @@ const EnterData = () => {
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption2} onChange={handleSelectChange2}>
                   <option value="" disabled></option>
-                  <option value="good">&nbsp;&nbsp;Good</option>
-                  <option value="bad">&nbsp;&nbsp;Bad</option>
-                  <option value="average">&nbsp;&nbsp;Average</option>
+                  <option value="New">&nbsp;&nbsp;New</option>
+                  <option value="Rebuild">&nbsp;&nbsp;Rebuild</option>
+                  <option value="Broken">&nbsp;&nbsp;Broken</option>
                 </select>
               </div>
               <br />
@@ -190,9 +193,16 @@ const EnterData = () => {
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption3} onChange={handleSelectChange3}>
                   <option value="" disabled></option>
-                  <option value="MRF">&nbsp;&nbsp;MRF</option>
-                  <option value="CEAT">&nbsp;&nbsp;CEAT</option>
-                  <option value="DSI">&nbsp;&nbsp;DSI</option>
+                  <option value="Magna">&nbsp;&nbsp;Magna</option>
+                  <option value="GSR">&nbsp;&nbsp;GSR</option>
+                  <option value="Continantal">&nbsp;&nbsp;Continantal</option>
+                  <option value="Westlake">&nbsp;&nbsp;Westlake</option>
+                  <option value="JK">&nbsp;&nbsp;JK</option>
+                  <option value="Michalin">&nbsp;&nbsp;Michalin</option>
+                  <option value="Advance">&nbsp;&nbsp;Advance</option>
+                  <option value="Annaite">&nbsp;&nbsp;Annaite</option>
+                  <option value="Jetsteel">&nbsp;&nbsp;Jetsteel</option>
+                  <option value="Jetway">&nbsp;&nbsp;Jetway</option>
                 </select>
               </div>
               <br />
@@ -201,10 +211,14 @@ const EnterData = () => {
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption1} onChange={handleSelectChange1}>
                   <option value="" disabled></option>
-                  <option value="Front Right">&nbsp;&nbsp;Front Right</option>
-                  <option value="Front left">&nbsp;&nbsp;Front left</option>
-                  <option value="Rear Right">&nbsp;&nbsp;Rear Right</option>
-                  <option value="Rear Left">&nbsp;&nbsp;Rear Left</option>
+                  <option value="P #01">&nbsp;&nbsp;P #01</option>
+                  <option value="P #02">&nbsp;&nbsp;P #02</option>
+                  <option value="P #03">&nbsp;&nbsp;P #03</option>
+                  <option value="P #04">&nbsp;&nbsp;P #04</option>
+                  <option value="P #05">&nbsp;&nbsp;P #05</option>
+                  <option value="P #06">&nbsp;&nbsp;P #06</option>
+                  <option value="P #07">&nbsp;&nbsp;P #07</option>
+                  <option value="P #08">&nbsp;&nbsp;P #08</option>
                 </select>
               </div>
               <br />

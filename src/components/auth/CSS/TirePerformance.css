@@ -1,129 +1,63 @@
-.searchcontainer {
-  display: flex;
-  justify-content: center;
-  z-index: 1;
-  visibility: visible;
-  margin-top: 3%;
+.searchcontainer1{
+    margin-top: 50px;
+    text-align: center;
+    display: grid;
+    justify-content: center;
 }
 
-.searchbox {
-  position: relative;
-  width: 30%;
-  height: 80%;
-  border-radius: 20px;
-  align-self: center;
-  display: grid;
-  justify-content: center;
-  margin-top: 0px;
-  margin-bottom: 60px;
-  z-index: 1;
-  /* Ensure it's on top of any background layers */
+.Driverlabel{
+    color: #000;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
-.searchbox::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #E9E9E9;
-  border-radius: 20px;
-  opacity: 0.8;
-  z-index: -1;
-  /* Place behind the content */
+.tirenumberfield1{
+    width: 324px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #ffffff;
+    text-align: center;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 30px;
 }
 
-.searchbox>* {
-  position: relative;
-  z-index: 1;
+.tirenumberfield1::placeholder{
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.3;
+    text-align: center;
 }
 
-.input-container {
-  display: grid;
-  font-family: 'poppins';
-}
-
-.Tirelabel {
-  font-size: 32px;
-  font-weight: bold;
-  margin: 20px;
-  margin-top: 25px;
-  text-align: center;
-}
-
-.tirenumberfield {
-  text-align: center;
-  margin: 20px;
-  border-radius: 10px;
-
-  width: 360px;
-  height: 70px;
-  flex-shrink: 0;
-  border-radius: 15px;
-  background: #ffffff;
-  text-align: center;
-  color: #000;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.tirenumberfield::placeholder {
-  color: #000;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  opacity: 0.3;
-  text-align: center;
-}
-
-.button-container {
-  margin: 20px;
-  margin-bottom: 60px;
-}
-
-.searchbutton1 {
-  width: 360px;
-  height: 70px;
-  flex-shrink: 0;
-  border-radius: 15px;
-  background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
-  color: #FFF;
-  text-align: center;
-  font-family: Poppins;
-  font-style: normal;
-  line-height: normal;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.tire-perform-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/public/images/components/BG4.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.6;
-  z-index: -1;
-}
-
-.tire-perform-bg>* {
-  position: relative;
-  z-index: 1;
+.searchbutton{
+    width: 234px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #021E45 0%, #054AAB 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
   /* Graph Container */
 .chart-container {
- 
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -152,6 +86,72 @@
   border-width: 1 !important;
 }
 
-.perform-chart{
-  margin-top: 10%;
+.chart-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.chart-container {
+  width: 45%;
+}
+.inputbox{
+  display: flex;
+  justify-content: space-around;
+}
+
+.tire-perform-bg::before {
+  content: "";
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/images/components/BG4.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.searchbox1 {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  border-radius: 15px;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0px;
+  margin-bottom: 60px;
+  z-index: 1;
+  /* Ensure it's on top of any background layers */
+  flex-wrap: wrap;
+}
+
+.searchbox1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  z-index: -1;
+  display: grid;
+}
+
+.searchbox1>* {
+  position: relative;
+  z-index: 1;
+}
+
+.gray-container{
+  position: relative;
+  width: 100%;
+  height: 80%;
+  border-radius: 15px;
+  margin-bottom: 60px;
+  opacity: 0.8;
+  background-color: #E9E9E9;
 }

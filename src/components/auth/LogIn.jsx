@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 import { ref, get } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import { db } from './firebase'; // Import your Firebase Realtime Database instance
+import { db } from './firebase'; // firebase realtime db import
 import { sendPasswordResetEmail } from 'firebase/auth';
 import './CSS/LogIn.css';
 
@@ -12,7 +12,7 @@ import './CSS/LogIn.css';
 const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State to toggle show/hide password
+  const [showPassword, setShowPassword] = useState(false); //  show/hide password define
   const navigate = useNavigate();
   const auth = getAuth();
 

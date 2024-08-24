@@ -47,6 +47,18 @@ function Layout({ children }) {
         pageTitle = 'Tire Performance';
         break;
 
+    case '/tire':
+        pageTitle = 'Tire Page';
+        break;
+    
+    case '/vehicle':
+        pageTitle = 'Vehicle Page';
+        break;
+    
+    case '/administrative':
+        pageTitle = 'Administrative';
+        break;
+  
     default:
       pageTitle = 'Unknown Page';
   }
