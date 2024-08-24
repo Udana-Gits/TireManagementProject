@@ -33,29 +33,29 @@ function AdminHome() {
   
   
   return (
-    <div>
+    <div className='admin-home-bg'>
       <NavBar authuser={authuser} />
       <br />
       <div className='adminbuttonbox'>
         <button onClick={handleTire} class="adminhomebutton">
           <div>
-              <img src="/images/components/TireMeasureIcon.png" alt=" " />
-              <span class="text">Tire
+              <img src="/images/components/tire.png" alt=" " />
+              <span class="text">Tire Management
               </span>
           </div>
         </button>
         <br />
         <button onClick={handleVehicle} class="adminhomebutton">
         <div>
-              <img src="/images/components/tire.png" alt=" " />
-              <span class="text">Vehicle
+              <img src="/images/components/vehicle.png" alt=" " />
+              <span class="text">Vehicle Management
               </span>
           </div>
         </button>
         <br />
         <button onClick={handleAdministrative} class="adminhomebutton">
         <div>
-              <img src="/images/components/vehicle.png" alt=" " />
+              <img src="/images/components/ManageAccountIcon.png" alt=" " />
               <span class="text">Administrative
               </span>
           </div>
