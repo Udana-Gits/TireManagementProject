@@ -41,8 +41,31 @@ const EnterData = () => {
     setSelectedOption3(event.target.value);
   };
 
+  const validateVehicleNo = (vehicleNo) => {
+    // This regex matches a prefix (2 letters) followed by optional space and then 4 digits.
+    const vehicleNoPattern = /^[A-Za-z]{2}\d{4}$/;
+    return vehicleNoPattern.test(vehicleNo);
+  };
+
+  const handleVehicleTypeSelect = (value) => {
+    setSelectedOption(value);
+    setVehicleNo(value); // Set the prefix
+  };
+  
+  
+  const [vehicleNoError, setVehicleNoError] = useState('');
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
+
+    // Clear previous error
+    setVehicleNoError('');
+
+    if (!validateVehicleNo(vehicleNo)) {
+      setVehicleNoError('Vehicle number must be two letters followed by four digits.');
+      return;
+    }
+    
 
     if (!tireNo || !vehicleNo || !tyrePressure || !threadDepth || !selectedOption || !selectedOption1 || !selectedOption2 || !selectedOption3 || !kmReading) {
       alert('Please fill in all required fields');
@@ -103,7 +126,7 @@ const EnterData = () => {
     { value: 'IT', label: 'Internal Transport', imgSrc: '/images/vehicals/IT.png' },
     { value: 'FS', label: 'Forklift', imgSrc: '/images/vehicals/FS.png' },
     { value: 'RS', label: 'Rings Tractor', imgSrc: '/images/vehicals/RS.png' },
-    { value: 'RTG', label: 'Rubber Tire Granty Crane', imgSrc: '/images/vehicals/RTG.png' },
+    { value: 'RT', label: 'Rubber Tire Granty Crane', imgSrc: '/images/vehicals/RTG.png' },
   ];
 
   return (
@@ -128,7 +151,10 @@ const EnterData = () => {
             <div
               key={option.value}
               className={`vehicle-option ${selectedOption === option.value ? 'selected' : ''}`}
-              onClick={() => setSelectedOption(option.value)}
+              onClick={() => {
+                setSelectedOption(option.value);
+                setVehicleNo(option.value); // Automatically set the vehicle type value as the beginning of the vehicle number
+              }}
             >
               <img src={option.imgSrc} alt={option.label} className='vehicale' />
               <p>{option.label}</p>
@@ -141,13 +167,23 @@ const EnterData = () => {
             <div className='td1'>
               <label htmlFor="vehicaleNumber" className='label'>Vehicle Number</label>
               <div className="">
-                <input
-                  type="text"
-                  className="textbox"
-                  id="vehicleNo"
-                  value={vehicleNo}
-                  onChange={(e) => setVehicleNo(e.target.value)}
-                />
+              <input
+                type="text"
+                className="textbox"
+                id="vehicleNo"
+                value={vehicleNo}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  if (newValue.startsWith(selectedOption)) {
+                    setVehicleNo(newValue);
+                    setVehicleNoError(''); // Clear error on input change
+                  } else {
+                    setVehicleNoError('Vehicle number must start with the selected vehicle type.');
+                  }
+                }}
+                disabled={!selectedOption} // Disable input until a vehicle type is selected
+              />
+                {vehicleNoError && <p className="error-text">{vehicleNoError}</p>}
               </div>
               <br />
               <label htmlFor="tireNo" className='label'>Tire Serial Number</label>

@@ -56,6 +56,10 @@
       font-weight: 400;
       line-height: normal;
     }
+    .error-text{
+      color: red;
+
+    }
   }
   @media (min-width: 600px) and (max-width: 830px){
     .label{
@@ -114,6 +118,10 @@
       font-weight: 400;
       line-height: normal;
     }
+    .error-text{
+      color: red;
+
+    }
 
   }
   @media screen and (max-width: 600px){
@@ -158,6 +166,11 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+
+    }
+
+    .error-text{
+      color: red;
 
     }
   }
@@ -322,6 +335,11 @@
 
 }
 
+.error-text{
+  color: red;
+
+}
+
 @media screen and (min-width: 600px) {
 
   .backbutton{
@@ -408,6 +426,10 @@
 
   }
 
+  .error-text{
+    color: red;
+
+  }
 
 }
 
@@ -520,6 +542,10 @@
   align-items: center;
   width: 100%; 
   align-content: center;
+
+}
+.error-text{
+  color: red;
 
 }
 
