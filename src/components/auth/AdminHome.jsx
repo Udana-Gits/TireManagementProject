@@ -1,7 +1,6 @@
-// AdminHome.js
 import React, { useEffect, useState } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
-import { auth } from './firebase'; // Import the auth object from firebase.js
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from './firebase'; 
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import './CSS/AdminHome.css';
@@ -34,29 +33,29 @@ function AdminHome() {
   
   
   return (
-    <div>
+    <div className='admin-home-bg'>
       <NavBar authuser={authuser} />
       <br />
       <div className='adminbuttonbox'>
         <button onClick={handleTire} class="adminhomebutton">
           <div>
-              <img src="/images/components/TireMeasureIcon.png" alt=" " />
-              <span class="text">Tire
+              <img src="/images/components/tire.png" alt=" " />
+              <span class="text">Tire Management
               </span>
           </div>
         </button>
         <br />
         <button onClick={handleVehicle} class="adminhomebutton">
         <div>
-              <img src="/images/components/tire.png" alt=" " />
-              <span class="text">Vehicle
+              <img src="/images/components/vehicle.png" alt=" " />
+              <span class="text">Vehicle Management
               </span>
           </div>
         </button>
         <br />
         <button onClick={handleAdministrative} class="adminhomebutton">
         <div>
-              <img src="/images/components/vehicle.png" alt=" " />
+              <img src="/images/components/ManageAccountIcon.png" alt=" " />
               <span class="text">Administrative
               </span>
           </div>

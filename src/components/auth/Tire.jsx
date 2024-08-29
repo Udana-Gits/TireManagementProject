@@ -48,7 +48,7 @@ function AdminHome() {
   };
   
   return (
-    <div>
+    <div className='admin-home-bg'>
       <NavBar authuser={authuser} />
       <br />
       <div className='adminbuttonbox'>

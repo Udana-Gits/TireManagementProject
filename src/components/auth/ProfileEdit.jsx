@@ -72,7 +72,7 @@ const ProfileEdit = () => {
         profilePicture: profilePicture || existingUserData.profilePicture,
         personalEmail: personalEmail || existingUserData.personalEmail,
       };
-      
+
       // Update user object in Realtime Database
       set(userRef, updatedUserData)
         .then(() => {
@@ -126,15 +126,15 @@ const ProfileEdit = () => {
   };
 
   return (
-    <div>
+    <div className='edit-profile-bg'>
       <br />
       <div className="edit-profile-container">
         <div className="row">
           <div className="col-md-3">
-            <br/><br/><br/><br/>
-            <div className="profile-picture">
+            <br />
+            <div className="profile-picture-cont">
               {profilePicture ? (
-                <img src={profilePicture} alt="Profile" className="profile-picture" />
+                <img src={profilePicture} alt="Profile" className="profile-picture-PE" />
               ) : (
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/tiremngdtbase.appspot.com/o/default.jpg?alt=media&token=be7f47f4-42ac-421b-a775-be76dd0de1bb"
@@ -142,8 +142,8 @@ const ProfileEdit = () => {
                   className="profile-picture"
                 />
               )}
-              <br />
-              <input type="file" onChange={handleImageChange} />
+              <br /><br /><br /><br />
+              <input type="file" onChange={handleImageChange} className='image-upload' />
             </div>
           </div>
           <div className="col-md-9">
