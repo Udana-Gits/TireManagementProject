@@ -43,6 +43,9 @@ function AdminHome() {
   const handleTirePerformance = () => {
     navigate('/tireperformance');
   };
+  const EnteroldTireData = () => {
+    navigate('/enteroldtiredata');
+  };
   
   return (
     <div>
@@ -69,6 +72,15 @@ function AdminHome() {
         <div>
               <img src="/images/components/ReportIcon.png" alt=" " />
               <span class="text">View Tire Performance
+              </span>
+          </div>
+        </button>
+        <br />
+        <br />
+        <button onClick={EnteroldTireData} class="adminhomebutton">
+        <div>
+              <img src="/images/components/ReportIcon.png" alt=" " />
+              <span class="text">Enter Old Tire Data
               </span>
           </div>
         </button>

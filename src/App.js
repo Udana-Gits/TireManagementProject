@@ -18,6 +18,7 @@ import LayOut from './components/LayOut';
 import VehicleData from './components/auth/VehicleData' ;
 import AccountManage from './components/auth/AccountManage';
 import TirePerformance from './components/auth/TirePerformance';
+import EnteroldTireData from './components/auth/EnteroldTireData';
 import { generateToken } from './components/auth/firebase';
 import { useEffect } from 'react';
 
@@ -65,6 +66,8 @@ function App() {
           <Route path='/accountmanage' element={<LayOut><AccountManage /></LayOut>} />
           <Route index element={<TirePerformance/>}/>
           <Route path='/tireperformance' element={<LayOut><TirePerformance /></LayOut>} />
+          <Route index element={<EnteroldTireData/>}/>
+          <Route path='/enteroldtiredata' element={<LayOut><EnteroldTireData /></LayOut>} />
         </Routes>
       </BrowserRouter>
     </div>
