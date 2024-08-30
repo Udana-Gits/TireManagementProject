@@ -58,6 +58,7 @@
     }
     .error-text{
       color: red;
+    font-size: 10px;
 
     }
   }
@@ -120,6 +121,7 @@
     }
     .error-text{
       color: red;
+    font-size: 10px;
 
     }
 
@@ -171,6 +173,7 @@
 
     .error-text{
       color: red;
+    font-size: 10px;
 
     }
   }
@@ -337,6 +340,7 @@
 
 .error-text{
   color: red;
+    font-size: 10px;
 
 }
 
@@ -428,6 +432,12 @@
 
   .error-text{
     color: red;
+    font-size: 10px;
+
+  }
+
+  .error-text{
+    
 
   }
 
@@ -546,6 +556,7 @@
 }
 .error-text{
   color: red;
+    font-size: 10px;
 
 }
 

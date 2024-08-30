@@ -6,7 +6,7 @@ import './CSS/Enterdata.css';
 import { Modal, Button } from 'react-bootstrap';
 
 const EnterData = () => {
-  const [tireNo, setTireNo] = useState('');
+  const [tireNo, setTireNo] = useState('T');
   const [vehicleNo, setVehicleNo] = useState('');
   const [tyrePressure, setTyrePressure] = useState('');
   const [kmReading, setKmReading] = useState('');
@@ -15,6 +15,19 @@ const EnterData = () => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
+
+
+
+
+  const [vehicleNoError, setVehicleNoError] = useState('');
+  const [tireNoError, setTireNoError] = useState('');
+  const [kmReadingError, setKmReadingError] = useState('');
+  const [threadDepthError, setThreadDepthError] = useState('');
+  const [tyrePressureError, setTyrePressureError] = useState('');
+
+
+  
+
   const [date, setDate] = useState(() => {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
@@ -47,24 +60,151 @@ const EnterData = () => {
     return vehicleNoPattern.test(vehicleNo);
   };
 
+  const validateTireNo = (tireNo) => {
+    // The regex matches "T" followed by two or three digits.
+    const tireNoPattern = /^T\d{2,3}$/;
+    return tireNoPattern.test(tireNo);
+  };
+
+  const validateKmReading = (kmReading) => /^\d+$/.test(kmReading);
+
+  const handleKmReadingChange = (e) => {
+    const inputValue = e.target.value;
+    if (validateKmReading(inputValue) || inputValue === '') {
+      setKmReading(inputValue);
+      setKmReadingError('');
+    } else {
+      setKmReadingError('Km Reading must be a number.');
+    }
+  };
+
+  const handleKmReadingBlur = () => {
+    if (!validateKmReading(kmReading)) {
+      setKmReadingError('Km Reading must be a number.');
+    } else {
+      setKmReadingError('');
+    }
+  };
+
+
+
+  const validateThreadDepth = (threadDepth) => {
+    const depth = parseFloat(threadDepth);
+    return !isNaN(depth) && depth >= 0 && depth <= 40;
+  };
+  
+  
+
+  const handleThreadDepthChange = (e) => {
+    const inputValue = e.target.value;
+    const depth = parseFloat(inputValue);
+  
+    if (inputValue === '') { // Allow empty input
+      setThreadDepth(inputValue);
+      setThreadDepthError('');
+    } else if (/^\d*\.?\d*$/.test(inputValue)) { // Check if input is a valid number format
+      if (validateThreadDepth(inputValue)) {
+        setThreadDepth(inputValue);
+        setThreadDepthError('');
+      } else if (depth < 0 || depth > 40) {
+        setThreadDepthError('Thread Depth must be between 0 and 40.');
+      }
+    } else {
+      setThreadDepthError('Thread Depth must be a number.');
+    }
+  };
+  
+  
+  const handleThreadDepthBlur = () => {
+    const depth = parseFloat(threadDepth);
+  
+    if (threadDepth === '' || /^\d*\.?\d*$/.test(threadDepth)) {
+      if (!validateThreadDepth(threadDepth)) {
+        setThreadDepthError('Thread Depth must be between 0 and 40.');
+      } else {
+        setThreadDepthError('');
+      }
+    } else {
+      setThreadDepthError('Thread Depth must be a number.');
+    }
+  };
+  
+  
+
+
+
+  const validateTyrePressure = (tyrePressure) => {
+    const depth = parseFloat(tyrePressure);
+    return !isNaN(depth) && depth >= 0 && depth <= 160;
+  };
+  
+  
+
+  const handleTyrePressureChange = (e) => {
+    const inputValue = e.target.value;
+    const pressure = parseFloat(inputValue);
+  
+    if (inputValue === '') { // Allow empty input
+      setTyrePressure(inputValue);
+      setTyrePressureError('');
+    } else if (/^\d*\.?\d*$/.test(inputValue)) { // Check if input is a valid number format
+      if (validateTyrePressure(inputValue)) {
+        setTyrePressure(inputValue);
+        setTyrePressureError('');
+      } else if (pressure < 0 || pressure > 160) {
+        setTyrePressureError('Tyre Pressure must be between 0 and 160.');
+      }
+    } else {
+      setTyrePressureError('Tyre Pressure must be a number.');
+    }
+  };
+  
+  
+  const handleTyrePressureBlur = () => {
+    const pressure = parseFloat(tyrePressure);
+  
+    if (tyrePressure === '' || /^\d*\.?\d*$/.test(tyrePressure)) {
+      if (!validateTyrePressure(tyrePressure)) {
+        setTyrePressureError('Tyre Pressure must be between 0 and 160.');
+      } else {
+        setTyrePressureError('');
+      }
+    } else {
+      setTyrePressureError('Tyre Pressure must be a number.');
+    }
+  };
+  
+
+  
+
+
   const handleVehicleTypeSelect = (value) => {
     setSelectedOption(value);
     setVehicleNo(value); // Set the prefix
   };
   
   
-  const [vehicleNoError, setVehicleNoError] = useState('');
+
+
+
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
     // Clear previous error
     setVehicleNoError('');
+    setTireNoError('');
+
 
     if (!validateVehicleNo(vehicleNo)) {
       setVehicleNoError('Vehicle number must be two letters followed by four digits.');
       return;
     }
+
+    if (!validateTireNo(tireNo)) {
+    setTireNoError('Tire number must have two or three digits.');
+    return;
+  }
     
 
     if (!tireNo || !vehicleNo || !tyrePressure || !threadDepth || !selectedOption || !selectedOption1 || !selectedOption2 || !selectedOption3 || !kmReading) {
@@ -112,6 +252,7 @@ const EnterData = () => {
     .then(() => {
       window.alert('Data entered successfully!');
       setShowModal(false);
+      window.location.reload();
     });
   };
 
@@ -186,15 +327,25 @@ const EnterData = () => {
                 {vehicleNoError && <p className="error-text">{vehicleNoError}</p>}
               </div>
               <br />
-              <label htmlFor="tireNo" className='label'>Tire Serial Number</label>
+              <label htmlFor="tireNo" className="label">Tire Serial Number</label>
               <div className="">
                 <input
                   type="text"
                   className="textbox"
                   id="tireNo"
                   value={tireNo}
-                  onChange={(e) => setTireNo(e.target.value)}
+                  onChange={(e) => {
+                    const inputValue = e.target.value;
+                    // Ensure the "T" stays at the beginning
+                    if (inputValue.startsWith('T')) {
+                      setTireNo(inputValue);
+                      setTireNoError(''); // Clear error on input change
+                    }else{
+                      setTireNoError('Tire number must start with letter T .');
+                    }
+                  }}
                 />
+                {tireNoError && <p className="error-text">{tireNoError}</p>}
               </div>
               <br />
               <label htmlFor="kmReading" className='label'>Km Reading</label>
@@ -204,8 +355,10 @@ const EnterData = () => {
                   className="textbox"
                   id="kmReading"
                   value={kmReading}
-                  onChange={(e) => setKmReading(e.target.value)}
+                  onChange={handleKmReadingChange}
+                  onBlur={handleKmReadingBlur}
                 />
+                {kmReadingError && <p className="error-text">{kmReadingError}</p>}
               </div>
               <br />
 
@@ -266,8 +419,10 @@ const EnterData = () => {
                   className="textbox"
                   id="threadDepth"
                   value={threadDepth}
-                  onChange={(e) => setThreadDepth(e.target.value)}
+                  onChange={handleThreadDepthChange}
+                  onBlur={handleThreadDepthBlur}
                 />
+                {threadDepthError && <p className="error-text">{threadDepthError}</p>}
               </div>
               <br />
               <label htmlFor="tyrePressure" className='label'>Air Pressure (psi)</label>
@@ -277,8 +432,10 @@ const EnterData = () => {
                   className="textbox"
                   id="tyrePressure"
                   value={tyrePressure}
-                  onChange={(e) => setTyrePressure(e.target.value)}
+                  onChange={handleTyrePressureChange}
+                  onBlur={handleTyrePressureBlur}
                 />
+                {tyrePressureError && <p className="error-text">{tyrePressureError}</p>}
               </div>
             </div>
             {/* <td>
