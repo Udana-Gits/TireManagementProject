@@ -65,6 +65,25 @@
     color: black;
   }
 
+  .email-container {
+    position: relative;
+    display: flex;
+  }
+  
+  .email-input {
+    padding-right: 80px; /* Add some space to avoid overlapping text */
+  }
+  
+  .email-domain {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure the span is not clickable */
+    color: gray;
+  }
+  
+
 
   @media screen and (min-width: 600px) {
     .fieldcontainer {
@@ -94,6 +113,24 @@
       font-weight: 700;
       line-height: normal;
   }
+  .email-container {
+    position: relative;
+    display: flex;
+  }
+  
+  .email-input {
+    padding-right: 0px; /* Add some space to avoid overlapping text */
+  }
+  
+  .email-domain {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure the span is not clickable */
+    color: gray;
+  }
+  
 
   }
 
@@ -126,5 +163,23 @@
       font-weight: 700;
       line-height: normal;
   }
+  .email-container {
+    position: relative;
+    display: flex;
+  }
+  
+  .email-input {
+    padding-right: 80px; /* Add some space to avoid overlapping text */
+  }
+  
+  .email-domain {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure the span is not clickable */
+    color: gray;
+  }
+  
 
   }

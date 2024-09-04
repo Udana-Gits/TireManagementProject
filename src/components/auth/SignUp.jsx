@@ -8,7 +8,15 @@ import './CSS/SignUp.css';
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+
+
   const [email, setEmail] = useState('');
+
+  const handleEmailChange = (e) => {
+    const inputEmail = e.target.value.replace('@gmail.com', ''); // Prevent typing "@gmail.com"
+    setEmail(`${inputEmail}@gmail.com`);
+  };
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -66,13 +74,27 @@ const SignUp = () => {
   };
 
   const validateFields = () => {
+
+    const nameRegex = /^[A-Za-z]+$/;
+
+
     if (!firstName) {
       alert('Please enter your first name');
       return false;
     }
 
+    if (!nameRegex.test(firstName)) {
+      alert('First name can only contain letters');
+      return false;
+    }
+
     if (!lastName) {
       alert('Please enter your last name');
+      return false;
+    }
+
+    if (!nameRegex.test(lastName)) {
+      alert('Last name can only contain letters');
       return false;
     }
 
@@ -117,8 +139,19 @@ const SignUp = () => {
           </div>
           <br />
           <div className="">
-            <input type="email" className="registrationtextfield" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <div className="email-container">
+              <input
+                type="text"
+                className="registrationtextfield email-input"
+                id="email"
+                placeholder="Email"
+                value={email.replace('@gmail.com', '')}
+                onChange={handleEmailChange}
+              />
+              <span className="email-domain">@gmail.com</span>
+            </div>
           </div>
+
           <br />
           <div className="">
             <input type="password" className="registrationtextfield" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
