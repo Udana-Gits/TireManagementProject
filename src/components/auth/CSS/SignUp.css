@@ -25,7 +25,6 @@
     font-weight: 400;
     line-height: normal;
     border: 2px solid rgba(225, 255, 255, .2);
-
 }
 
 .registrationtextfield::placeholder {
@@ -83,6 +82,32 @@
     color: gray;
   }
   
+  .password-strength-bar {
+    height: 6px;
+    width: 100%;
+    background-color: rgb(255, 255, 255,0.2); /* Background of the strength bar */
+    border-radius: 3px;
+    margin-top: 5px;
+  }
+  
+  .strength-meter {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Smooth transition */
+  }
+  
+  .strength-meter.weak {
+    background-color: red;
+  }
+  
+  .strength-meter.medium {
+    background-color: orange;
+  }
+  
+  .strength-meter.strong {
+    background-color: green;
+  }
+  
 
 
   @media screen and (min-width: 600px) {
@@ -130,10 +155,39 @@
     pointer-events: none; /* Ensure the span is not clickable */
     color: gray;
   }
+
+  .password-strength-bar {
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 255, 255,0.2); /* Background of the strength bar */
+    border-radius: 3px;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .strength-meter {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Smooth transition */
+    max-width: 100%;
+  }
+  
+  .strength-meter.weak {
+    background-color: red;
+  }
+  
+  .strength-meter.medium {
+    background-color: orange;
+  }
+  
+  .strength-meter.strong {
+    background-color: green;
+  }
+  
   
 
   }
-
 
 
   @media screen and (max-width: 600px) {
@@ -179,6 +233,32 @@
     transform: translateY(-50%);
     pointer-events: none; /* Ensure the span is not clickable */
     color: gray;
+  }
+  
+  .password-strength-bar {
+    height: 6px;
+    width: 100%;
+    background-color: rgb(255, 255, 255,0.2); /* Background of the strength bar */
+    border-radius: 3px;
+    margin-top: 5px;
+  }
+  
+  .strength-meter {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Smooth transition */
+  }
+  
+  .strength-meter.weak {
+    background-color: red;
+  }
+  
+  .strength-meter.medium {
+    background-color: orange;
+  }
+  
+  .strength-meter.strong {
+    background-color: green;
   }
   
 
