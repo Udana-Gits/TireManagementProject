@@ -285,7 +285,7 @@ const EnterData = () => {
     </div>
       
       <form action="" id="dropdown" className="contentbox" onSubmit={handleFormSubmit}>
-        <p className='vtype'><b>Chose your Vehicle Type</b></p>
+        <p className='vtype'><b>Choose your Vehicle Type</b></p>
         <br />
         <div className="vehicle-options">
           {vehicleOptions.map(option => (
