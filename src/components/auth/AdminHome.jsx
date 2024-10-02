@@ -36,6 +36,7 @@ function AdminHome() {
     <div className='admin-home-bg'>
       <NavBar authuser={authuser} />
       <br />
+      {authuser ? (
       <div className='adminbuttonbox'>
         <button onClick={handleTire} class="adminhomebutton">
           <div>
@@ -62,6 +63,9 @@ function AdminHome() {
         </button>
         <br />
       </div>
+      ) : (
+        <p>Please Sign in to Access Driver Dashboard.</p>
+      )}
       <br />
     </div>
   );
