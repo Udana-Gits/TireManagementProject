@@ -6,7 +6,7 @@ import './CSS/Enterdata.css';
 import { Modal, Button } from 'react-bootstrap';
 
 const EnterData = () => {
-  const [tireNo, setTireNo] = useState('');
+  const [tireNo, setTireNo] = useState('T');
   const [vehicleNo, setVehicleNo] = useState('');
   const [tyrePressure, setTyrePressure] = useState('');
   const [kmReading, setKmReading] = useState('');
@@ -15,11 +15,27 @@ const EnterData = () => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
-  const [date, setDate] = useState(new Date().toLocaleString('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: 'numeric',
-  }));
+
+
+
+
+  const [vehicleNoError, setVehicleNoError] = useState('');
+  const [tireNoError, setTireNoError] = useState('');
+  const [kmReadingError, setKmReadingError] = useState('');
+  const [threadDepthError, setThreadDepthError] = useState('');
+  const [tyrePressureError, setTyrePressureError] = useState('');
+
+
+  
+
+  const [date, setDate] = useState(() => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    return `${day}-${month}-${year}`;
+  });
+  
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
@@ -38,8 +54,158 @@ const EnterData = () => {
     setSelectedOption3(event.target.value);
   };
 
+  const validateVehicleNo = (vehicleNo) => {
+    // This regex matches a prefix (2 letters) followed by optional space and then 4 digits.
+    const vehicleNoPattern = /^[A-Za-z]{2}\d{4}$/;
+    return vehicleNoPattern.test(vehicleNo);
+  };
+
+  const validateTireNo = (tireNo) => {
+    // The regex matches "T" followed by two or three digits.
+    const tireNoPattern = /^T\d{2,3}$/;
+    return tireNoPattern.test(tireNo);
+  };
+
+  const validateKmReading = (kmReading) => /^\d+$/.test(kmReading);
+
+  const handleKmReadingChange = (e) => {
+    const inputValue = e.target.value;
+    if (validateKmReading(inputValue) || inputValue === '') {
+      setKmReading(inputValue);
+      setKmReadingError('');
+    } else {
+      setKmReadingError('Km Reading must be a number.');
+    }
+  };
+
+  const handleKmReadingBlur = () => {
+    if (!validateKmReading(kmReading)) {
+      setKmReadingError('Km Reading must be a number.');
+    } else {
+      setKmReadingError('');
+    }
+  };
+
+
+
+  const validateThreadDepth = (threadDepth) => {
+    const depth = parseFloat(threadDepth);
+    return !isNaN(depth) && depth >= 0 && depth <= 40;
+  };
+  
+  
+
+  const handleThreadDepthChange = (e) => {
+    const inputValue = e.target.value;
+    const depth = parseFloat(inputValue);
+  
+    if (inputValue === '') { // Allow empty input
+      setThreadDepth(inputValue);
+      setThreadDepthError('');
+    } else if (/^\d*\.?\d*$/.test(inputValue)) { // Check if input is a valid number format
+      if (validateThreadDepth(inputValue)) {
+        setThreadDepth(inputValue);
+        setThreadDepthError('');
+      } else if (depth < 0 || depth > 40) {
+        setThreadDepthError('Thread Depth must be between 0 and 40.');
+      }
+    } else {
+      setThreadDepthError('Thread Depth must be a number.');
+    }
+  };
+  
+  
+  const handleThreadDepthBlur = () => {
+    const depth = parseFloat(threadDepth);
+  
+    if (threadDepth === '' || /^\d*\.?\d*$/.test(threadDepth)) {
+      if (!validateThreadDepth(threadDepth)) {
+        setThreadDepthError('Thread Depth must be between 0 and 40.');
+      } else {
+        setThreadDepthError('');
+      }
+    } else {
+      setThreadDepthError('Thread Depth must be a number.');
+    }
+  };
+  
+  
+
+
+
+  const validateTyrePressure = (tyrePressure) => {
+    const depth = parseFloat(tyrePressure);
+    return !isNaN(depth) && depth >= 0 && depth <= 160;
+  };
+  
+  
+
+  const handleTyrePressureChange = (e) => {
+    const inputValue = e.target.value;
+    const pressure = parseFloat(inputValue);
+  
+    if (inputValue === '') { // Allow empty input
+      setTyrePressure(inputValue);
+      setTyrePressureError('');
+    } else if (/^\d*\.?\d*$/.test(inputValue)) { // Check if input is a valid number format
+      if (validateTyrePressure(inputValue)) {
+        setTyrePressure(inputValue);
+        setTyrePressureError('');
+      } else if (pressure < 0 || pressure > 160) {
+        setTyrePressureError('Tyre Pressure must be between 0 and 160.');
+      }
+    } else {
+      setTyrePressureError('Tyre Pressure must be a number.');
+    }
+  };
+  
+  
+  const handleTyrePressureBlur = () => {
+    const pressure = parseFloat(tyrePressure);
+  
+    if (tyrePressure === '' || /^\d*\.?\d*$/.test(tyrePressure)) {
+      if (!validateTyrePressure(tyrePressure)) {
+        setTyrePressureError('Tyre Pressure must be between 0 and 160.');
+      } else {
+        setTyrePressureError('');
+      }
+    } else {
+      setTyrePressureError('Tyre Pressure must be a number.');
+    }
+  };
+  
+
+  
+
+
+  const handleVehicleTypeSelect = (value) => {
+    setSelectedOption(value);
+    setVehicleNo(value); // Set the prefix
+  };
+  
+  
+
+
+
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
+
+    // Clear previous error
+    setVehicleNoError('');
+    setTireNoError('');
+
+
+    if (!validateVehicleNo(vehicleNo)) {
+      setVehicleNoError('Vehicle number must be two letters followed by four digits.');
+      return;
+    }
+
+    if (!validateTireNo(tireNo)) {
+    setTireNoError('Tire number must have two or three digits.');
+    return;
+  }
+    
 
     if (!tireNo || !vehicleNo || !tyrePressure || !threadDepth || !selectedOption || !selectedOption1 || !selectedOption2 || !selectedOption3 || !kmReading) {
       alert('Please fill in all required fields');
@@ -86,6 +252,7 @@ const EnterData = () => {
     .then(() => {
       window.alert('Data entered successfully!');
       setShowModal(false);
+      window.location.reload();
     });
   };
 
@@ -100,7 +267,7 @@ const EnterData = () => {
     { value: 'IT', label: 'Internal Transport', imgSrc: '/images/vehicals/IT.png' },
     { value: 'FS', label: 'Forklift', imgSrc: '/images/vehicals/FS.png' },
     { value: 'RS', label: 'Rings Tractor', imgSrc: '/images/vehicals/RS.png' },
-    { value: 'RTG', label: 'Rubber Tire Granty Crane', imgSrc: '/images/vehicals/RTG.png' },
+    { value: 'RT', label: 'Rubber Tire Granty Crane', imgSrc: '/images/vehicals/RTG.png' },
   ];
 
   return (
@@ -118,14 +285,17 @@ const EnterData = () => {
     </div>
       
       <form action="" id="dropdown" className="contentbox" onSubmit={handleFormSubmit}>
-        <p className='vtype'><b>Chose your Vehicle Type</b></p>
+        <p className='vtype'><b>Choose your Vehicle Type</b></p>
         <br />
         <div className="vehicle-options">
           {vehicleOptions.map(option => (
             <div
               key={option.value}
               className={`vehicle-option ${selectedOption === option.value ? 'selected' : ''}`}
-              onClick={() => setSelectedOption(option.value)}
+              onClick={() => {
+                setSelectedOption(option.value);
+                setVehicleNo(option.value); // Automatically set the vehicle type value as the beginning of the vehicle number
+              }}
             >
               <img src={option.imgSrc} alt={option.label} className='vehicale' />
               <p>{option.label}</p>
@@ -138,24 +308,44 @@ const EnterData = () => {
             <div className='td1'>
               <label htmlFor="vehicaleNumber" className='label'>Vehicle Number</label>
               <div className="">
-                <input
-                  type="text"
-                  className="textbox"
-                  id="vehicleNo"
-                  value={vehicleNo}
-                  onChange={(e) => setVehicleNo(e.target.value)}
-                />
+              <input
+                type="text"
+                className="textbox"
+                id="vehicleNo"
+                value={vehicleNo}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  if (newValue.startsWith(selectedOption)) {
+                    setVehicleNo(newValue);
+                    setVehicleNoError(''); // Clear error on input change
+                  } else {
+                    setVehicleNoError('Vehicle number must start with the selected vehicle type.');
+                  }
+                }}
+                disabled={!selectedOption} // Disable input until a vehicle type is selected
+              />
+                {vehicleNoError && <p className="error-text">{vehicleNoError}</p>}
               </div>
               <br />
-              <label htmlFor="tireNo" className='label'>Tire Serial Number</label>
+              <label htmlFor="tireNo" className="label">Tire Serial Number</label>
               <div className="">
                 <input
                   type="text"
                   className="textbox"
                   id="tireNo"
                   value={tireNo}
-                  onChange={(e) => setTireNo(e.target.value)}
+                  onChange={(e) => {
+                    const inputValue = e.target.value;
+                    // Ensure the "T" stays at the beginning
+                    if (inputValue.startsWith('T')) {
+                      setTireNo(inputValue);
+                      setTireNoError(''); // Clear error on input change
+                    }else{
+                      setTireNoError('Tire number must start with letter T .');
+                    }
+                  }}
                 />
+                {tireNoError && <p className="error-text">{tireNoError}</p>}
               </div>
               <br />
               <label htmlFor="kmReading" className='label'>Km Reading</label>
@@ -165,8 +355,10 @@ const EnterData = () => {
                   className="textbox"
                   id="kmReading"
                   value={kmReading}
-                  onChange={(e) => setKmReading(e.target.value)}
+                  onChange={handleKmReadingChange}
+                  onBlur={handleKmReadingBlur}
                 />
+                {kmReadingError && <p className="error-text">{kmReadingError}</p>}
               </div>
               <br />
 
@@ -174,9 +366,9 @@ const EnterData = () => {
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption2} onChange={handleSelectChange2}>
                   <option value="" disabled></option>
-                  <option value="good">&nbsp;&nbsp;Good</option>
-                  <option value="bad">&nbsp;&nbsp;Bad</option>
-                  <option value="average">&nbsp;&nbsp;Average</option>
+                  <option value="New">&nbsp;&nbsp;New</option>
+                  <option value="Rebuild">&nbsp;&nbsp;Rebuild</option>
+                  <option value="Broken">&nbsp;&nbsp;Broken</option>
                 </select>
               </div>
               <br />
@@ -190,9 +382,16 @@ const EnterData = () => {
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption3} onChange={handleSelectChange3}>
                   <option value="" disabled></option>
-                  <option value="MRF">&nbsp;&nbsp;MRF</option>
-                  <option value="CEAT">&nbsp;&nbsp;CEAT</option>
-                  <option value="DSI">&nbsp;&nbsp;DSI</option>
+                  <option value="Magna">&nbsp;&nbsp;Magna</option>
+                  <option value="GSR">&nbsp;&nbsp;GSR</option>
+                  <option value="Continantal">&nbsp;&nbsp;Continantal</option>
+                  <option value="Westlake">&nbsp;&nbsp;Westlake</option>
+                  <option value="JK">&nbsp;&nbsp;JK</option>
+                  <option value="Michalin">&nbsp;&nbsp;Michalin</option>
+                  <option value="Advance">&nbsp;&nbsp;Advance</option>
+                  <option value="Annaite">&nbsp;&nbsp;Annaite</option>
+                  <option value="Jetsteel">&nbsp;&nbsp;Jetsteel</option>
+                  <option value="Jetway">&nbsp;&nbsp;Jetway</option>
                 </select>
               </div>
               <br />
@@ -201,10 +400,14 @@ const EnterData = () => {
               <div className="dropdown">
                 <select id="dropdown" className="formdropdown" value={selectedOption1} onChange={handleSelectChange1}>
                   <option value="" disabled></option>
-                  <option value="Front Right">&nbsp;&nbsp;Front Right</option>
-                  <option value="Front left">&nbsp;&nbsp;Front left</option>
-                  <option value="Rear Right">&nbsp;&nbsp;Rear Right</option>
-                  <option value="Rear Left">&nbsp;&nbsp;Rear Left</option>
+                  <option value="P #01">&nbsp;&nbsp;P #01</option>
+                  <option value="P #02">&nbsp;&nbsp;P #02</option>
+                  <option value="P #03">&nbsp;&nbsp;P #03</option>
+                  <option value="P #04">&nbsp;&nbsp;P #04</option>
+                  <option value="P #05">&nbsp;&nbsp;P #05</option>
+                  <option value="P #06">&nbsp;&nbsp;P #06</option>
+                  <option value="P #07">&nbsp;&nbsp;P #07</option>
+                  <option value="P #08">&nbsp;&nbsp;P #08</option>
                 </select>
               </div>
               <br />
@@ -216,8 +419,10 @@ const EnterData = () => {
                   className="textbox"
                   id="threadDepth"
                   value={threadDepth}
-                  onChange={(e) => setThreadDepth(e.target.value)}
+                  onChange={handleThreadDepthChange}
+                  onBlur={handleThreadDepthBlur}
                 />
+                {threadDepthError && <p className="error-text">{threadDepthError}</p>}
               </div>
               <br />
               <label htmlFor="tyrePressure" className='label'>Air Pressure (psi)</label>
@@ -227,8 +432,10 @@ const EnterData = () => {
                   className="textbox"
                   id="tyrePressure"
                   value={tyrePressure}
-                  onChange={(e) => setTyrePressure(e.target.value)}
+                  onChange={handleTyrePressureChange}
+                  onBlur={handleTyrePressureBlur}
                 />
+                {tyrePressureError && <p className="error-text">{tyrePressureError}</p>}
               </div>
             </div>
             {/* <td>

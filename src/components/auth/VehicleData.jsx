@@ -172,11 +172,11 @@ const VehicleData = ({ tireDataRef }) => {
                 </div>
               </div>
             </div>
-            {noDataFound && <p>No data found for the entered Tire Number.</p>}
+            {noDataFound && <p>No data found for the entered Vehicle Number.</p>}
             <ModalTable />
           </div>
         ) : (
-          <p>Please log in to view your tire data.</p>
+          <p>Please log in to view your vehicle data.</p>
         )}
       </div>
     </div>
