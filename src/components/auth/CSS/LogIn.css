@@ -84,11 +84,10 @@
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:flex-start;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 83.3vh;
+    min-height: 80.3vh;
     margin-bottom: 7px;
-    
 
   }
   
@@ -160,6 +159,7 @@
       backdrop-filter: blur(10px);
       border-radius: 12px;
       padding: 30px 40px;
+      height: 65vh;
   
     }
   
