@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { db } from './firebase'; // firebase realtime db import
 import { sendPasswordResetEmail } from 'firebase/auth';
 import './CSS/LogIn.css';
+import { useEffect } from 'react';
+
 
 
 const LogIn = () => {
@@ -20,39 +22,43 @@ const LogIn = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  useEffect(() => {
+    window.history.pushState(null, null, null);
+  }, []);
+  
+
   const logIn = async (e) => {
     e.preventDefault();
+  
+    if (!validateEmail(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+  
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const uid = userCredential.user.uid;
       const userRef = ref(db, `UserauthList/${uid}`);
       const snapshot = await get(userRef);
-      
+  
       if (snapshot.exists()) {
         const userData = snapshot.val();
         const userOccupation = userData.occupation;
-
+  
         switch (userOccupation) {
           case 'Admin':
-            if (showPassword) {
-              navigate('/adminhome', { state: { showPassword } });
-            } else {
-              navigate('/adminhome');
-            }
+            navigate('/adminhome');
             break;
           case 'Employee':
-            if (showPassword) {
-              navigate('/emplyeehome', { state: { showPassword } });
-            } else {
-              navigate('/emplyeehome');
-            }
+            navigate('/employeehome');
             break;
           case 'Driver':
-            if (showPassword) {
-              navigate('/driverhome', { state: { showPassword } });
-            } else {
-              navigate('/driverhome');
-            }
+            navigate('/driverhome');
             break;
           default:
             alert('Invalid occupation. Please try again.');
@@ -65,6 +71,7 @@ const LogIn = () => {
       alert('Invalid email or password. Please try again.');
     }
   };
+  
 
   const resetPassword = async () => {
     try {

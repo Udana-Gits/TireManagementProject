@@ -3,14 +3,14 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import './CSS/VehicleData.css';
+import './CSS/TireData.css';
 import Modal from 'react-modal';
 
-const VehicleData = ({ tireDataRef }) => {
+const TireData = ({ tireDataRef }) => {
   const [authuser, setAuthUser] = useState(null);
   const [tireData, setTireData] = useState([]);
   const [originalTireData, setOriginalTireData] = useState([]);
-  const [vehicleNumber, setVehicleNumber] = useState('');
+  const [tireNumber, settireNumber] = useState('');
   const [noDataFound, setNoDataFound] = useState(false);
   const navigate = useNavigate();
   const [displayTable, setDisplayTable] = useState(false);
@@ -32,15 +32,12 @@ const VehicleData = ({ tireDataRef }) => {
     return onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const tireDataArray = [];
-        Object.keys(data).forEach(dateKey => {
-          Object.keys(data[dateKey]).forEach(tireNo => {
-            tireDataArray.push({
-              id: tireNo,
-              ...data[dateKey][tireNo]
-            });
-          });
-        });
+        const tireDataArray = Object.keys(data).flatMap((date) =>
+          Object.keys(data[date]).map((tireNo) => ({
+            id: tireNo,
+            ...data[date][tireNo],
+          }))
+        );
         setTireData(tireDataArray);
         setOriginalTireData(tireDataArray);
       }
@@ -49,16 +46,15 @@ const VehicleData = ({ tireDataRef }) => {
     });
   }, []);
 
-  // Handle Search function with search container visibility
   const handleSearch = () => {
-    if (vehicleNumber.trim() === '') {
+    if (tireNumber.trim() === '') {
       setDisplayTable(true);
       return;
     }
 
     const filteredData = originalTireData.filter((tire) => {
-      const vehicleNo = tire.vehicleNo || '';
-      return vehicleNo.toLowerCase() === vehicleNumber.toLowerCase();
+      const tireNo = tire.tireNo && typeof tire.tireNo === 'object' ? tire.tireNo.Value : tire.tireNo || '';
+      return tireNo.toLowerCase() === tireNumber.toLowerCase();
     });
 
     if (filteredData.length === 0) {
@@ -94,7 +90,7 @@ const VehicleData = ({ tireDataRef }) => {
     }
   };
 
-  const getTireStatus = (tyrePressure, threadDepth) => {
+  const getTireStatus = (tyrePressure, threadDepth ) => {
     const tyrePressureColor = getTyrePressureColor(tyrePressure);
     const threadDepthColor = getThreadDepthColor(threadDepth);
 
@@ -107,9 +103,7 @@ const VehicleData = ({ tireDataRef }) => {
     }
   };
 
-  const backhandle = () => {
-    navigate(-1);
-  };
+  
 
   const ModalTable = () => {
     return (
@@ -117,58 +111,63 @@ const VehicleData = ({ tireDataRef }) => {
         setIsModalOpen(false);
         // Show search container again when modal closes
         document.querySelector('.searchcontainer').style.visibility = 'visible';
-      }} className="custom-modal">
+      }} className="custom-modal-Tire">
 
-        < h2 className='table-title' > Tire Details of Your Vehicale</h2 >
+        <h2 className='table-title'>Tire Details of Your Vehicle</h2>
         {noDataFound ? (
         <div className="nodata-centered">
-          <p>No data found for the given Vehicale number.</p>
+          <p>No data found for the given tire number.</p>
         </div>
       ) : (
         <table className="">
           <thead>
             <tr>
-              <th className='clm1'>Tire Number</th>
-              <th className='clm2'>Tire Position</th>
-              <th className='clm1'>Tire Pressure</th>
-              <th className='clm2'>Thread Depth</th>
-              <th className='clm1'>Tire Status</th>
+              <th className='tclm1'>Date</th>
+              <th className='tclm2'>Vehicle Number</th>
+              <th className='tclm1'>Tire Position</th>
+              <th className='tclm2'>Tire Pressure</th>
+              <th className='tclm1'>Thread Depth</th>
+              <th className='tclm2'>Tire Status</th>
+              <th className='tclm1'>Employee</th>
             </tr>
           </thead>
           <tbody>
             {tireData.map((tire) => (
               <tr key={tire.id}>
-                <td className='clm3'>{tire.tireNo}</td>
-                <td className='clm4'>{tire.TirePosition}</td>
-                <td className='clm3' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
-                <td className='clm4' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
-                <td className='clm3'>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
+                <td className='tclm3'>{tire.Date}</td>
+                <td className='tclm4'>{tire.vehicleNo}</td>
+                <td className='tclm3'>{tire.TirePosition}</td>
+                <td className='tclm4' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
+                <td className='tclm3' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
+                <td className='tclm4'>{tire.tirestatus}</td>
+                <td className='tclm3'>{tire.employee}</td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      </Modal >
+      </Modal>
     );
   };
+
   return (
     <div>
-      <div className="vehicle-search-bg">
+      <div className="tire-search-bg">
         {authuser ? (
           <div className="">
             <div className="searchcontainer">
               <div className="searchbox">
                 <div className="input-container">
-                  <label htmlFor="VehicleNo" className="Vehiclelabel">
-                    Vehicle Number
+                  <label htmlFor="tireNo" className="Tirelabel">
+                    Tire Number
                   </label>
                   <input
                     type="text"
-                    className="vehicalenumberfield"
-                    id="VehicleNo"
-                    placeholder="Eg: AB1234"
-                    value={vehicleNumber}
-                    onChange={(e) => setVehicleNumber(e.target.value)}
+                    className="tirenumberfield"
+                    id="tireNo"
+                    placeholder="Eg: XYZ1234"
+                    value={tireNumber}
+                    onChange={(e) => settireNumber(e.target.value)}
                   />
                 </div>
                 <div className="button-container">
@@ -178,14 +177,15 @@ const VehicleData = ({ tireDataRef }) => {
                 </div>
               </div>
             </div>
+            
             <ModalTable />
           </div>
         ) : (
-          <p>Please log in to view your tire data.</p>
+          <p>Please sign in to access Driver Main.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default VehicleData;
+export default TireData;

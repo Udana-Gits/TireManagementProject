@@ -8,16 +8,52 @@ import './CSS/SignUp.css';
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+
+
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => {
+    const inputEmail = e.target.value.replace('@gmail.com', ''); // Prevent typing "@gmail.com"
+    setEmail(`${inputEmail}@gmail.com`);
+  };
+
+  const [password, setPassword] = useState(''); // Add this line to define password state
+
+
+  const [passwordStrength, setPasswordStrength] = useState(''); // For password strength indicator
+  const handlePasswordChange = (e) => {
+    const inputPassword = e.target.value;
+    setPassword(inputPassword);
+    checkPasswordStrength(inputPassword); // Check password strength while typing
+  };
+
+  const checkPasswordStrength = (password) => {
+    const strength = calculatePasswordStrength(password);
+    setPasswordStrength(strength);
+  };
+  
+  const calculatePasswordStrength = (password) => {
+    const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const mediumPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+  
+    if (strongPassword.test(password)) {
+      return 'strong';
+    } else if (mediumPassword.test(password)) {
+      return 'medium';
+    } else {
+      return 'weak';
+    }
+  };
+  
+
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const navigate = useNavigate();
 
-  const backhandle = () => {
-    navigate('/adminhome');
-  };
+  // const backhandle = () => {
+  //   navigate('/adminhome');
+  // };
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
@@ -66,15 +102,26 @@ const SignUp = () => {
   };
 
   const validateFields = () => {
+
+    const nameRegex = /^[A-Za-z]+$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+
     if (!firstName) {
       alert('Please enter your first name');
       return false;
     }
 
-    if (!lastName) {
-      alert('Please enter your last name');
+    if (!nameRegex.test(firstName)) {
+      alert('First name can only contain letters');
       return false;
     }
+
+
+    if (lastName !== null && lastName.trim() !== '' && !nameRegex.test(lastName)) {
+      alert('Last name must contain only letters and cannot be empty');
+      return false;
+  }
 
     if (!email) {
       alert('Please enter your email');
@@ -83,6 +130,12 @@ const SignUp = () => {
 
     if (!password) {
       alert('Please enter a password');
+      return false;
+    }
+
+    // Validate password strength
+    if (!passwordRegex.test(password)) {
+      alert('Password must be at least 8 characters long, include a lowercase letter, an uppercase letter, a number, and a symbol.');
       return false;
     }
 
@@ -113,15 +166,34 @@ const SignUp = () => {
           </div>
           <br />
           <div className="">
-            <input type="text" className="registrationtextfield" id="lname" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <input type="text" className="registrationtextfield"
+              id="lname"
+              placeholder="Last Name  (Optional)" 
+              value={lastName} 
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
           <br />
           <div className="">
-            <input type="email" className="registrationtextfield" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <div className="email-container">
+              <input
+                type="text"
+                className="registrationtextfield email-input"
+                id="email"
+                placeholder="Email"
+                value={email.replace('@gmail.com', '')}
+                onChange={handleEmailChange}
+              />
+              <span className="email-domain">@gmail.com</span>
+            </div>
           </div>
+
           <br />
           <div className="">
-            <input type="password" className="registrationtextfield" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" className="registrationtextfield" id="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+            <div className="password-strength-bar">
+              <div className={`strength-meter ${passwordStrength}`} style={{ width: `${password.length * 10}%` }}></div>
+            </div>
           </div>
           <br />
           <div className="">

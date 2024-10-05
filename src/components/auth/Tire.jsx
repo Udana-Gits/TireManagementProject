@@ -30,7 +30,7 @@ function AdminHome() {
     navigate('/enterdata');
   };
   const tiredataview = () => {
-    navigate('/tiredata');
+    navigate('/tiredataadmin');
   };
   const handlvehicleinfo = () => {
     navigate('/vehicledata');
@@ -42,6 +42,9 @@ function AdminHome() {
 
   const handleTirePerformance = () => {
     navigate('/tireperformance');
+  };
+  const EnteroldTireData = () => {
+    navigate('/enteroldtiredata');
   };
   
   return (
@@ -73,6 +76,15 @@ function AdminHome() {
           </div>
         </button>
         <br />
+        {/* <br />
+        <button onClick={EnteroldTireData} class="adminhomebutton">
+        <div>
+              <img src="/images/components/ReportIcon.png" alt=" " />
+              <span class="text">Enter Old Tire Data
+              </span>
+          </div>
+        </button>
+        <br /> */}
       </div>
       <br />
     </div>

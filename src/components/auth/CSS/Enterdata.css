@@ -36,6 +36,9 @@
       margin-bottom: 20px;
 
     }
+    .textbox.error {
+      border: 2px solid #f00 !important; /* red border */
+    }
     .formdropdown {
       width: 280px;
       height: 40px;
@@ -55,6 +58,11 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+    }
+    .error-text{
+      color: red;
+    font-size: 14px;
+
     }
   }
   @media (min-width: 600px) and (max-width: 830px){
@@ -93,6 +101,9 @@
       margin-bottom: 20px;
 
 
+      .textbox.error {
+        border: 2px solid #f00 !important; /* red border */
+      }
     }
     .formdropdown {
       width: 240px;
@@ -113,6 +124,11 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+    }
+    .error-text{
+      color: red;
+    font-size: 14px;
+
     }
 
   }
@@ -139,6 +155,9 @@
       border: 2px solid #20447c;
 
     }
+    .textbox.error {
+      border: 2px solid #f00 !important; /* red border */
+    }
     .formdropdown {
       width: 280px;
       height: 34px;
@@ -160,18 +179,19 @@
       line-height: normal;
 
     }
+
+    .error-text{
+      color: red;
+    font-size: 14px;
+
+    }
+    
   }
 
 
 
 
   
-
-
-
-
-
-
 
 
 
@@ -322,6 +342,12 @@
 
 }
 
+.error-text{
+  color: red;
+    font-size: 14px;
+
+}
+
 @media screen and (min-width: 600px) {
 
   .backbutton{
@@ -408,6 +434,13 @@
 
   }
 
+  .error-text{
+    color: red;
+    font-size: 14px;
+
+  }
+
+  
 
 }
 
@@ -463,7 +496,7 @@
     font-size: 20px;
     color: #5d5757;
     width: 100%;
-    text-align: center;
+    text-align: left;
     padding-top: 40px;
     
   }
@@ -520,6 +553,11 @@
   align-items: center;
   width: 100%; 
   align-content: center;
+
+}
+.error-text{
+  color: red;
+    font-size: 14px;
 
 }
 
