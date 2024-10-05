@@ -30,7 +30,7 @@ function AdminHome() {
     navigate('/enterdata');
   };
   const tiredataview = () => {
-    navigate('/tiredata');
+    navigate('/tiredataadmin');
   };
   const handlvehicleinfo = () => {
     navigate('/vehicledata');
@@ -76,7 +76,7 @@ function AdminHome() {
           </div>
         </button>
         <br />
-        <br />
+        {/* <br />
         <button onClick={EnteroldTireData} class="adminhomebutton">
         <div>
               <img src="/images/components/ReportIcon.png" alt=" " />
@@ -84,7 +84,7 @@ function AdminHome() {
               </span>
           </div>
         </button>
-        <br />
+        <br /> */}
       </div>
       <br />
     </div>

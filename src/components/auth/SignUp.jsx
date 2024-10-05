@@ -51,9 +51,9 @@ const SignUp = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const navigate = useNavigate();
 
-  const backhandle = () => {
-    navigate('/adminhome');
-  };
+  // const backhandle = () => {
+  //   navigate('/adminhome');
+  // };
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
@@ -117,15 +117,11 @@ const SignUp = () => {
       return false;
     }
 
-    if (!lastName) {
-      alert('Please enter your last name');
-      return false;
-    }
 
-    if (!nameRegex.test(lastName)) {
-      alert('Last name can only contain letters');
+    if (lastName !== null && lastName.trim() !== '' && !nameRegex.test(lastName)) {
+      alert('Last name must contain only letters and cannot be empty');
       return false;
-    }
+  }
 
     if (!email) {
       alert('Please enter your email');
@@ -170,7 +166,12 @@ const SignUp = () => {
           </div>
           <br />
           <div className="">
-            <input type="text" className="registrationtextfield" id="lname" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <input type="text" className="registrationtextfield"
+              id="lname"
+              placeholder="Last Name  (Optional)" 
+              value={lastName} 
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
           <br />
           <div className="">
