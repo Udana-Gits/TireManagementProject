@@ -9,30 +9,23 @@ import './CSS/EmployeeMain.css';
 
 
 export function EmployeeMain() {
+
     const [authuser, setAuthUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setAuthUser(user)
+                setAuthUser(user);
             } else {
                 setAuthUser(null);
+                navigate('/login', { replace: true }); // Prevent going back after logging out
             }
         });
         return () => listen(); // Cleanup the listener when the component unmounts
-    }, []);
+    }, [navigate]);
 
-    const handleSignOut = () => {
-        signOut(auth)
-            .then(() => {
-                // Redirect to login page after signout
-                navigate('/login');
-            })
-            .catch((error) => {
-                console.error('Error signing out: ', error);
-            });
-    };
+
     const inputmeasurement = () => {
 
         navigate('/enterdata');

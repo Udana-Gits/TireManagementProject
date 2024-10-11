@@ -36,6 +36,9 @@
       margin-bottom: 20px;
 
     }
+    .textbox.error {
+      border: 2px solid #f00 !important; /* red border */
+    }
     .formdropdown {
       width: 280px;
       height: 40px;
@@ -58,7 +61,7 @@
     }
     .error-text{
       color: red;
-    font-size: 10px;
+    font-size: 14px;
 
     }
   }
@@ -98,6 +101,9 @@
       margin-bottom: 20px;
 
 
+      .textbox.error {
+        border: 2px solid #f00 !important; /* red border */
+      }
     }
     .formdropdown {
       width: 240px;
@@ -121,7 +127,7 @@
     }
     .error-text{
       color: red;
-    font-size: 10px;
+    font-size: 14px;
 
     }
 
@@ -149,6 +155,9 @@
       border: 2px solid #20447c;
 
     }
+    .textbox.error {
+      border: 2px solid #f00 !important; /* red border */
+    }
     .formdropdown {
       width: 280px;
       height: 34px;
@@ -173,21 +182,16 @@
 
     .error-text{
       color: red;
-    font-size: 10px;
+    font-size: 14px;
 
     }
+    
   }
 
 
 
 
   
-
-
-
-
-
-
 
 
 
@@ -340,7 +344,7 @@
 
 .error-text{
   color: red;
-    font-size: 10px;
+    font-size: 14px;
 
 }
 
@@ -432,14 +436,11 @@
 
   .error-text{
     color: red;
-    font-size: 10px;
+    font-size: 14px;
 
   }
 
-  .error-text{
-    
-
-  }
+  
 
 }
 
@@ -495,7 +496,7 @@
     font-size: 20px;
     color: #5d5757;
     width: 100%;
-    text-align: center;
+    text-align: left;
     padding-top: 40px;
     
   }
@@ -556,7 +557,7 @@
 }
 .error-text{
   color: red;
-    font-size: 10px;
+    font-size: 14px;
 
 }
 

@@ -12,6 +12,12 @@
   /* make sure it's on top of other elements */
 }
 
+.nodata-centered {
+  text-align: center;
+  padding: 20px;
+}
+
+
 .tclm1,
 .tclm2,
 .tclm3,
@@ -163,4 +169,6 @@
 .tire-search-bg>* {
   position: relative;
   z-index: 1;
+
+  
 }
