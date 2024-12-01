@@ -36,13 +36,14 @@ const Navbar = ({ authuser }) => {
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate('/login');
-      })
-      .catch((error) => {
-        console.error('Error signing out: ', error);
-      });
-  };
+        .then(() => {
+            // Redirect to login page after signout and prevent going back
+            navigate('/login', { replace: true });
+        })
+        .catch((error) => {
+            console.error('Error signing out: ', error);
+        });
+};
 
   const editProfile = () => {
     navigate('/profileedit');

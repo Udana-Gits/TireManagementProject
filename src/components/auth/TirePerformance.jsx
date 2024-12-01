@@ -42,11 +42,14 @@ const TirePerformance = () => {
         const data = snapshot.val();
         if (data) {
           const tireDataArray = Object.keys(data).flatMap((date) =>
-            Object.keys(data[date]).map((tireNo) => ({
-              id: tireNo,
-              dateTime: new Date(data[date][tireNo].dateTime),
-              ...data[date][tireNo],
-            }))
+            Object.keys(data[date]).map((tireNo) => {
+              const dateStr = data[date][tireNo].Date; // Use only the Date field
+              return {
+                id: tireNo,
+                dateTime: new Date(dateStr), // Create a Date object from the Date field
+                ...data[date][tireNo],
+              };
+            })
           );
           setTireData(tireDataArray);
           setOriginalTireData(tireDataArray);
@@ -57,17 +60,23 @@ const TirePerformance = () => {
       }
     );
   }, []);
+  
 
   useEffect(() => {
     if (tireData.length > 0) {
-      const sortedTireData = [...tireData].sort(
-        (a, b) => a.dateTime - b.dateTime
-      );
-
-      const labels = sortedTireData.map((tire) => tire.dateTime.toLocaleString());
+      const sortedTireData = [...tireData].sort((a, b) => a.dateTime - b.dateTime);
+  
+      // Manually format the date as DD/MM/YYYY
+      const labels = sortedTireData.map((tire) => {
+        const date = tire.dateTime;
+        return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1)
+          .toString()
+          .padStart(2, '0')}/${date.getFullYear()}`;
+      });
+  
       const tirePressureDataset = sortedTireData.map((tire) => tire.tyrePressure);
       const threadDepthDataset = sortedTireData.map((tire) => tire.threadDepth);
-
+  
       setChartData({
         labels,
         tirePressureDataset,
@@ -75,6 +84,8 @@ const TirePerformance = () => {
       });
     }
   }, [tireData]);
+  
+  
 
   const handleAnalyze = () => {
     if (tireNumber1.trim() === '' && tireNumber2.trim() === '') {
@@ -102,7 +113,12 @@ const TirePerformance = () => {
         (a, b) => a.dateTime - b.dateTime
       );
 
-      const labels = combinedData.map((tire) => tire.dateTime.toLocaleString());
+      const labels = combinedData.map((tire) =>
+        `${tire.dateTime.getDate().toString().padStart(2, '0')}/${(tire.dateTime.getMonth() + 1)
+          .toString()
+          .padStart(2, '0')}/${tire.dateTime.getFullYear()}`
+      );
+      
 
       const tirePressureDataset = [
         {
@@ -156,10 +172,8 @@ const TirePerformance = () => {
   return (
     <div>
       <div className="tire-perform-bg">
-        <br />
         {authUser ? (
           <div>
-            <br />
             <div>
               <div className="searchcontainer1">
                 <div className="gray-container">
@@ -173,7 +187,7 @@ const TirePerformance = () => {
                         type="text"
                         className="tirenumberfield1"
                         id="tireNo1"
-                        placeholder="Eg: T01"
+                        placeholder="Eg: XYZ5678"
                         value={tireNumber1}
                         onChange={(e) => setTireNumber1(e.target.value)}
                       />
@@ -186,7 +200,7 @@ const TirePerformance = () => {
                         type="text"
                         className="tirenumberfield1"
                         id="tireNo2"
-                        placeholder="Eg: T02"
+                        placeholder="Eg: XYZ1234"
                         value={tireNumber2}
                         onChange={(e) => setTireNumber2(e.target.value)}
                       />

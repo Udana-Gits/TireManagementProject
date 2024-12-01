@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from './firebase';
-import { ref, set } from 'firebase/database';
+import { ref, set, get, child } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
 import './CSS/Enterdata.css';
 import { Modal, Button } from 'react-bootstrap';
+import { getAuth } from "firebase/auth";
+
 
 const EnterData = () => {
-  const [tireNo, setTireNo] = useState('T');
+  const [tireNo, setTireNo] = useState('');
+
   const [vehicleNo, setVehicleNo] = useState('');
   const [tyrePressure, setTyrePressure] = useState('');
   const [kmReading, setKmReading] = useState('');
@@ -28,18 +31,49 @@ const EnterData = () => {
 
   
 
-  const [date, setDate] = useState(() => {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    return `${day}-${month}-${year}`;
-  });
-  
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+
+  const [formattedDate, setFormattedDate] = useState(`${day}/${month}/${year}`);
+
+  const hours = today.getHours();
+  const minutes = String(today.getMinutes()).padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const timeHours = hours % 12;
+  const timeHoursValue = timeHours ? timeHours : 12; // the hour '0' should be '12'
+
+  const [Time, setTime] = useState(`${timeHoursValue}:${minutes} ${ampm}`);
+
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
   const [enteredData, setEnteredData] = useState('');
+
+  const [employeeName, setEmployeeName] = useState('');
+
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user) {
+      const email = user.email; // Get the current user's email
+      const dbRef = ref(db, 'UserauthList'); // Reference to the UserauthList node
+  
+      // Fetch the employee's data based on their email
+      get(child(dbRef, user.uid)).then((snapshot) => {
+        if (snapshot.exists()) {
+          const employeeData = snapshot.val();
+          const employeeName = employeeData.firstName;
+          setEmployeeName(employeeName);
+        } else {
+          console.log('No employee data found');
+        }
+      });
+    }
+  }, []);
+
+
 
 
   const handleSelectChange1 = (event) => {
@@ -61,8 +95,8 @@ const EnterData = () => {
   };
 
   const validateTireNo = (tireNo) => {
-    // The regex matches "T" followed by two or three digits.
-    const tireNoPattern = /^T\d{2,3}$/;
+    // The regex matches any amount of numbers and letters in both upper and lower cases, but no symbols.
+    const tireNoPattern = /^[a-zA-Z0-9]*$/;
     return tireNoPattern.test(tireNo);
   };
 
@@ -82,7 +116,7 @@ const EnterData = () => {
     if (!validateKmReading(kmReading)) {
       setKmReadingError('Km Reading must be a number.');
     } else {
-      setKmReadingError('');
+      setKmReadingError(''); // Clear error if valid on blur
     }
   };
 
@@ -93,86 +127,89 @@ const EnterData = () => {
     return !isNaN(depth) && depth >= 0 && depth <= 40;
   };
   
-  
-
   const handleThreadDepthChange = (e) => {
     const inputValue = e.target.value;
     const depth = parseFloat(inputValue);
   
-    if (inputValue === '') { // Allow empty input
-      setThreadDepth(inputValue);
-      setThreadDepthError('');
-    } else if (/^\d*\.?\d*$/.test(inputValue)) { // Check if input is a valid number format
-      if (validateThreadDepth(inputValue)) {
-        setThreadDepth(inputValue);
-        setThreadDepthError('');
-      } else if (depth < 0 || depth > 40) {
-        setThreadDepthError('Thread Depth must be between 0 and 40.');
+    // Allow numeric input and validate range as the user types
+    if (/^\d*\.?\d*$/.test(inputValue)) {
+      setThreadDepth(inputValue); // Allow any number to be typed
+  
+      // Check if the value is within the valid range (0-40)
+      if (depth >= 0 && depth <= 40) {
+        setThreadDepthError(''); // Clear error if within range
+      } else {
+        setThreadDepthError('Thread Depth must be between 0 and 40.'); // Show error if out of range
       }
     } else {
-      setThreadDepthError('Thread Depth must be a number.');
+      setThreadDepthError('Thread Depth must be a number.'); // Invalid input error
     }
   };
-  
   
   const handleThreadDepthBlur = () => {
     const depth = parseFloat(threadDepth);
   
-    if (threadDepth === '' || /^\d*\.?\d*$/.test(threadDepth)) {
-      if (!validateThreadDepth(threadDepth)) {
-        setThreadDepthError('Thread Depth must be between 0 and 40.');
-      } else {
-        setThreadDepthError('');
-      }
+    // If the field is empty, clear the error
+    if (threadDepth === '') {
+      setThreadDepthError(''); // Clear error if the field is empty
+      return;
+    }
+  
+    // Validate if the input value is within the valid range (0-40)
+    if (!validateThreadDepth(threadDepth)) {
+      setThreadDepthError('Thread Depth must be between 0 and 40.');
     } else {
-      setThreadDepthError('Thread Depth must be a number.');
+      setThreadDepthError(''); // Clear error if the value is valid
     }
   };
+  
   
   
 
 
 
   const validateTyrePressure = (tyrePressure) => {
-    const depth = parseFloat(tyrePressure);
-    return !isNaN(depth) && depth >= 0 && depth <= 160;
+    const pressure = parseFloat(tyrePressure);
+    return !isNaN(pressure) && pressure >= 0 && pressure <= 160;
   };
   
-  
-
   const handleTyrePressureChange = (e) => {
     const inputValue = e.target.value;
     const pressure = parseFloat(inputValue);
   
-    if (inputValue === '') { // Allow empty input
-      setTyrePressure(inputValue);
-      setTyrePressureError('');
-    } else if (/^\d*\.?\d*$/.test(inputValue)) { // Check if input is a valid number format
-      if (validateTyrePressure(inputValue)) {
-        setTyrePressure(inputValue);
-        setTyrePressureError('');
-      } else if (pressure < 0 || pressure > 160) {
-        setTyrePressureError('Tyre Pressure must be between 0 and 160.');
+    // Allow numeric input and validate range as the user types
+    if (/^\d*\.?\d*$/.test(inputValue)) {
+      setTyrePressure(inputValue); // Allow any number to be typed
+  
+      // Check if the value is within the valid range (0-160)
+      if (pressure >= 0 && pressure <= 160) {
+        setTyrePressureError(''); // Clear error if within range
+      } else {
+        setTyrePressureError('Tyre Pressure must be between 0 and 160.'); // Show error if out of range
       }
     } else {
-      setTyrePressureError('Tyre Pressure must be a number.');
+      setTyrePressureError('Tyre Pressure must be a number.'); // Invalid input error
     }
   };
-  
   
   const handleTyrePressureBlur = () => {
     const pressure = parseFloat(tyrePressure);
   
-    if (tyrePressure === '' || /^\d*\.?\d*$/.test(tyrePressure)) {
-      if (!validateTyrePressure(tyrePressure)) {
-        setTyrePressureError('Tyre Pressure must be between 0 and 160.');
-      } else {
-        setTyrePressureError('');
-      }
+    // If the field is empty, clear the error
+    if (tyrePressure === '') {
+      setTyrePressureError(''); // Clear error if the field is empty
+      return;
+    }
+  
+    // Validate if the input value is within the valid range (0-160)
+    if (!validateTyrePressure(tyrePressure)) {
+      setTyrePressureError('Tyre Pressure must be between 0 and 160.');
     } else {
-      setTyrePressureError('Tyre Pressure must be a number.');
+      setTyrePressureError(''); // Clear error if the value is valid
     }
   };
+  
+
   
 
   
@@ -191,27 +228,57 @@ const EnterData = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    // Clear previous error
+    // Clear previous error states
     setVehicleNoError('');
     setTireNoError('');
+    setKmReadingError('');
+    setThreadDepthError('');
+    setTyrePressureError('');
 
+    // Validation flags
+    let hasError = false;
 
+    // Validate vehicle number
     if (!validateVehicleNo(vehicleNo)) {
       setVehicleNoError('Vehicle number must be two letters followed by four digits.');
-      return;
+      hasError = true; // Set error flag
     }
 
+    // Validate tire number
     if (!validateTireNo(tireNo)) {
-    setTireNoError('Tire number must have two or three digits.');
-    return;
-  }
-    
+      setTireNoError('Tire number must have two or three digits.');
+      hasError = true; // Set error flag
+    }
 
+    // Validate other fields if necessary
+    if (kmReading && !validateKmReading(kmReading)) {
+      setKmReadingError('Km Reading must be a number.');
+      hasError = true; // Set error flag
+    }
+
+    if (threadDepth && !validateThreadDepth(threadDepth)) {
+      setThreadDepthError('Thread depth must be a number.');
+      hasError = true; // Set error flag
+    }
+
+    if (tyrePressure && !validateTyrePressure(tyrePressure)) {
+      setTyrePressureError('Tyre pressure must be a number.');
+      hasError = true; // Set error flag
+    }
+
+    // Check for required fields
     if (!tireNo || !vehicleNo || !tyrePressure || !threadDepth || !selectedOption || !selectedOption1 || !selectedOption2 || !selectedOption3 || !kmReading) {
       alert('Please fill in all required fields');
       return;
     }
 
+    // If there are any errors, show alert
+    if (hasError) {
+      alert('Recheck the invalid data');
+      return;
+    }
+
+    // Proceed if no errors
     const enteredData = `
       Vehicle Type: ${selectedOption}\n
       Vehicle Number: ${vehicleNo}\n
@@ -221,40 +288,53 @@ const EnterData = () => {
       Tire Brand: ${selectedOption3}\n
       Tire Position: ${selectedOption1}\n
       Thread Depth: ${threadDepth}\n
+      Date: ${Date}\n,
+      Time: ${Time}\n,
       Air Pressure: ${tyrePressure}\n`;
 
     setEnteredData(enteredData);
     setShowModal(true);
-  };
+};
+
 
   const handleModalConfirm = () => {
-    const userRef = ref(db, `TireData/${date.replace(/\//g, '-')}/${tireNo}`);
-    set(userRef, {
-      vehicleNo: vehicleNo,
-      tireNo: tireNo,
-      tyrePressure: tyrePressure,
-      threadDepth: threadDepth,
-      kmReading: kmReading,
-      vehicleType: selectedOption,
-      TirePosition: selectedOption1,
-      tirestatus: selectedOption2,
-      tirebrand: selectedOption3,
-      dateTime: new Date().toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: true,
-      }),
-    })
-    .then(() => {
-      window.alert('Data entered successfully!');
-      setShowModal(false);
-      window.location.reload();
-    });
+    const auth = getAuth();
+    const user = auth.currentUser; // Get the current authenticated user
+    
+    if (user) {
+  
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString('en-GB');  // Formats date as dd/mm/yyyy
+  
+      // Reference in Firebase with the formatted date
+      const userRef = ref(db, `TireData/${formattedDate.replace(/\//g, '-')}/${tireNo}`);
+  
+      // Set the data in Firebase
+      set(userRef, {
+        vehicleNo: vehicleNo,
+        tireNo: tireNo,
+        tyrePressure: tyrePressure,
+        threadDepth: threadDepth,
+        kmReading: kmReading,
+        vehicleType: selectedOption,
+        TirePosition: selectedOption1,
+        tirestatus: selectedOption2,
+        tirebrand: selectedOption3,
+        Date: formattedDate,
+        Time: Time,
+        employee: employeeName,  // Store the employee's name 
+      })
+      .then(() => {
+        window.alert('Data entered successfully!');
+        setShowModal(false);
+        window.location.reload();
+      });
+    } else {
+      window.alert('No authenticated user found.');
+    }
   };
+  
+  
 
   const handleModalCancel = () => {
     setShowModal(false);
@@ -295,6 +375,7 @@ const EnterData = () => {
               onClick={() => {
                 setSelectedOption(option.value);
                 setVehicleNo(option.value); // Automatically set the vehicle type value as the beginning of the vehicle number
+                setVehicleNoError(''); // Clear error message when a vehicle type is selected
               }}
             >
               <img src={option.imgSrc} alt={option.label} className='vehicale' />
@@ -310,55 +391,103 @@ const EnterData = () => {
               <div className="">
               <input
                 type="text"
-                className="textbox"
+                className={`textbox ${vehicleNoError ? 'error' : ''}`}
                 id="vehicleNo"
                 value={vehicleNo}
-                onChange={(e) => {
-                  const newValue = e.target.value;
-                  if (newValue.startsWith(selectedOption)) {
-                    setVehicleNo(newValue);
-                    setVehicleNoError(''); // Clear error on input change
+                onFocus={() => {
+                  // Show error if the vehicle type has not been selected
+                  if (!selectedOption) {
+                    setVehicleNoError('Please select a vehicle type from the above list first.');
                   } else {
-                    setVehicleNoError('Vehicle number must start with the selected vehicle type.');
+                    setVehicleNoError(''); // Clear error if a vehicle type is selected
                   }
                 }}
-                disabled={!selectedOption} // Disable input until a vehicle type is selected
+                onChange={(e) => {
+                  const newValue = e.target.value;
+
+                  // If no vehicle type is selected, prevent typing and show an error
+                  if (!selectedOption) {
+                    setVehicleNoError('Please select a vehicle type from the above list first.');
+                    return; // Prevent typing
+                  }
+
+                  // Check if the input starts with the selected vehicle type
+                  if (newValue.startsWith(selectedOption)) {
+                    setVehicleNo(newValue); // Set the input value if valid
+                    setVehicleNoError(''); // Clear error if valid
+
+                    // Validate vehicle number format while typing
+                    if (!validateVehicleNo(newValue)) {
+                      setVehicleNoError('Vehicle number must be two letters followed by four digits.');
+                    } else {
+                      setVehicleNoError(''); // Clear error if valid
+                    }
+                  } else {
+                    // Immediately show an error if the input doesn't start with the selected vehicle type
+                    setVehicleNoError(`Vehicle number must start with the selected vehicle type: ${selectedOption}`);
+                  }
+                }}
+                onBlur={() => {
+                  if (!selectedOption) {
+                    setVehicleNoError('Please select a vehicle type from the above list first.');
+                  } else if (!vehicleNo.startsWith(selectedOption)) {
+                    setVehicleNoError('Vehicle number must start with the selected vehicle type.');
+                  } else if (!validateVehicleNo(vehicleNo)) {
+                    setVehicleNoError('Vehicle number must be two letters followed by four digits.');
+                  } else {
+                    setVehicleNoError(''); // Clear the error if everything is valid
+                  }
+                }}
               />
-                {vehicleNoError && <p className="error-text">{vehicleNoError}</p>}
+              {vehicleNoError && <p className="error-text">{vehicleNoError}</p>}
+
+
               </div>
               <br />
               <label htmlFor="tireNo" className="label">Tire Serial Number</label>
               <div className="">
-                <input
-                  type="text"
-                  className="textbox"
-                  id="tireNo"
-                  value={tireNo}
-                  onChange={(e) => {
-                    const inputValue = e.target.value;
-                    // Ensure the "T" stays at the beginning
-                    if (inputValue.startsWith('T')) {
-                      setTireNo(inputValue);
-                      setTireNoError(''); // Clear error on input change
-                    }else{
-                      setTireNoError('Tire number must start with letter T .');
-                    }
-                  }}
-                />
-                {tireNoError && <p className="error-text">{tireNoError}</p>}
+              <input
+                type="text"
+                className={`textbox ${tireNoError ? 'error' : ''}`}
+                id="tireNo"
+                value={tireNo}
+                onChange={(e) => {
+                  const inputValue = e.target.value;
+                  setTireNo(inputValue);
+                  if (validateTireNo(inputValue)) {
+                    setTireNoError('');
+                  } else {
+                    setTireNoError('Tire number cannot contain symbols.');
+                  }
+                }}
+                onBlur={() => {
+                  if (!validateTireNo(tireNo)) {
+                    setTireNoError('Tire number cannot contain symbols.');
+                  } else {
+                    setTireNoError('');
+                  }
+                }}
+              />
+                {tireNoError && <p className="error-text">{tireNoError}</p>} 
               </div>
               <br />
               <label htmlFor="kmReading" className='label'>Km Reading</label>
               <div className="">
-                <input
-                  type="text"
-                  className="textbox"
-                  id="kmReading"
-                  value={kmReading}
-                  onChange={handleKmReadingChange}
-                  onBlur={handleKmReadingBlur}
-                />
-                {kmReadingError && <p className="error-text">{kmReadingError}</p>}
+              <input
+                type="text"
+                className={`textbox ${kmReadingError ? 'error' : ''}`}
+                id="kmReading"
+                value={kmReading}
+                onChange={handleKmReadingChange}
+                onBlur={() => {
+                  if (kmReading !== '' && !validateKmReading(kmReading)) {
+                    setKmReadingError('Km Reading must be a number.');
+                  } else {
+                    setKmReadingError('');
+                  }
+                }}
+              />
+                {kmReadingError && <p className="error-text">{kmReadingError}</p>} 
               </div>
               <br />
 
@@ -416,26 +545,26 @@ const EnterData = () => {
               <div className="">
                 <input
                   type="text"
-                  className="textbox"
+                  className={`textbox ${threadDepthError ? 'error' : ''}`}
                   id="threadDepth"
                   value={threadDepth}
                   onChange={handleThreadDepthChange}
                   onBlur={handleThreadDepthBlur}
                 />
-                {threadDepthError && <p className="error-text">{threadDepthError}</p>}
+                {threadDepthError && <p className="error-text">{threadDepthError}</p>} 
               </div>
               <br />
               <label htmlFor="tyrePressure" className='label'>Air Pressure (psi)</label>
               <div className="">
                 <input
                   type="text"
-                  className="textbox"
+                  className={`textbox ${tyrePressureError ? 'error' : ''}`}
                   id="tyrePressure"
                   value={tyrePressure}
                   onChange={handleTyrePressureChange}
                   onBlur={handleTyrePressureBlur}
                 />
-                {tyrePressureError && <p className="error-text">{tyrePressureError}</p>}
+                {tyrePressureError && <p className="error-text">{tyrePressureError}</p>} 
               </div>
             </div>
             {/* <td>
@@ -486,6 +615,8 @@ const EnterData = () => {
               <p>Thread Depth: {threadDepth}</p>
               <br />
               <p>Air Pressure: {tyrePressure}</p>
+              <br />
+              <p>Employee Name: {employeeName}</p>
             </div>
           </div>
         </Modal.Body>

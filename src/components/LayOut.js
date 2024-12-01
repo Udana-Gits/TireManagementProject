@@ -12,7 +12,7 @@ function Layout({ children }) {
       pageTitle = 'Admin Home Page';
       break;
 
-    case '/emplyeehome':
+    case '/employeehome':
       pageTitle = 'Employee Home Page';
       break;
 

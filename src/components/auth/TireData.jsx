@@ -90,7 +90,7 @@ const TireData = ({ tireDataRef }) => {
     }
   };
 
-  const getTireStatus = (tyrePressure, threadDepth) => {
+  const getTireStatus = (tyrePressure, threadDepth ) => {
     const tyrePressureColor = getTyrePressureColor(tyrePressure);
     const threadDepthColor = getThreadDepthColor(threadDepth);
 
@@ -103,9 +103,7 @@ const TireData = ({ tireDataRef }) => {
     }
   };
 
-  const backhandle = () => {
-    navigate(-1);
-  };
+  
 
   const ModalTable = () => {
     return (
@@ -116,6 +114,11 @@ const TireData = ({ tireDataRef }) => {
       }} className="custom-modal-Tire">
 
         <h2 className='table-title'>Tire Details of Your Vehicle</h2>
+        {noDataFound ? (
+        <div className="nodata-centered">
+          <p>No data found for the given tire number.</p>
+        </div>
+      ) : (
         <table className="">
           <thead>
             <tr>
@@ -130,16 +133,17 @@ const TireData = ({ tireDataRef }) => {
           <tbody>
             {tireData.map((tire) => (
               <tr key={tire.id}>
-                <td className='tclm3'>{tire.dateTime}</td>
+                <td className='tclm3'>{tire.Date}</td>
                 <td className='tclm4'>{tire.vehicleNo}</td>
                 <td className='tclm3'>{tire.TirePosition}</td>
                 <td className='tclm4' style={{ color: getTyrePressureColor(tire.tyrePressure) }}>{tire.tyrePressure}</td>
                 <td className='tclm3' style={{ color: getThreadDepthColor(tire.threadDepth) }}>{tire.threadDepth}</td>
-                <td className='tclm4'>{getTireStatus(tire.tyrePressure, tire.threadDepth)}</td>
+                <td className='tclm4'>{tire.tirestatus}</td>
               </tr>
             ))}
           </tbody>
         </table>
+      )}
       </Modal>
     );
   };
@@ -159,7 +163,7 @@ const TireData = ({ tireDataRef }) => {
                     type="text"
                     className="tirenumberfield"
                     id="tireNo"
-                    placeholder="Eg: T01"
+                    placeholder="Eg: XYZ1234"
                     value={tireNumber}
                     onChange={(e) => settireNumber(e.target.value)}
                   />
@@ -171,7 +175,7 @@ const TireData = ({ tireDataRef }) => {
                 </div>
               </div>
             </div>
-            {noDataFound && <p>No data found for the entered Tire Number.</p>}
+            
             <ModalTable />
           </div>
         ) : (
