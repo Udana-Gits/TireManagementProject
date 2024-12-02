@@ -5,7 +5,8 @@
     border-radius: 0px;
     background: linear-gradient(92deg, #021E45 -4.32%, #054AAB 107.92%);
     padding-top:20px ;
-    top:-20px
+    top:-20px;
+    z-index: 5;
 }
 
   .header-heading { 
