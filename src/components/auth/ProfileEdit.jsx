@@ -143,7 +143,7 @@ const ProfileEdit = () => {
                 />
               )}
               <br /><br /><br /><br />
-              <input type="file" onChange={handleImageChange} className='image-upload' />
+              <input className='image-upload' type="file" onChange={handleImageChange}  />
             </div>
           </div>
           <div className="col-md-9">
