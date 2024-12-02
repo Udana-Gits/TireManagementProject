@@ -5,7 +5,7 @@
   margin: 0 auto;
   padding: 30px;
   width: 80%;
-  background-color: #f7f7f7;
+  background-color: #e5e5e5;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 20px;
@@ -144,4 +144,16 @@
     padding: 10px;
     font-size: 14px;
   }
+}
+@media screen and (min-width: 830px) {
+
+
+}
+@media (min-width: 600px) and (max-width: 830px){
+
+
+}
+@media screen and (max-width: 600px){
+
+
 }

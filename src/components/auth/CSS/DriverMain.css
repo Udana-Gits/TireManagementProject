@@ -9,7 +9,7 @@
   font-weight: bold;
   width: 435px;
   height: 330px;
-  margin: 60px;
+  margin: 50px;
   transition: transform 0.3s ease;
   /* Add a transition for hover effect */
 }
@@ -20,16 +20,6 @@
   /* Move button up on hover */
   box-shadow: 6px 8px 6px 0px rgba(0, 0, 0, 0.70);
   /* Increase shadow on hover */
-}
-
-.vehicle-icon {
-  height: 215px;
-  width: 273px;
-}
-
-.tire-icon {
-  width: 239px;
-  height: 221px;
 }
 
 /*Button group opacity*/
@@ -78,4 +68,96 @@
   background-position: center;
   opacity: 0.7;
   z-index: -1;
+}
+
+@media screen and (min-width: 830px) {
+  .input-data-icon {
+    height: 194px;
+    width: 208px;
+    transform: rotate(-18.83deg);
+  }
+  
+  .vehicle-icon {
+    height: 194px;
+    width: 208px;
+  }
+
+
+.vehicle-data-button,
+.input-data-button{
+  font-size: 20px;
+  padding: 20px;
+
+}
+
+}
+
+
+
+@media (min-width: 600px) and (max-width: 830px){
+.input-data-icon {
+  height: 174px;
+  width: 188px;
+  transform: rotate(-18.83deg);
+}
+
+.vehicle-icon {
+  height: 174px;
+  width: 188px;
+}
+
+
+.vehicle-data-button,
+.input-data-button{
+  font-size: 20px;
+  padding: 20px;
+
+}
+.input-data-button {
+  margin-right: 20px;
+  margin-left: 150px;
+
+}
+.vehicle-data-button{
+  margin-left: 20px;
+  margin-right: 150px;
+
+
+}
+}
+
+
+
+
+@media screen and (max-width: 600px){
+  .input-data-icon {
+    height: 124px;
+    width: 138px;
+    padding: 10px;
+    margin-bottom: auto;
+
+    /* transform: rotate(-18.83deg); */
+  }
+  
+  .vehicle-icon {
+    width: 139px;
+    height: 121px;
+    margin-bottom: 10px;
+  }
+  
+  .vehicle-data-button,
+  .input-data-button{
+    font-size: 15px;
+    padding: 20px;
+
+  }
+
+  .input-data-button {
+    margin-right: 20px;
+  }
+  .vehicle-data-button{
+    margin-left: 20px;
+
+  }
+  
 }
