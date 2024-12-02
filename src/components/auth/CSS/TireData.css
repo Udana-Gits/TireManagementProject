@@ -58,8 +58,6 @@
 
 .searchbox {
   position: relative;
-  width: 30%;
-  height: 80%;
   border-radius: 20px;
   align-self: center;
   display: grid;
@@ -67,6 +65,7 @@
   margin-top: 0px;
   margin-bottom: 60px;
   z-index: 1;
+
   /* Ensure it's on top of any background layers */
 }
 
@@ -102,35 +101,7 @@
   text-align: center;
 }
 
-.tirenumberfield {
-  text-align: center;
-  margin: 20px;
-  border-radius: 10px;
 
-  width: 360px;
-  height: 70px;
-  flex-shrink: 0;
-  border-radius: 15px;
-  background: #ffffff;
-  text-align: center;
-  color: #000;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.tirenumberfield::placeholder {
-  color: #000;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  opacity: 0.3;
-  text-align: center;
-}
 
 .button-container {
   margin: 20px;
@@ -172,3 +143,100 @@
 
   
 }
+
+@media screen and (min-width: 830px) {
+  .tirenumberfield {
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+  
+    width: 360px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #ffffff;
+    text-align: center;
+    color: #000;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .tirenumberfield::placeholder {
+    color: #000;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.3;
+    text-align: center;
+  }
+
+}
+@media (min-width: 600px) and (max-width: 830px){
+  .tirenumberfield {
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+  
+    width: 360px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #ffffff;
+    text-align: center;
+    color: #000;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .tirenumberfield::placeholder {
+    color: #000;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.3;
+    text-align: center;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .tirenumberfield {
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+
+  width: 360px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #ffffff;
+  text-align: center;
+  color: #000;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tirenumberfield::placeholder {
+  color: #000;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.3;
+  text-align: center;
+}
+}
+
