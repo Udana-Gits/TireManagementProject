@@ -60,12 +60,12 @@ const TirePerformance = () => {
       }
     );
   }, []);
-  
+
 
   useEffect(() => {
     if (tireData.length > 0) {
       const sortedTireData = [...tireData].sort((a, b) => a.dateTime - b.dateTime);
-  
+
       // Manually format the date as DD/MM/YYYY
       const labels = sortedTireData.map((tire) => {
         const date = tire.dateTime;
@@ -73,10 +73,10 @@ const TirePerformance = () => {
           .toString()
           .padStart(2, '0')}/${date.getFullYear()}`;
       });
-  
+
       const tirePressureDataset = sortedTireData.map((tire) => tire.tyrePressure);
       const threadDepthDataset = sortedTireData.map((tire) => tire.threadDepth);
-  
+
       setChartData({
         labels,
         tirePressureDataset,
@@ -84,8 +84,8 @@ const TirePerformance = () => {
       });
     }
   }, [tireData]);
-  
-  
+
+
 
   const handleAnalyze = () => {
     if (tireNumber1.trim() === '' && tireNumber2.trim() === '') {
@@ -118,7 +118,7 @@ const TirePerformance = () => {
           .toString()
           .padStart(2, '0')}/${tire.dateTime.getFullYear()}`
       );
-      
+
 
       const tirePressureDataset = [
         {
@@ -224,8 +224,25 @@ const TirePerformance = () => {
                         labels: chartData.labels,
                         datasets: chartData.tirePressureDataset,
                       }}
-                      options={{ responsive: true }}
+                      options={{
+                        responsive: true,
+                        plugins: {
+                          title: {
+                            display: true,
+                            text: 'Tire Pressure Analysis',
+                          },
+                        },
+                        scales: {
+                          y: {
+                            title: {
+                              display: true,
+                              text: 'Pressure (PSI)', // Set the Y-axis label
+                            },
+                          },
+                        },
+                      }}
                     />
+
                   </div>
                   <div className="chart-container">
                     <Line
@@ -233,8 +250,25 @@ const TirePerformance = () => {
                         labels: chartData.labels,
                         datasets: chartData.threadDepthDataset,
                       }}
-                      options={{ responsive: true }}
+                      options={{
+                        responsive: true,
+                        plugins: {
+                          title: {
+                            display: true,
+                            text: 'Tire Thread Depth Analysis',
+                          },
+                        },
+                        scales: {
+                          y: {
+                            title: {
+                              display: true,
+                              text: 'Tire Thread Depth (mm)', // Set the Y-axis label
+                            },
+                          },
+                        },
+                      }}
                     />
+
                   </div>
                 </div>
               )}
