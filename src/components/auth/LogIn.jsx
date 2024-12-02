@@ -148,7 +148,6 @@ const LogIn = () => {
             Forgot Password?
           </button>
           </div>
-          <br /><br />
           <button type="submit" className="loginbutton">
             Log In
           </button>
