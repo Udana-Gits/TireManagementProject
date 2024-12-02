@@ -11,6 +11,7 @@
     z-index: 9999;
     /* make sure it's on top of other elements */
     font-family: "poppins";
+    
   }
   
   .clm1,
@@ -35,6 +36,7 @@
   .clm4 {
     font-size: 20px;
     background: #F0EDFF;
+    
   }
   
   .table-title{
@@ -42,13 +44,7 @@
     text-align: center;
   }
   
-  .searchcontainer {
-    display: flex;
-    justify-content: center;
-    z-index: 1;
-    visibility: visible;
-    font-family: "poppins";
-  }
+
   
   .searchbox {
     position: relative;
@@ -154,10 +150,50 @@
     background-position: center;
     opacity: 0.6;
     z-index: -1;
+    
  
   }
   
   .vehicle-search-bg>* {
     position: relative;
     z-index: 1;
+  }
+
+  @media screen and (min-width: 860px){
+    .searchcontainer {
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+      visibility: visible;
+      font-family: "poppins";
+      margin-bottom: 50px;
+      margin-top: 20px;
+      }
+
+  }
+
+  @media (min-width: 600px) and (max-width: 860px){
+    .searchcontainer {
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+      visibility: visible;
+      font-family: "poppins";
+      margin-bottom: 90px;
+      margin-top: 20px;
+      }
+
+  }
+  @media screen and (max-width: 600px){
+    .searchcontainer {
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+      visibility: visible;
+      font-family: "poppins";
+      margin-bottom: 90px;
+      margin-top: 20px;
+      }
+      
+
   }

@@ -10,6 +10,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 9999;
   /* make sure it's on top of other elements */
+  
 }
 
 .nodata-centered {
@@ -46,6 +47,7 @@
   font-family: 'poppins';
   font-weight: bold;
   text-align: center;
+  
 }
 
 
@@ -54,6 +56,8 @@
   justify-content: center;
   z-index: 1;
   visibility: visible;
+  align-items: center;
+  
 }
 
 .searchbox {
@@ -67,6 +71,7 @@
   margin-top: 0px;
   margin-bottom: 60px;
   z-index: 1;
+
   /* Ensure it's on top of any background layers */
 }
 
@@ -82,14 +87,17 @@
   opacity: 0.8;
   z-index: -1;
   /* Place behind the content */
+  
 }
 
 .searchbox>* {
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 .input-container {
+
   display: grid;
   font-family: 'poppins';
 }

@@ -20,6 +20,10 @@ function Layout({ children }) {
       pageTitle = 'Driver Home Page';
       break;
 
+    case '/tiredataadmin':
+      pageTitle = 'Tire Data';
+      break;
+
     case '/enterdata':
       break;
 
