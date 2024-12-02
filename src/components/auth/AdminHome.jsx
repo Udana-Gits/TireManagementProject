@@ -7,20 +7,23 @@ import './CSS/AdminHome.css';
 
 
 function AdminHome() {
+  // State to hold the authenticated user
   const [authuser, setAuthUser] = useState(null);
   const navigate = useNavigate();
 
+  // Listen for authentication state changes
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setAuthUser(user);
+        setAuthUser(user); // Set the authenticated user
       } else {
-        setAuthUser(null);
+        setAuthUser(null); // Clear the user state if not logged in
       }
     });
     return () => listen(); // Cleanup the listener when the component unmounts
   }, []);
 
+  // Handlers to navigate to different sections (tire manage, vehicle manage, administrative)
   const handleTire = () => {
     navigate('/tire');
   };
