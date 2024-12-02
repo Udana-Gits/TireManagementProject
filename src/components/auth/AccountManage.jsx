@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
-import { auth } from './firebase'; // Assuming you have firebase setup
+import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
-import Modal from 'react-modal'; // Import Modal from 'react-modal'
-import './CSS/AccountManage.css'; // Assuming your CSS file is correctly linked
+import Modal from 'react-modal';
+import './CSS/AccountManage.css';
 
 const AccountManage = () => {
   const [accounts, setAccounts] = useState([]);
