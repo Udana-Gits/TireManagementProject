@@ -7,7 +7,8 @@
     bottom: 0;
     width: 100%;
     padding-top:10px ;
-    padding-bottom: 110px;
+    padding-bottom: 113px;
+    float:bottom;
 }
 
 .footercomponent{
@@ -21,6 +22,7 @@
     font-weight: 300;
     line-height: normal;
     transform: translateY(10%);
+    
 }
 
 .timer{
@@ -44,9 +46,9 @@
     .timer{
         font-size:12px;
     }
-    .footer{
-        padding-bottom: 100px;
+    /* .footer{
+        padding-bottom: 10px;
 
-    }
+    } */
 
 }
