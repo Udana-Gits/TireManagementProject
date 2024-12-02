@@ -83,7 +83,7 @@ const TireData = ({ tireDataRef }) => {
   const getThreadDepthColor = (threadDepth) => {
     if (threadDepth >= 10 && threadDepth < 40) {
       return 'green';
-    } else if (threadDepth >= 10 && threadDepth < 5) {
+    } else if (threadDepth >= 5 && threadDepth < 10) {
       return 'orange';
     } else {
       return 'red';
