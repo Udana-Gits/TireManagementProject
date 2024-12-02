@@ -22,9 +22,6 @@ function AdminHome() {
     return () => listen(); // Cleanup the listener when the component unmounts
   }, []);
 
-  const handleAddNewUser = () => {
-    navigate('/signup');
-  };
   
   const handleEntertireData = () => {
     navigate('/enterdata');
@@ -32,19 +29,9 @@ function AdminHome() {
   const tiredataview = () => {
     navigate('/tiredataadmin');
   };
-  const handlvehicleinfo = () => {
-    navigate('/vehicledata');
-  };
   
-  const handleAccountmanage = () => {
-    navigate('/accountmanage');
-  };
-
   const handleTirePerformance = () => {
     navigate('/tireperformance');
-  };
-  const EnteroldTireData = () => {
-    navigate('/enteroldtiredata');
   };
   
   return (

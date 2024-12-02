@@ -22,26 +22,13 @@ function AdminHome() {
     return () => listen(); // Cleanup the listener when the component unmounts
   }, []);
 
+  // navigation to various sections
   const handleAddNewUser = () => {
     navigate('/signup');
   };
   
-  const handleEntertireData = () => {
-    navigate('/enterdata');
-  };
-  const tiredataview = () => {
-    navigate('/tiredata');
-  };
-  const handlvehicleinfo = () => {
-    navigate('/vehicledata');
-  };
-  
   const handleAccountmanage = () => {
     navigate('/accountmanage');
-  };
-
-  const handleTirePerformance = () => {
-    navigate('/tireperformance');
   };
   
   return (
