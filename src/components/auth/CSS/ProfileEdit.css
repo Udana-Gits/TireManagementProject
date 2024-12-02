@@ -131,9 +131,6 @@
     margin-bottom: 60px;
   }
 
-  .edit-profile-container {
-  }
-
   .row {
     flex-direction: column; /* Stack columns on mobile */
     align-items: center; /* Center items on mobile */
