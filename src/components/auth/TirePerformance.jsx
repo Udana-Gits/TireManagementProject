@@ -172,8 +172,10 @@ const TirePerformance = () => {
   return (
     <div>
       <div className="tire-perform-bg">
+        <br />
         {authUser ? (
           <div>
+            <br />
             <div>
               <div className="searchcontainer1">
                 <div className="gray-container">
