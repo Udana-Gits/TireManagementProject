@@ -74,7 +74,7 @@ const TireData = ({ tireDataRef }) => {
     if (tyrePressure >= 140 && tyrePressure < 160) {
       return 'green';
     } else if (tyrePressure > 115 && tyrePressure < 140) {
-      return 'yellow';
+      return 'orange';
     } else {
       return 'red';
     }
@@ -84,7 +84,7 @@ const TireData = ({ tireDataRef }) => {
     if (threadDepth >= 10 && threadDepth < 40) {
       return 'green';
     } else if (threadDepth >= 10 && threadDepth < 5) {
-      return 'yellow';
+      return 'orange';
     } else {
       return 'red';
     }
@@ -96,7 +96,7 @@ const TireData = ({ tireDataRef }) => {
 
     if (tyrePressureColor === 'red' || threadDepthColor === 'red') {
       return 'BAD';
-    } else if (tyrePressureColor === 'yellow' || threadDepthColor === 'yellow') {
+    } else if (tyrePressureColor === 'orange' || threadDepthColor === 'orange') {
       return 'BETTER TO CHECK';
     } else {
       return 'GOOD';
