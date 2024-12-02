@@ -1,17 +1,4 @@
-.edit-profile-container {
-  display: block;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  padding: 30px;
-  width: 80%;
-  background-color: #e5e5e5;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin-top: 20px;
-  font-family: Poppins;
-  margin-bottom: 3%;
-}
+
 
 .row {
   display: flex;
@@ -47,9 +34,7 @@
 
 }
 
-.image-upload{
-  margin-left: 7%;
-}
+
 
 .profile-picture input[type="file"] {
   margin-top: 10px;
@@ -64,6 +49,7 @@
   display: block;
   margin-bottom: 3px;
   font-weight: bold;
+  
 }
 
 .form-group input {
@@ -77,7 +63,7 @@
 .btn-prim {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #054b96;
   color: white;
   border: none;
   border-radius: 5px;
@@ -89,9 +75,21 @@
   background-color: #0056b3;
 }
 
-
- /* Tablet and larger */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 900px) {
+  .edit-profile-container {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 30px;
+    width: 80%;
+    background-color: #e5e5e5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    font-family: Poppins;
+    margin-bottom: 50px;
+  }
   .edit-profile-container {
     width: 70%;
   }
@@ -106,14 +104,30 @@
     padding: 12px;
     font-size: 18px;
   }
+  .image-upload{
+    margin-left: 7%;
+  }
+
+
 }
 
- 
- 
- /* Mobile */
-@media (max-width: 767px) {
+@media screen and (max-width: 900px){
   .edit-profile-container {
-    width: 90%;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 30px;
+    width: 80%;
+    background-color: #e5e5e5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    font-family: Poppins;
+    margin-bottom: 60px;
+  }
+
+  .edit-profile-container {
   }
 
   .row {
@@ -141,19 +155,13 @@
   }
 
   .btn-prim {
+    margin-top: 10px;
     padding: 10px;
     font-size: 14px;
+    margin-bottom: 20px;
   }
-}
-@media screen and (min-width: 830px) {
-
-
-}
-@media (min-width: 600px) and (max-width: 830px){
-
-
-}
-@media screen and (max-width: 600px){
-
-
+  .image-upload{
+    margin-top: -40px;
+    margin-left: 17%;
+  }
 }
