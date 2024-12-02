@@ -17,6 +17,7 @@ const AccountManage = () => {
 
   const navigate = useNavigate();
 
+  // Fetch data from Firebase Realtime Database on component mount
   useEffect(() => {
     const dbRef = ref(getDatabase(), `UserauthList`);
     return onValue(dbRef, (snapshot) => {
@@ -30,10 +31,12 @@ const AccountManage = () => {
     });
   }, []);
 
+  // Handle changes in the occupation filter
   const handleOccupationChange = (event) => {
     const occupation = event.target.value;
     setOccupation(occupation);
 
+  // Filter accounts based on selected occupation
     if (occupation === "") {
       setFilteredAccounts(accounts);
     } else {
@@ -44,10 +47,12 @@ const AccountManage = () => {
     }
   };
 
+  // Update search query state
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
+  // Perform search based on name
   const handleSearch = () => {
     const filteredAccounts = accounts.filter((account) => {
       const fullName = `${account.firstName} ${account.lastName}`;
@@ -56,12 +61,14 @@ const AccountManage = () => {
     setFilteredAccounts(filteredAccounts);
   };
 
+  // Open modal with selected account details
   const handleProfilePictureClick = (account) => {
     setSelectedAccount(account);
     setIsModalOpen(true);
     setShowSearchContainer(false); // Hide search container
   };
 
+  // Confirm deletion of selected account
   const handleModalConfirm = () => {
     const dbRef = ref(getDatabase(), `UserauthList/${selectedAccount.id}`);
     remove(dbRef)
@@ -75,15 +82,18 @@ const AccountManage = () => {
       });
   };
 
+  // Cancel modal and close it
   const handleModalCancel = () => {
     setIsModalOpen(false);
     setShowSearchContainer(true); // Show search container again
   };
 
+  // Navigate back to admin home page
   const backhandle = () => {
     navigate('/adminhome');
   };
 
+  // Modal to show account details and delete option
   const ModalDetails = () => {
     return (
       <Modal
