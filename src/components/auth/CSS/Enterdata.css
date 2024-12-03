@@ -201,12 +201,15 @@
   }
 
   .modal-confirm .modal-dialog {
+    align-items: center;
+   align-content: center;
     position: fixed !important;
     top: 50% !important;
-    left: 40% !important;
+    left:36%;
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
     padding: 0 !important;
+    
     border-radius: 50px !important;
     background: linear-gradient(100deg, #021E45 -5.85%, #054AAB 109.55%) !important;
     box-shadow: 0px 8px 21px 0px rgba(0, 0, 0, 0.16) !important;
@@ -246,7 +249,7 @@
   color: #042D67;
   text-align: center;
   font-family: Poppins;
-  font-size: 32px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
